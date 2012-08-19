@@ -5,7 +5,7 @@ use Jme\MainBundle\Component\Test\ServiceTestCase,
     Jme\MainBundle\Entity\User,
     Symfony\Component\Validator\ValidatorFactory;
 
-class UserEntityTest extends ServiceTestCase
+class UserTest extends ServiceTestCase
 {
     /**
      * @var \Symfony\Component\Validator\Validator
@@ -28,8 +28,7 @@ class UserEntityTest extends ServiceTestCase
      */
     public function userEntityIsValid()
     {
-        $user = new User('jme', 'my-password', 'janimatti.ellonen@gmail.com');
-
+        $user = $this->createUser();
         $errors = $this->validator->validate($user);
 
         $this->assertCount(0, $errors);
@@ -44,8 +43,8 @@ class UserEntityTest extends ServiceTestCase
      */
     public function catchesInvalidEmailAddress()
     {
-        $user = new User('jme', 'my-password', 'janimatti.ellonen@gmail..com');
-
+        $user = $this->createUser();
+        $user->setEmail('janimatti.ellonen@gmail..com');
         $errors = $this->validator->validate($user);
 
         $this->assertCount(1, $errors);
@@ -60,7 +59,8 @@ class UserEntityTest extends ServiceTestCase
      */
     public function catchesEmptyEmailAddress()
     {
-        $user = new User('jme', 'my-password', null);
+        $user = $this->createUser();
+        $user->setEmail(null);
 
         $errors = $this->validator->validate($user);
 
@@ -76,8 +76,9 @@ class UserEntityTest extends ServiceTestCase
      */
     public function catchesDuplicateEmailAddress()
     {
-        $user = new User('jme', 'my-password', 'janimatti.ellonen@gmail.com');
-        $user2 = new User('jme', 'my-password', 'janimatti.ellonen@gmail.com');
+
+        $user = $this->createUser();
+        $user2 = $this->createUser();
 
         $this->entityManager->persist($user);
         $this->entityManager->flush();
@@ -97,7 +98,8 @@ class UserEntityTest extends ServiceTestCase
      */
     public function catchesTooShortUsername()
     {
-        $user = new User('jm', 'my-password', 'janimatti.ellonen@gmail.com');
+        $user = $this->createUser();
+        $user->setUsername('jm');
 
         $errors = $this->validator->validate($user);
 
@@ -113,7 +115,8 @@ class UserEntityTest extends ServiceTestCase
      */
     public function catchesTooLongUsername()
     {
-        $user = new User(str_repeat('j', 256), 'my-password', 'janimatti.ellonen@gmail.com');
+        $user = $this->createUser();
+        $user->setUsername(str_repeat('j', 256));
 
         $errors = $this->validator->validate($user);
 
@@ -129,7 +132,8 @@ class UserEntityTest extends ServiceTestCase
      */
     public function catchesTooShortPassword()
     {
-        $user = new User('jme', 'pwd', 'janimatti.ellonen@gmail.com');
+        $user = $this->createUser();
+        $user->setPassword('pwd');
 
         $errors = $this->validator->validate($user);
 
@@ -145,13 +149,24 @@ class UserEntityTest extends ServiceTestCase
      */
     public function catchesTooLongPassword()
     {
-        $user = new User('jme', str_repeat('j', 256), 'janimatti.ellonen@gmail.com');
+        $user = $this->createUser();
+        $user->setPassword(str_repeat('j', 256));
 
         $errors = $this->validator->validate($user);
 
         $this->assertCount(1, $errors);
     }
 
+    /**
+     * @return User
+     */
+    protected function createUser()
+    {
+        $user = new User();
+        $user->setUsername('jme');
+        $user->setPassword('password');
+        $user->setEmail('janimatti.ellonen@gmail.com');
 
-
+        return $user;
+    }
 }
