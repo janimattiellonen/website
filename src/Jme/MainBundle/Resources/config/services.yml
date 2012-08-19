@@ -1,0 +1,6 @@
+parameters:
+#    jme_main.example.class: Jme\MainBundle\Example
+
+    doctrine.orm.validator.unique.class: Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator
+
+services:

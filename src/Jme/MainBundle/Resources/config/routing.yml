@@ -1,0 +1,4 @@
+JmeMainBundle_homepage:
+      locales:   {fi: "/fi", en: "/en"}
+      defaults:  { _controller: JmeMainBundle:Default:index, _locale: fi }
+

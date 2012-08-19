@@ -1,0 +1,88 @@
+<?php
+namespace Jme\MainBundle\Component\Test;
+
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase,
+    AppKernel,
+    Doctrine\ORM\Tools\SchemaTool,
+    Doctrine\ORM\EntityManager;
+
+require_once($_SERVER['KERNEL_DIR'] . "/AppKernel.php");
+
+class ServiceTestCase extends \PHPUnit_Framework_Testcase
+{
+    /**
+     * @var ContainerInterface
+     */
+    protected $container;
+
+
+    /**
+     * @var EntityManager
+     */
+    protected $entityManager;
+
+    /**
+     * @var SchemaTool
+     */
+    protected $tool;
+
+    /**
+     * @var AppKernel
+     */
+    protected $kernel;
+
+    public function setUp()
+    {
+
+        $this->kernel = new AppKernel('test', true);
+        $this->kernel->boot();
+
+        $this->container = $this->kernel->getContainer();
+        $this->entityManager = $this->container->get('doctrine')->getEntityManager();
+
+        $this->generateSchema();
+
+        parent::setUp();
+    }
+
+    protected function generateSchema()
+    {
+        // Get the metadatas of the application to create the schema.
+        $metadatas = $this->getMetadatas();
+
+        if ( ! empty($metadatas)) {
+            // Create SchemaTool
+            $this->tool = new SchemaTool($this->entityManager);
+            $this->tool->dropDatabase();
+            $this->tool->createSchema($this->entityManager->getMetadataFactory()->getAllMetadata());
+        } else {
+            throw new \Doctrine\DBAL\Schema\SchemaException('No Metadata Classes to process.');
+        }
+    }
+
+    /**
+     * Overwrite this method to get specific metadatas.
+     *
+     * @return Array
+     */
+    protected function getMetadatas()
+    {
+        return $this->entityManager->getMetadataFactory()->getAllMetadata();
+    }
+
+    /**
+     * @return ContainerInterface
+     */
+    public function getContainer()
+    {
+        return $this->container;
+    }
+
+    public function tearDown()
+    {
+        // Shutdown the kernel.
+        $this->kernel->shutdown();
+
+        parent::tearDown();
+    }
+}
