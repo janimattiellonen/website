@@ -1,3 +1,7 @@
+JmeArticleBundle:
+    resource: "@JmeArticleBundle/Resources/config/routing.yml"
+    prefix:   /
+
 JmeMainBundle:
     resource: "@JmeMainBundle/Resources/config/routing.yml"
     prefix: /

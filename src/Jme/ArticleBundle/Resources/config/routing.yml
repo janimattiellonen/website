@@ -1,0 +1,3 @@
+JmeArticleBundle_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: JmeArticleBundle:Default:index }
