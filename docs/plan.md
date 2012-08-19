@@ -14,3 +14,14 @@ Features
     - search
 
 
+Entities
+--------
+
+### Article
+
+- id
+- title
+- content
+- creator_id
+- created_at
+- updated_at
