@@ -3,14 +3,15 @@ namespace Jme\MainBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert,
     Doctrine\ORM\Mapping as ORM,
-    Symfony\Bridge\Doctrine\Validator\Constraints AS DoctrineAssert;
+    Symfony\Bridge\Doctrine\Validator\Constraints AS DoctrineAssert,
+    FOS\UserBundle\Entity\User as BaseUser;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
  * @DoctrineAssert\UniqueEntity(fields="email")
  */
-class User
+class User extends BaseUser
 {
     /**
      * @var integer
@@ -19,12 +20,11 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=32, nullable=false)
      * @Assert\NotNull()
      * @Assert\MinLength(
      *     limit=3,
@@ -35,32 +35,30 @@ class User
      *     message="The username must not have more than {{ limit }} characters."
      * )
      */
-    private $username;
+    protected $username;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=128, nullable=false)
      * @Assert\NotNull()
      * @Assert\MinLength(
      *     limit=4,
      *     message="Your password must have at least {{ limit }} characters."
      * )
      * @Assert\MaxLength(
-     *     limit=128,
+     *     limit=255,
      *     message="Your password must not have more than {{ limit }} characters."
      * )
      */
-    private $password;
+    protected $password;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=128, nullable=false)
      * @Assert\Email()
      * @Assert\NotNull()
      */
-    private $email;
+    protected $email;
 
     /**
      * @param string $username
@@ -72,73 +70,7 @@ class User
         $this->username = $username;
         $this->password = $password;
         $this->email    = $email;
-    }
 
-    /**
-     * @param string $email
-     *
-     * @return UserEntity
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string $password
-     *
-     * @return UserEntity
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param string $username
-     *
-     * @return UserEntity
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUsername()
-    {
-        return $this->username;
+        parent::__construct();
     }
 }

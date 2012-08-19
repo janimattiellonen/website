@@ -113,7 +113,7 @@ class UserEntityTest extends ServiceTestCase
      */
     public function catchesTooLongUsername()
     {
-        $user = new User(str_repeat('j', 33), 'my-password', 'janimatti.ellonen@gmail.com');
+        $user = new User(str_repeat('j', 256), 'my-password', 'janimatti.ellonen@gmail.com');
 
         $errors = $this->validator->validate($user);
 
@@ -145,7 +145,7 @@ class UserEntityTest extends ServiceTestCase
      */
     public function catchesTooLongPassword()
     {
-        $user = new User('jme', str_repeat('j', 129), 'janimatti.ellonen@gmail.com');
+        $user = new User('jme', str_repeat('j', 256), 'janimatti.ellonen@gmail.com');
 
         $errors = $this->validator->validate($user);
 
