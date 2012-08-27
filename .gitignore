@@ -1,6 +1,0 @@
-/vendor/*
-/app/cache/*
-/.idea
-/node_modules
-/app/logs/*
-/web/bundles/
