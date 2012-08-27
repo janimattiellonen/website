@@ -4,7 +4,7 @@ imports:
 framework:
     router:   { resource: "%kernel.root_dir%/config/routing_dev.yml" }
     profiler: { only_exceptions: false }
-    csrf_protection: false
+
 web_profiler:
     toolbar: true
     intercept_redirects: false
@@ -21,6 +21,3 @@ monolog:
 
 assetic:
     use_controller: true
-
-#swiftmailer:
-#    delivery_address: me@example.com
