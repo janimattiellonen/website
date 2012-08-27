@@ -12,6 +12,6 @@ jme_article_view:
     locales:   { fi: /fi/artikkeli, en: /en/article }
     defaults: { _controller: JmeArticleBundle:Default:view }
 
-jme_article_new:
+jme_article_latest:
     locales:   { fi: /fi/artikkeli/uusimmat, en: /en/article/latest }
     defaults: { _controller: JmeArticleBundle:Default:latest }
