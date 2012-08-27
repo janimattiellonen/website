@@ -3,4 +3,4 @@ app/cache/*
 node_modules/
 /web/bundles/*
 /vendor/
-app/logs/*
+/app/logs/*
