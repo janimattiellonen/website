@@ -2,12 +2,13 @@
 
 {% block content %}
 
-New article
+<h1>New article</h1>
 
-<form action="{{ path('jme_article_create') }}" method="post" {{ form_enctype(form) }} novalidate>
-    {{ form_widget(form) }}
+<div id="new-article">
+    <form action="{{ path('jme_article_create') }}" method="post" {{ form_enctype(form) }} novalidate>
+        {{ form_widget(form) }}
 
-    <input type="submit" />
-</form>
-
+        <input type="submit" />
+    </form>
+</div>
 {% endblock %}

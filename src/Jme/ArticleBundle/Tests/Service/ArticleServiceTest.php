@@ -37,7 +37,7 @@ class ArticleServiceTest extends ServiceTestCase
      *
      * @expectedException Jme\ArticleBundle\Service\Exception\ArticleNotSavedException
      */
-    public function underlyingDatabaseErrorCatchedProperly()
+    public function underlyingDatabaseErrorIsCatchedProperly()
     {
         $this->emMock->expects($this->once())
                  ->method('transactional')

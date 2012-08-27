@@ -2,6 +2,11 @@ parameters:
 #    jme_article.example.class: Jme\ArticleBundle\Example
 
 services:
+  jme_article.repository.article:
+      class: Jme\ArticleBundle\Repository\ArticleRepository
+      arguments: [Jme\ArticleBundle\Entity\Article]
+      factory_service: doctrine.orm.entity_manager
+      factory_method: getRepository
   jme_article.service.article:
           class:     Jme\ArticleBundle\Service\ArticleService
           arguments: ["@doctrine.orm.entity_manager"]

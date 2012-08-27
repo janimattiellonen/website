@@ -25,3 +25,17 @@ Entities
 - creator_id
 - created_at
 - updated_at
+
+
+
+Controllers
+-----------
+
+
+### Cruds
+
+- viewAction()
+- newAction()
+- createAction()
+- updateAction()
+- deleteAction()
