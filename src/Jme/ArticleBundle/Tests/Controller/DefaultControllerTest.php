@@ -3,11 +3,40 @@
 namespace Jme\ArticleBundle\Tests\Controller;
 
 
-use Jme\MainBundle\Component\Test\ServiceTestCase;
+use Jme\MainBundle\Component\Test\DatabaseTestCase;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends ServiceTestCase
+class DefaultControllerTest extends DatabaseTestCase
 {
+    /**
+     * @test
+     *
+     * @group article
+     * @group controller
+     * @group article-controller2
+     */
+    public function showsLatestArticles()
+    {
+        $articles = array(
+            $this->getFixtureFactory()->get('ArticleBundle\Entity\Article'),
+            $this->getFixtureFactory()->get('ArticleBundle\Entity\Article'),
+            $this->getFixtureFactory()->get('ArticleBundle\Entity\Article'),
+            $this->getFixtureFactory()->get('ArticleBundle\Entity\Article'),
+            $this->getFixtureFactory()->get('ArticleBundle\Entity\Article'),
+            $this->getFixtureFactory()->get('ArticleBundle\Entity\Article'),
+            $this->getFixtureFactory()->get('ArticleBundle\Entity\Article'),
+            $this->getFixtureFactory()->get('ArticleBundle\Entity\Article'),
+        );
+
+        $this->entityManager->flush();
+
+        $client = $this->createClient();
+
+        $crawler = $client->request('GET', '/fi/artikkeli/uusimmat');
+
+        $this->assertCount(5, $crawler->filter('div.article') );
+
+    }
 
     /**
      * @test

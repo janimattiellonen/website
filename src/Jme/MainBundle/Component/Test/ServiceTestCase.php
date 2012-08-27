@@ -4,7 +4,8 @@ namespace Jme\MainBundle\Component\Test;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase,
     AppKernel,
     Doctrine\ORM\Tools\SchemaTool,
-    Doctrine\ORM\EntityManager;
+    Doctrine\ORM\EntityManager,
+    Xi\Doctrine\Fixtures\FixtureFactory;
 
 require_once($_SERVER['KERNEL_DIR'] . "/AppKernel.php");
 
@@ -15,11 +16,15 @@ class ServiceTestCase extends \PHPUnit_Framework_Testcase
      */
     protected $container;
 
-
     /**
      * @var EntityManager
      */
     protected $entityManager;
+
+    /**
+     * @var FixtureFactory
+     */
+    protected $fixtureFactory;
 
     /**
      * @var SchemaTool
@@ -38,6 +43,7 @@ class ServiceTestCase extends \PHPUnit_Framework_Testcase
 
         $this->container = $this->kernel->getContainer();
         $this->entityManager = $this->container->get('doctrine')->getEntityManager();
+        $this->fixtureFactory = new FixtureFactory($this->entityManager);
 
         $this->generateSchema();
 
@@ -60,6 +66,10 @@ class ServiceTestCase extends \PHPUnit_Framework_Testcase
         return $client;
     }
 
+    protected function getFixtureFactory()
+    {
+        return $this->fixtureFactory;
+    }
 
     protected function generateSchema()
     {

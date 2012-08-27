@@ -2,6 +2,7 @@
 namespace Jme\ArticleBundle\Service;
 
 use Jme\ArticleBundle\Service\Exception\ArticleNotSavedException,
+    Jme\ArticleBundle\Repository\ArticleRepository,
     Jme\ArticleBundle\Entity\Article,
     Symfony\Component\Form\Form,
     Doctrine\ORM\EntityManager;
@@ -14,11 +15,18 @@ class ArticleService
     protected $em;
 
     /**
-     * @param EntityManager $em
+     * @var ArticleRepository
      */
-    public function __construct(EntityManager $em)
+    protected $articleRepository;
+
+    /**
+     * @param EntityManager $em
+     * @param ArticleRepository $articleRepository
+     */
+    public function __construct(EntityManager $em, ArticleRepository $articleRepository)
     {
-        $this->em = $em;
+        $this->em                   = $em;
+        $this->articleRepository    = $articleRepository;
     }
 
     /**
@@ -54,5 +62,10 @@ class ArticleService
         {
             throw new ArticleNotSavedException($e->getMessage() );
         }
+    }
+
+    public function listArticles($amount)
+    {
+        return $this->articleRepository->fetchLatestArticles($amount);
     }
 }

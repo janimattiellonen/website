@@ -9,4 +9,4 @@ services:
       factory_method: getRepository
   jme_article.service.article:
           class:     Jme\ArticleBundle\Service\ArticleService
-          arguments: ["@doctrine.orm.entity_manager"]
+          arguments: ["@doctrine.orm.entity_manager", "@jme_article.repository.article"]

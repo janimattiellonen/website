@@ -1,0 +1,12 @@
+{% extends 'JmeArticleBundle::layout.html.twig' %}
+
+{% block content %}
+
+    {% for article in articles %}
+        <div class="article">
+
+            {{article.title}}
+
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -5,6 +5,7 @@ namespace Jme\ArticleBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
     Symfony\Component\Form\Form,
     Jme\MainBundle\Component\Controller\BaseController,
+    Jme\ArticleBundle\Service\ArticleService,
     Jme\ArticleBundle\Entity\Article,
     Jme\ArticleBundle\Form\Type\ArticleType;
 
@@ -52,6 +53,15 @@ class DefaultController extends BaseController
         );
     }
 
+    public function latestAction()
+    {
+        $articles = $this->getArticleService()->listArticles(5);
+
+        return $this->render('JmeArticleBundle:Default:latest.html.twig', array(
+            'articles' => $articles,
+        ));
+    }
+
     /**
      * @return Form
      */
@@ -61,7 +71,7 @@ class DefaultController extends BaseController
     }
 
     /**
-     * @return Jme\ArticleBundle\Service\ArticleService
+     * @return ArticleService
      */
     protected function getArticleService()
     {

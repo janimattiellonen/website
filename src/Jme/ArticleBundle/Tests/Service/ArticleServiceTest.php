@@ -1,8 +1,10 @@
 <?php
 namespace Jme\ArticleBundle\Tests\Service;
 
-use Jme\MainBundle\Component\Test\ServiceTestCase,
+use Doctrine\ORM\EntityManager,
+    Jme\MainBundle\Component\Test\ServiceTestCase,
     Jme\ArticleBundle\Entity\Article,
+    Jme\ArticleBundle\Repository\ArticleRepository,
     Jme\ArticleBundle\Service\ArticleService,
     Jme\ArticleBundle\Service\Exception\ArticleNotSavedException;
 
@@ -12,6 +14,11 @@ class ArticleServiceTest extends ServiceTestCase
      * @var EntityManager;
      */
     private $emMock;
+
+    /**
+     * @var ArticleRepository
+     */
+    private $repositoryMock;
 
     /**
      * @var ArticleService
@@ -25,7 +32,10 @@ class ArticleServiceTest extends ServiceTestCase
         $this->emMock = $this->getMockBuilder('Doctrine\ORM\EntityManager')
             ->disableOriginalConstructor()->getMock();
 
-        $this->service = new ArticleService($this->emMock);
+        $this->repositoryMock = $this->getMockBuilder('Jme\ArticleBundle\Repository\ArticleRepository')
+            ->disableOriginalConstructor()->getMock();
+
+        $this->service = new ArticleService($this->emMock, $this->repositoryMock);
     }
 
     /**
@@ -66,6 +76,24 @@ class ArticleServiceTest extends ServiceTestCase
         $result = $this->service->save($article);
 
         $this->assertInstanceOf('Jme\ArticleBundle\Entity\Article', $result);
+    }
+
+    /**
+     * @test
+     *
+     * @group service
+     * @group article
+     * @group article-service
+     */
+    public function listsArticles()
+    {
+        $amount = 5;
+
+        $this->repositoryMock->expects($this->once() )
+            ->method('fetchLatestArticles')
+            ->with($amount);
+
+        $this->service->listArticles($amount);
     }
 
     /**
