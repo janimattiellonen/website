@@ -1,0 +1,69 @@
+{
+    "name": "jme/janimattiellonen-website",
+    "description": "janimattiellonen.fi",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.1.0-RC1",
+        "doctrine/orm": "2.2.*",
+        "doctrine/doctrine-bundle": "1.0.x-dev",
+        "twig/extensions": "dev-master",
+        "symfony/assetic-bundle": "2.1.x-dev",
+        "symfony/swiftmailer-bundle": "2.1.x-dev",
+        "symfony/monolog-bundle": "2.1.0-RC1",
+        "sensio/distribution-bundle": "dev-master",
+        "sensio/framework-extra-bundle": "2.1.x-dev",
+        "sensio/generator-bundle": "2.1.x-dev",
+        "jms/security-extra-bundle": "1.1.*",
+        "jms/di-extra-bundle": "1.0.*",
+
+        "swiftmailer/swiftmailer": "v4.2.0",
+        "monolog/monolog": "1.1.0",
+        "twig/twig": "1.9.1",
+
+        "gedmo/doctrine-extensions": "2.3.x-dev",
+        "beberlei/DoctrineExtensions": "dev-master",
+        "stof/doctrine-extensions-bundle": "dev-master",
+        "jms/serializer-bundle": "dev-master",
+        "friendsofsymfony/user-bundle": "dev-master",
+        "friendsofsymfony/rest-bundle": "0.7.0",
+        "friendsofsymfony/comment-bundle": "dev-master",
+        "stfalcon/tinymce-bundle": "dev-master",
+        "zendframework/zendframework": "2.0.0rc3",
+        "besimple/i18n-routing-bundle": "dev-master",
+        "knplabs/knp-menu-bundle": "v1.1.0",
+        "doctrine/doctrine-migrations-bundle": "dev-master",
+
+        "xi/doctrine": "dev-master",
+        "xi/ajax-bundle": "2.1.x-dev",
+        "xi/dialog-bundle": "2.1.x-dev",
+        "xi/selector-bundle": "2.1.x-dev",
+        "xi/tag-bundle": "2.1.x-dev",
+        "xi/article-bundle": "2.1.x-dev",
+        "xi/search-bundle": "2.1.x-dev",
+        "xi/filelib-bundle": "dev-master",
+        "xi/filebrowser-bundle": "2.1.x-dev"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-update-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web"
+    }
+}
