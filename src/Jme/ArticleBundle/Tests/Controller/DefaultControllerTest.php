@@ -13,7 +13,7 @@ class DefaultControllerTest extends DatabaseTestCase
      *
      * @group article
      * @group controller
-     * @group article-controller2
+     * @group article-controller
      */
     public function showsLatestArticles()
     {
@@ -36,6 +36,26 @@ class DefaultControllerTest extends DatabaseTestCase
 
         $this->assertCount(5, $crawler->filter('div.article') );
 
+    }
+
+    /**
+     * @test
+     *
+     * @group article
+     * @group controller
+     * @group article-controller
+     */
+    public function showsArticle()
+    {
+        $article = $this->getFixtureFactory()->get('ArticleBundle\Entity\Article');
+        $this->entityManager->flush();
+
+        $client = $this->createClient();
+
+        $crawler = $client->request('GET', '/fi/artikkeli/' . $article->getId() );
+
+
+        $this->assertCount(1, $crawler->filter('div.article') );
     }
 
     /**

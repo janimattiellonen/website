@@ -16,9 +16,10 @@ class DefaultController extends BaseController
         return $this->render('JmeArticleBundle:Default:index.html.twig');
     }
 
-    public function viewAction()
+    public function viewAction($article)
     {
         return $this->render('JmeArticleBundle:Default:view.html.twig', array(
+            'article' => $this->getArticleService()->getArticle($article),
         ));
     }
 

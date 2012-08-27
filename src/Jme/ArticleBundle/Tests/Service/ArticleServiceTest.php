@@ -83,6 +83,28 @@ class ArticleServiceTest extends ServiceTestCase
      *
      * @group service
      * @group article
+     * @group article-service2
+     */
+    public function fetchesArticle()
+    {
+        $id = 1;
+        $article = $this->createArticle();
+
+        $this->repositoryMock->expects($this->once() )
+            ->method('find')
+            ->with($id)
+            ->will($this->returnValue($article) );
+
+        $result = $this->service->getArticle($id);
+
+        $this->assertEquals($article, $result);
+    }
+
+    /**
+     * @test
+     *
+     * @group service
+     * @group article
      * @group article-service
      */
     public function listsArticles()

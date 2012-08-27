@@ -64,6 +64,20 @@ class ArticleService
         }
     }
 
+    /**
+     * @param int $id
+     *
+     * @return Article
+     */
+    public function getArticle($id)
+    {
+        return $this->articleRepository->find($id);
+    }
+
+    /**
+     * @param int $amount
+     * @return array
+     */
     public function listArticles($amount)
     {
         return $this->articleRepository->fetchLatestArticles($amount);
