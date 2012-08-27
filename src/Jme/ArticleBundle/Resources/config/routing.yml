@@ -1,3 +1,15 @@
-JmeArticleBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: JmeArticleBundle:Default:index }
+jme_article_new:
+    locales:   { fi: /fi/artikkeli/uusi, en: /en/article/new }
+    defaults: { _controller: JmeArticleBundle:Default:new }
+
+jme_article_create:
+    locales:   { fi: /fi/artikkeli/luo, en: /en/article/create }
+    defaults: { _controller: JmeArticleBundle:Default:create }
+    requirements: {_method: post}
+
+
+jme_article_view:
+    locales:   { fi: /fi/artikkeli, en: /en/article }
+    defaults: { _controller: JmeArticleBundle:Default:view }
+
+

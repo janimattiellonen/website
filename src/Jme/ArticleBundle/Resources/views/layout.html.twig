@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block container %}
+    {% block content %}{% endblock %}
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+
+{% stylesheets filter='less' output='/css/article.css' '@JmeArticleBundle/Resources/less/article.less' %}
+<link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+{% endstylesheets %}
+
+{% block printStylesheets %}
+{% endblock %}
+
+{% endblock %}

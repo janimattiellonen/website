@@ -1,0 +1,13 @@
+{% extends 'JmeArticleBundle::layout.html.twig' %}
+
+{% block content %}
+
+New article
+
+<form action="{{ path('jme_article_create') }}" method="post" {{ form_enctype(form) }} novalidate>
+    {{ form_widget(form) }}
+
+    <input type="submit" />
+</form>
+
+{% endblock %}

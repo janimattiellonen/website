@@ -51,6 +51,7 @@ class Article
      */
     protected $content;
 
+
     /**
      * @return int
      */
