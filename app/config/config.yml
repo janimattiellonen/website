@@ -57,6 +57,8 @@ doctrine:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
 
+
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%
@@ -71,3 +73,10 @@ fos_user:
     db_driver:  orm
     firewall_name: main
     user_class: Jme\MainBundle\Entity\User
+
+stof_doctrine_extensions:
+    default_locale: en_US
+    orm:
+        default:
+            timestampable: true
+            sluggable:     true

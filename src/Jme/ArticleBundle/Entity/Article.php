@@ -1,9 +1,11 @@
 <?php
 namespace Jme\ArticleBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert,
+use \DateTime,
+    Symfony\Component\Validator\Constraints as Assert,
     Doctrine\ORM\Mapping as ORM,
-    Symfony\Bridge\Doctrine\Validator\Constraints AS DoctrineAssert;
+    Symfony\Bridge\Doctrine\Validator\Constraints AS DoctrineAssert,
+    Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity
@@ -21,6 +23,21 @@ class Article
      */
     protected $id;
 
+    /**
+     * @var DateTime $created
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
+
+    /**
+     * @var datetime $updated
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    protected $updated;
 
     /**
      * @var string
@@ -62,6 +79,22 @@ class Article
     }
 
     /**
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
      * @param $title
      * @return Article
      */
@@ -99,6 +132,4 @@ class Article
     {
         return $this->content;
     }
-
-
 }

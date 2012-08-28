@@ -5,7 +5,7 @@
     {% for article in articles %}
         <div class="article">
 
-            {{article.title}}
+            <a href="{{path('jme_article_view', {article: article.id})}}">{{article.title}}</a>
 
         </div>
     {% endfor %}
