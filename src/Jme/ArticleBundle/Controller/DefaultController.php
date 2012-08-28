@@ -43,7 +43,7 @@ class DefaultController extends BaseController
                 $article = $service->saveByForm($form);
 
                 return $self->createSuccessRedirectResponse(
-                    'jme_article_view'
+                    'jme_article_view', array('article' => $article->getId() )
                 );
             },
             function($form) use($self) {

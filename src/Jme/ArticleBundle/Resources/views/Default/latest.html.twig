@@ -6,7 +6,7 @@
         <div class="article">
 
             <a href="{{path('jme_article_view', {article: article.id})}}">{{article.title}}</a>
-
+            {{article.created|date('d.m.Y H:i:s')}}
         </div>
     {% endfor %}
 {% endblock %}

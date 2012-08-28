@@ -1,5 +1,5 @@
 {
-    "hash": "02c139f3b1e66b0d765dc5a8977eaf99",
+    "hash": "cc8487af3f8a18db06d9c318f2eb397c",
     "packages": [
         {
             "package": "beberlei/DoctrineExtensions",
@@ -70,8 +70,8 @@
         {
             "package": "friendsofsymfony/comment-bundle",
             "version": "dev-master",
-            "source-reference": "53ce8e6066401c3ac3d72f7b14ff2ae0f894a1a9",
-            "commit-date": "1345159624"
+            "source-reference": "a4da1b5f6e797d1694d091f342c67317b8d174aa",
+            "commit-date": "1346127857"
         },
         {
             "package": "friendsofsymfony/rest",
@@ -92,8 +92,8 @@
         {
             "package": "friendsofsymfony/user-bundle",
             "version": "dev-master",
-            "source-reference": "5aa50962a4b67e380fe7912cb06defdf448c3f26",
-            "commit-date": "1345421669"
+            "source-reference": "8b2c9ae5e4c5ca11f11fa543d271fccf92f29331",
+            "commit-date": "1345849777"
         },
         {
             "package": "gedmo/doctrine-extensions",
@@ -104,8 +104,8 @@
         {
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
-            "source-reference": "531e2b84737223bc5aa09bc078a6f5beb74f69f9",
-            "commit-date": "1345461376"
+            "source-reference": "b0421677c69a6cdb649faedd659fdca39fcad028",
+            "commit-date": "1346056964"
         },
         {
             "package": "jms/aop-bundle",
@@ -136,8 +136,14 @@
         {
             "package": "jms/serializer-bundle",
             "version": "dev-master",
-            "source-reference": "1f308a587742246e87e580290f3bae23073d1d70",
-            "commit-date": "1343641450"
+            "source-reference": "5a9b7e6b62143950726f642da23d7eebf850e389",
+            "commit-date": "1346073949"
+        },
+        {
+            "package": "knplabs/knp-components",
+            "version": "dev-master",
+            "source-reference": "99ea408dc2a7c3616e688ffe67e3248ece69ff0e",
+            "commit-date": "1339767068"
         },
         {
             "package": "knplabs/knp-menu",
@@ -150,6 +156,12 @@
             "version": "v1.1.0"
         },
         {
+            "package": "knplabs/knp-paginator-bundle",
+            "version": "dev-master",
+            "source-reference": "de439d2816fe984dbe0c438fd4d0d7c67748c5ff",
+            "commit-date": "1343676956"
+        },
+        {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
             "alias-pretty-version": "1.1.x-dev",
@@ -158,8 +170,8 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "d1d5066d9071a76d771993081ee23137e96216b7",
-            "commit-date": "1344507381"
+            "source-reference": "0410297526eacc3aa2146b55bc4e30e6fd3a50ed",
+            "commit-date": "1346167888"
         },
         {
             "package": "monolog/monolog",
@@ -178,8 +190,8 @@
         {
             "package": "sensio/distribution-bundle",
             "version": "dev-master",
-            "source-reference": "bd98b5fb0e4a5dddb4f7acd2e11f28c4cd7eacee",
-            "commit-date": "1345139690"
+            "source-reference": "v2.1.0-RC2",
+            "commit-date": "1345982505"
         },
         {
             "package": "sensio/framework-extra-bundle",
@@ -190,7 +202,7 @@
         {
             "package": "sensio/framework-extra-bundle",
             "version": "dev-master",
-            "source-reference": "ade2d53b20a9fc3428f04c863b3fd4fca0b62181",
+            "source-reference": "v2.1.0-RC2",
             "commit-date": "1344072374"
         },
         {
@@ -202,8 +214,8 @@
         {
             "package": "sensio/generator-bundle",
             "version": "dev-master",
-            "source-reference": "d8fc1666f3cdb403f1b2d4320c45ddd6adbdf6a5",
-            "commit-date": "1343980150"
+            "source-reference": "v2.1.0-RC2",
+            "commit-date": "1346138171"
         },
         {
             "package": "stfalcon/tinymce-bundle",
@@ -230,8 +242,8 @@
         {
             "package": "symfony/assetic-bundle",
             "version": "dev-master",
-            "source-reference": "ec3a65d3eab342af9e93a3c21af0ac7b78e01c17",
-            "commit-date": "1344507386"
+            "source-reference": "3196ef27926e9f6668b5ce4481c8f578550c2d71",
+            "commit-date": "1346160609"
         },
         {
             "package": "symfony/monolog-bundle",
@@ -246,8 +258,8 @@
         {
             "package": "symfony/swiftmailer-bundle",
             "version": "dev-master",
-            "source-reference": "v2.1.0-RC1",
-            "commit-date": "1342684512"
+            "source-reference": "v2.1.0-RC2",
+            "commit-date": "1346149269"
         },
         {
             "package": "symfony/symfony",
@@ -256,8 +268,14 @@
         {
             "package": "twig/extensions",
             "version": "dev-master",
-            "source-reference": "feb6d3f10c411e2631997c0a905aa581c80305c1",
-            "commit-date": "1337599699"
+            "alias-pretty-version": "1.0.x-dev",
+            "alias-version": "1.0.9999999.9999999-dev"
+        },
+        {
+            "package": "twig/extensions",
+            "version": "dev-master",
+            "source-reference": "v1.0.0-alpha",
+            "commit-date": "1346166263"
         },
         {
             "package": "twig/twig",
@@ -272,8 +290,8 @@
         {
             "package": "xi/article-bundle",
             "version": "2.1.x-dev",
-            "source-reference": "12820ec5d6e96e5fa5b69941d6869cec82dc2f12",
-            "commit-date": "1345456037"
+            "source-reference": "38f87e64ee04613898a57b1a19c9078875eb0242",
+            "commit-date": "1346058367"
         },
         {
             "package": "xi/dialog-bundle",
@@ -308,8 +326,8 @@
         {
             "package": "xi/search-bundle",
             "version": "2.1.x-dev",
-            "source-reference": "2d26bc80bfe1fbb83fe31d7bd4c81549b24580bb",
-            "commit-date": "1345455999"
+            "source-reference": "13f51f280a9d0ea7f56f40930645376c595bc83b",
+            "commit-date": "1346063095"
         },
         {
             "package": "xi/selector-bundle",
