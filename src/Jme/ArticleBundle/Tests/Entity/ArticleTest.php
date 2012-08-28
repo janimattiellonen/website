@@ -44,9 +44,38 @@ class ArticleTest extends DatabaseTestCase
      */
     public function titleIsTooLong()
     {
-
         $article = $this->createArticle();
         $article->setTitle(str_repeat("i", 129));
+        $errors = $this->validator->validate($article);
+        $this->assertCount(1, $errors);
+    }
+
+    /**
+     * @test
+     *
+     * @group entity
+     * @group article
+     * @group article-entity
+     */
+    public function briefIsTooShort()
+    {
+        $article = $this->createArticle();
+        $article->setBrief("fo");
+        $errors = $this->validator->validate($article);
+        $this->assertCount(1, $errors);
+    }
+
+    /**
+     * @test
+     *
+     * @group entity
+     * @group article
+     * @group article-entity
+     */
+    public function briefIsTooLong()
+    {
+        $article = $this->createArticle();
+        $article->setBrief(str_repeat("i", 501) );
         $errors = $this->validator->validate($article);
         $this->assertCount(1, $errors);
     }
@@ -130,8 +159,10 @@ class ArticleTest extends DatabaseTestCase
     protected function createArticle()
     {
         $article = new Article();
-        $article->setTitle("title");
-        $article->setContent("content");
+
+        $article->setTitle("title")
+                ->setContent("content")
+                ->setBrief("Brief");
 
         return $article;
     }

@@ -35,7 +35,6 @@ class DefaultControllerTest extends DatabaseTestCase
         $crawler = $client->request('GET', '/fi/artikkeli/uusimmat');
 
         $this->assertCount(5, $crawler->filter('div.article') );
-
     }
 
     /**
@@ -95,6 +94,7 @@ class DefaultControllerTest extends DatabaseTestCase
             'article' => array(
                 'title' => 'Title1',
                 'content' => 'Content1',
+                'brief' => 'brief',
             )
         ) );
 

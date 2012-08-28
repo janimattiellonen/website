@@ -22,6 +22,7 @@ class DatabaseTestCase extends ServiceTestCase
         $this->getFixtureFactory()->defineEntity('ArticleBundle\Entity\Article', array(
             'title' => FieldDef::sequence('Title_%d'),
             'content' => FieldDef::sequence('Content_%d'),
+            'brief' => FieldDef::sequence('Brief_%d'),
         ) );
     }
 }

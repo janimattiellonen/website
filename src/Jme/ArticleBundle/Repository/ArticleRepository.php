@@ -26,6 +26,7 @@ class ArticleRepository extends EntityRepository
     {
         return $this->getEntityManager()->createQueryBuilder()
             ->select('a')
-            ->from('Jme\ArticleBundle\Entity\Article', 'a');
+            ->from('Jme\ArticleBundle\Entity\Article', 'a')
+            ->orderBy('a.created', 'DESC');
     }
 }

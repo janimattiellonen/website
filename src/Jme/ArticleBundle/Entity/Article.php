@@ -59,6 +59,23 @@ class Article
     /**
      * @var string
      *
+     *  @ORM\Column(name="brief", type="string", length=500, nullable=false)
+     *
+     * @Assert\NotNull()
+     * @Assert\MinLength(
+     *     limit=3,
+     *     message="The brief must have at least {{ limit }} characters."
+     * )
+     * @Assert\MaxLength(
+     *     limit=500,
+     *     message="The brief must not have more than {{ limit }} characters."
+     * )
+     */
+    protected $brief;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="content", type="string", nullable=false)
      *
      * @Assert\NotNull()
@@ -68,7 +85,6 @@ class Article
      * )
      */
     protected $content;
-
 
     /**
      * @return int
@@ -131,5 +147,25 @@ class Article
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * @param string $brief
+     *
+     * @return Article
+     */
+    public function setBrief($brief)
+    {
+        $this->brief = $brief;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBrief()
+    {
+        return $this->brief;
     }
 }
