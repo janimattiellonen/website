@@ -2,13 +2,6 @@
 
 {% block content %}
 
-    <div class="article">
+    {% include 'JmeArticleBundle:Default:article.html.twig' with {article: article, showContent: true} %}
 
-        <h1>{{article.title}}</h1>
-        <span class="date">{{article.created|date('d.m.Y H:i:s')}}</span>
-
-        <div class="brief">{{article.brief}}</div>
-
-        <div class="content">{{article.content}}</div>
-    </div>
 {% endblock %}

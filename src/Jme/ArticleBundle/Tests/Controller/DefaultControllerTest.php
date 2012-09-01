@@ -116,6 +116,57 @@ class DefaultControllerTest extends DatabaseTestCase
      * @group controller
      * @group article-controller
      */
+    public function articleIsNotSavedWithInvalidFormSubmission()
+    {
+        $client = $this->createClient();
+
+        $crawler = $client->request('POST', '/fi/artikkeli/luo', array(
+            'article' => array(
+                'title' => 'e',
+                'content' => 'e',
+                'brief' => 'e',
+            )
+        ) );
+
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("The title must have at least")')->count());
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("The brief must have at least")')->count());
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("The content must have at least")')->count());
+    }
+
+    /**
+     * @test
+     *
+     * @group article
+     * @group controller
+     * @group article-controller22
+     */
+    public function articleIsNotUpdatedWithInvalidFormSubmission()
+    {
+        $article = $this->getFixtureFactory()->get('ArticleBundle\Entity\Article');
+        $this->entityManager->flush();
+
+        $client = $this->createClient();
+
+        $crawler = $client->request('POST', '/fi/artikkeli/paivita/' . $article->getId(), array(
+            'article' => array(
+                'title' => 'e',
+                'content' => 'e',
+                'brief' => 'e',
+            )
+        ) );
+
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("The title must have at least")')->count());
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("The brief must have at least")')->count());
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("The content must have at least")')->count());
+    }
+
+    /**
+     * @test
+     *
+     * @group article
+     * @group controller
+     * @group article-controller
+     */
     public function articleIsRemoved()
     {
         $client = $this->createClient();
@@ -210,4 +261,6 @@ class DefaultControllerTest extends DatabaseTestCase
 
         $this->assertGreaterThan(0, $crawler->filter('html:contains("Article was not found")')->count());
     }
+
+
 }

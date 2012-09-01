@@ -75,11 +75,41 @@ class DefaultController extends BaseController
     {
         try
         {
-            $form = $this->createArticleForm($this->getArticleService()->getArticle($article) );
+            $form = $this->createArticleForm($this->getArticleService()->getArticle($article));
 
             return $this->render('JmeArticleBundle:Default:edit.html.twig', array(
                 'form' => $form->createView(),
             ));
+        }
+        catch(ArticleException $e)
+        {
+            $this->get('session')->setFlash('error', $e->getMessage() );
+            return $this->redirectWithRoute('jme_article_latest');
+        }
+    }
+
+    public function updateAction($article)
+    {
+        $self = $this;
+        $service = $this->getArticleService();
+
+        try
+        {
+            $form = $this->createArticleForm($this->getArticleService()->getArticle($article));
+
+            return $this->processForm($form, function() use($form, $service, $self) {
+                    $article = $service->saveByForm($form);
+
+                    return $self->createSuccessRedirectResponse(
+                        'jme_article_view', array('article' => $article->getId() )
+                    );
+            },
+            function($form) use($self)
+            {
+                return $self->render('JmeArticleBundle:Default:edit.html.twig', array(
+                    'form' => $form->createView(),
+                ));
+            });
         }
         catch(ArticleException $e)
         {

@@ -14,6 +14,11 @@ jme_article_edit:
     defaults: { _controller: JmeArticleBundle:Default:edit }
     requirements: {_method: get, article:  \d+}
 
+jme_article_update:
+    locales:   { fi: "/fi/artikkeli/paivita/{article}", en: "/en/article/update/{article}" }
+    defaults: { _controller: JmeArticleBundle:Default:update }
+    requirements: {_method: post, article:  \d+}
+
 jme_article_latest:
     locales:   { fi: /fi/artikkeli/uusimmat, en: /en/article/latest }
     defaults: { _controller: JmeArticleBundle:Default:latest }

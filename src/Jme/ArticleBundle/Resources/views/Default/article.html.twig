@@ -1,0 +1,13 @@
+<div class="article">
+
+    <h1>{{article.title}}</h1>
+    <span class="date">{{article.created|date('d.m.Y H:i:s')}}</span>
+
+    {{jme_article_controls(article)}}
+
+    <div class="brief">{{article.brief}}</div>
+
+    {% if showContent is defined and showContent == true %}
+        <div class="content">{{article.content}}</div>
+    {% endif %}
+</div>

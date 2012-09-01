@@ -42,6 +42,9 @@ class Flash extends Twig_Extension
         );
     }
 
+    /**
+     * @return string
+     */
     public function flash()
     {
         $type = $this->getSetFlashType();
