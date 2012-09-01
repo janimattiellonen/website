@@ -18,6 +18,8 @@
 </head>
 <body>
 
+    <nav>{{ knp_menu_render('JmeMainBundle:Builder:mainMenu') }}</nav>
+
     {{ jme_flash() }}
 
     {% block content %}{% endblock %}

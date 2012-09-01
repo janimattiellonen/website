@@ -138,7 +138,7 @@ class DefaultControllerTest extends DatabaseTestCase
      *
      * @group article
      * @group controller
-     * @group article-controller22
+     * @group article-controller
      */
     public function articleIsNotUpdatedWithInvalidFormSubmission()
     {

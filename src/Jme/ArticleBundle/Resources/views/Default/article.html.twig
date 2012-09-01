@@ -1,13 +1,20 @@
 <div class="article">
 
-    <h1>{{article.title}}</h1>
+    {% if showContent is defined and showContent == true %}
+        <h1>{{article.title}}</h1>
+    {% else %}
+        <a href="{{ path('jme_article_view', {article: article.id}) }}"><h1>{{article.title}}</h1></a>
+    {% endif %}
+
     <span class="date">{{article.created|date('d.m.Y H:i:s')}}</span>
 
     {{jme_article_controls(article)}}
 
-    <div class="brief">{{article.brief}}</div>
+    {% if showContent is defined and showContent == false %}
+        <div class="brief">{{article.brief|nl2br}}</div>
+    {% endif %}
 
     {% if showContent is defined and showContent == true %}
-        <div class="content">{{article.content}}</div>
+        <div class="content">{{article.content|nl2br}}</div>
     {% endif %}
 </div>
