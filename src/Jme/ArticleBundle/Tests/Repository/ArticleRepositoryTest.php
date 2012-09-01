@@ -7,6 +7,7 @@ use \DateTime,
     Jme\ArticleBundle\Entity\Article,
     Jme\ArticleBundle\Repository\ArticleRepository,
     Jme\ArticleBundle\Service\ArticleService,
+    Jme\ArticleBundle\Service\Exception\ArticleNotFoundException,
     Jme\ArticleBundle\Service\Exception\ArticleNotSavedException;
 
 class ArticleRepositoryTest extends DatabaseTestCase
@@ -49,5 +50,67 @@ class ArticleRepositoryTest extends DatabaseTestCase
         $this->assertCount(2, $result);
         $this->assertSame($result[0], $article3);
         $this->assertSame($result[1], $article1);
+    }
+
+    /**
+     * @test
+     *
+     * @group article
+     * @group repository
+     * @group article-repository
+     */
+    public function removesArticle()
+    {
+        $article = $this->getFixtureFactory()->get('ArticleBundle\Entity\Article');
+        $this->entityManager->flush();
+
+        $results = $this->repository->findAll();
+
+        $this->assertCount(1, $results);
+
+        $this->repository->removeArticle($article);
+        $this->entityManager->flush();
+
+        $results = $this->repository->findAll();
+
+        $this->assertEmpty($results);
+    }
+
+    /**
+     * @test
+     *
+     * @group article
+     * @group repository
+     * @group article-repository
+     */
+    public function removesArticleById()
+    {
+        $article = $this->getFixtureFactory()->get('ArticleBundle\Entity\Article');
+        $this->entityManager->flush();
+
+        $results = $this->repository->findAll();
+
+        $this->assertCount(1, $results);
+
+        $this->repository->removeArticleById($article->getId() );
+        $this->entityManager->flush();
+
+        $results = $this->repository->findAll();
+
+        $this->assertEmpty($results);
+    }
+
+    /**
+     * @test
+     *
+     * @group article
+     * @group repository
+     * @group article-repository33
+     *
+     * @expectedException Doctrine\ORM\EntityNotFoundException
+     */
+    public function removingOfNonExistingArticleByIdResutlsInExpectedException()
+    {
+        $this->repository->removeArticleById(666);
     }
 }

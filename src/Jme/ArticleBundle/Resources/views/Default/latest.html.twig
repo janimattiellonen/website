@@ -5,8 +5,10 @@
     {% for article in articles %}
         <div class="article">
 
-            <a href="{{path('jme_article_view', {article: article.id})}}">{{article.title}}</a>
-            {{article.created|date('d.m.Y H:i:s')}}
+            <h2><a href="{{path('jme_article_view', {article: article.id})}}">{{article.title}}</a></h2>
+            <span class="date">{{article.created|date('d.m.Y H:i:s')}}</span>
+
+            <div class="brief">{{article.brief}}</div>
         </div>
     {% endfor %}
 {% endblock %}

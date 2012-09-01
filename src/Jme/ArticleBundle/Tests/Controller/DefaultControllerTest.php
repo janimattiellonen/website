@@ -116,6 +116,54 @@ class DefaultControllerTest extends DatabaseTestCase
      * @group controller
      * @group article-controller
      */
+    public function articleIsRemoved()
+    {
+        $client = $this->createClient();
+
+        $client->followRedirects();
+
+        $article = $this->getFixtureFactory()->get('ArticleBundle\Entity\Article');
+        $this->entityManager->flush();
+
+        $id = $article->getId();
+
+        $repository = $this->container->get('jme_article.repository.article');
+
+        $crawler = $client->request('get', '/fi/artikkeli/poista/' . $article->getId() );
+
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("The article was successfully removed!")')->count());
+
+        $obj = $repository->find($id);
+        $this->assertNull($obj);
+    }
+
+    /**
+     * @test
+     *
+     * @group article
+     * @group controller
+     * @group article-controller
+     */
+    public function removalOfNonExistingArticleResultsinExpectedError()
+    {
+        $client = $this->createClient();
+
+        $client->followRedirects();
+
+        $repository = $this->container->get('jme_article.repository.article');
+
+        $crawler = $client->request('get', '/fi/artikkeli/poista/666');
+
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("Article was not found")')->count());
+    }
+
+    /**
+     * @test
+     *
+     * @group article
+     * @group controller
+     * @group article-controller
+     */
     public function GETRequestOnCreateArticleIsDenied()
     {
         $client = $this->createClient();

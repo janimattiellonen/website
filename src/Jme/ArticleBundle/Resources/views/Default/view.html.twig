@@ -4,9 +4,11 @@
 
     <div class="article">
 
-        {{article.title}}
+        <h1>{{article.title}}</h1>
+        <span class="date">{{article.created|date('d.m.Y H:i:s')}}</span>
 
+        <div class="brief">{{article.brief}}</div>
 
-        {{article.content}}
+        <div class="content">{{article.content}}</div>
     </div>
 {% endblock %}

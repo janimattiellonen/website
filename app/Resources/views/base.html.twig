@@ -12,6 +12,13 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
+
+    {% if app.session.hasFlash('notice') %}
+        <div class="flash-messages">
+            {{ app.session.flash('notice') }}
+        </div>
+    {% endif %}
+
     {% block content %}{% endblock %}
 
     {% javascripts output="/js/main.js" filter="coffee,?yui_js"

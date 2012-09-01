@@ -2,6 +2,7 @@
 namespace Jme\ArticleBundle\Tests\Service;
 
 use Doctrine\ORM\EntityManager,
+    Doctrine\ORM\EntityNotFoundException,
     Jme\MainBundle\Component\Test\ServiceTestCase,
     Jme\ArticleBundle\Entity\Article,
     Jme\ArticleBundle\Repository\ArticleRepository,
@@ -83,7 +84,7 @@ class ArticleServiceTest extends ServiceTestCase
      *
      * @group service
      * @group article
-     * @group article-service2
+     * @group article-service
      */
     public function fetchesArticle()
     {
@@ -116,6 +117,44 @@ class ArticleServiceTest extends ServiceTestCase
             ->with($amount);
 
         $this->service->listArticles($amount);
+    }
+
+    /**
+     * @test
+     *
+     * @group service
+     * @group article
+     * @group article-service
+     */
+    public function removesArticleById()
+    {
+        $articleId = 11;
+
+        $this->repositoryMock->expects($this->once() )
+            ->method('removeArticleById')
+            ->with($articleId);
+
+        $this->service->removeArticleById($articleId);
+    }
+
+    /**
+     * @test
+     *
+     * @group service
+     * @group article
+     * @group article-service
+     *
+     * @expectedException Jme\ArticleBundle\Service\Exception\ArticleNotFoundException
+     */
+    public function removingNonExistingArticleResultsInExpectedException()
+    {
+        $id = 666;
+        $this->repositoryMock->expects($this->once() )
+            ->method('removeArticleById')
+            ->with($id)
+            ->will($this->throwException(new EntityNotFoundException() ) );
+
+        $this->service->removeArticleById($id);
     }
 
     /**

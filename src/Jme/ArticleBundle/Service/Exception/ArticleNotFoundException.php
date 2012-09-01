@@ -3,13 +3,13 @@ namespace Jme\ArticleBundle\Service\Exception;
 
 use \Exception;
 
-class ArticleNotSavedException extends ArticleException
+class ArticleNotFoundException extends ArticleException
 {
     /**
      * @param Exception $previous
      */
     public function __construct(Exception $previous = null)
     {
-        parent::__construct('Article was not saved', null, $previous);
+        parent::__construct('Article was not found', null, $previous);
     }
 }

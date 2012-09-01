@@ -14,6 +14,11 @@ jme_article_latest:
     defaults: { _controller: JmeArticleBundle:Default:latest }
 
 jme_article_view:
-    locales:   { fi: "/fi/artikkeli/{article}", en: "/en/article/read/{article}" }
+    locales:   { fi: "/fi/artikkeli/{article}", en: "/en/article/{article}" }
     defaults: { _controller: JmeArticleBundle:Default:view }
+    requirements: { _method: get, article:  \d+ }
+
+jme_article_remove:
+    locales:   { fi: "/fi/artikkeli/poista/{article}", en: "/en/article/remove/{article}" }
+    defaults: { _controller: JmeArticleBundle:Default:remove }
     requirements: { _method: get, article:  \d+ }

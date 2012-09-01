@@ -2,10 +2,14 @@
 namespace Jme\ArticleBundle\Service;
 
 use Jme\ArticleBundle\Service\Exception\ArticleNotSavedException,
+    Jme\ArticleBundle\Service\Exception\ArticleNotRemovedException,
+    Jme\ArticleBundle\Service\Exception\ArticleNotFoundException,
     Jme\ArticleBundle\Repository\ArticleRepository,
     Jme\ArticleBundle\Entity\Article,
     Symfony\Component\Form\Form,
-    Doctrine\ORM\EntityManager;
+    Doctrine\ORM\EntityNotFoundException,
+    Doctrine\ORM\EntityManager,
+    \Exception;
 
 class ArticleService
 {
@@ -58,9 +62,9 @@ class ArticleService
                 return $article;
             });
         }
-        catch(\Exception $e)
+        catch(Exception $e)
         {
-            throw new ArticleNotSavedException($e->getMessage() );
+            throw new ArticleNotSavedException($e->getPrevious() );
         }
     }
 
@@ -81,5 +85,26 @@ class ArticleService
     public function listArticles($amount)
     {
         return $this->articleRepository->fetchLatestArticles($amount);
+    }
+
+    /**
+     * @param int $articleId
+     */
+    public function removeArticleById($articleId)
+    {
+
+        try
+        {
+            $this->articleRepository->removeArticleById($articleId);
+            $this->em->flush();
+        }
+        catch(EntityNotFoundException $e)
+        {
+            throw new ArticleNotFoundException($e->getPrevious() );
+        }
+        catch(Exception $e)
+        {
+            throw new ArticleNotRemovedException($e->getPrevious() );
+        }
     }
 }

@@ -31,4 +31,13 @@ class BaseController extends Controller
 
         return $form->isValid() ? $successCallback($form) : $failureFallback($form);
     }
+
+    /**
+     * @param string $route
+     * @param array $params
+     */
+    public function redirectWithRoute($route, array $params = array() )
+    {
+        return $this->redirect($this->generateUrl($route, $params) );
+    }
 }

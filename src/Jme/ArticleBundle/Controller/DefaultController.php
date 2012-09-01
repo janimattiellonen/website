@@ -7,7 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller,
     Jme\MainBundle\Component\Controller\BaseController,
     Jme\ArticleBundle\Service\ArticleService,
     Jme\ArticleBundle\Entity\Article,
-    Jme\ArticleBundle\Form\Type\ArticleType;
+    Jme\ArticleBundle\Form\Type\ArticleType,
+    Jme\ArticleBundle\Service\Exception\ArticleException;
 
 class DefaultController extends BaseController
 {
@@ -21,6 +22,22 @@ class DefaultController extends BaseController
         return $this->render('JmeArticleBundle:Default:view.html.twig', array(
             'article' => $this->getArticleService()->getArticle($article),
         ));
+    }
+
+    public function removeAction($article)
+    {
+        try
+        {
+            $this->getArticleService()->removeArticleById($article);
+
+            $this->get('session')->setFlash('notice', 'The article was successfully removed!');
+        }
+        catch(ArticleException $e)
+        {
+            $this->get('session')->setFlash('notice', $e->getMessage() );
+        }
+
+        return $this->redirectWithRoute('jme_article_latest');
     }
 
     public function newAction()
