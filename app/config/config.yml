@@ -31,16 +31,18 @@ assetic:
         cssrewrite: ~
         # closure:
         #     jar: %kernel.root_dir%/java/compiler.jar
-        # yui_css:
-        #     jar: %kernel.root_dir%/java/yuicompressor-2.4.2.jar
+        yui_css:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
         yui_js:
-            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.6.jar"
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
         less:
             node:       %node_bin%
             node_paths: [%kernel.root_dir%/../node_modules]
+            apply_to: "\.less$"
         coffee:
             bin:  %kernel.root_dir%/../node_modules/coffee-script/bin/coffee
             node: %node_bin%
+            apply_to: "\.coffee$"
 
 # Doctrine Configuration
 doctrine:

@@ -7,17 +7,18 @@
 
     {% block stylesheets %}{% endblock %}
 
+    {% stylesheets filter='yui_css' output='/css/common.css'
+            '@JmeMainBundle/Resources/less/main.less'
+    %}
 
+    <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+    {% endstylesheets %}
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
 
-    {% if app.session.hasFlash('notice') %}
-        <div class="flash-messages">
-            {{ app.session.flash('notice') }}
-        </div>
-    {% endif %}
+    {{ jme_flash() }}
 
     {% block content %}{% endblock %}
 

@@ -1,6 +1,9 @@
 parameters:
-#    jme_main.example.class: Jme\MainBundle\Example
-
     doctrine.orm.validator.unique.class: Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator
 
 services:
+    main.twig.extension:
+        class: Jme\MainBundle\Twig\Extensions\Flash
+        arguments: ["@twig", "@session"]
+        tags:
+            - {name: twig.extension}

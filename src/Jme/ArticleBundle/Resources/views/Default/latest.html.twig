@@ -8,6 +8,8 @@
             <h2><a href="{{path('jme_article_view', {article: article.id})}}">{{article.title}}</a></h2>
             <span class="date">{{article.created|date('d.m.Y H:i:s')}}</span>
 
+            <div class="controls"><a href="{{path('jme_article_remove', {article: article.id})}}">{{'article.remove'|trans}}</a></div>
+
             <div class="brief">{{article.brief}}</div>
         </div>
     {% endfor %}
