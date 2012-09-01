@@ -72,7 +72,7 @@ class DefaultControllerTest extends DatabaseTestCase
 
         $content = $client->getResponse()->getContent();
 
-        $this->assertGreaterThan(0, $crawler->filter('html:contains("New article")')->count());
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("Uusi artikkeli")')->count());
         $this->assertContains('<label for="article_title"', $content);
         $this->assertContains('<input type="text" id="article_title"', $content);
     }
@@ -150,8 +150,6 @@ class DefaultControllerTest extends DatabaseTestCase
 
         $client->followRedirects();
 
-        $repository = $this->container->get('jme_article.repository.article');
-
         $crawler = $client->request('get', '/fi/artikkeli/poista/666');
 
         $this->assertGreaterThan(0, $crawler->filter('html:contains("Article was not found")')->count());
@@ -171,5 +169,45 @@ class DefaultControllerTest extends DatabaseTestCase
         $crawler = $client->request('GET', '/fi/artikkeli/luo');
 
         $this->assertEquals(405, $client->getResponse()->getStatusCode() );
+    }
+
+    /**
+     * @test
+     *
+     * @group article
+     * @group controller
+     * @group article-controller
+     */
+    public function articleIsOpenedForEditing()
+    {
+        $article = $this->getFixtureFactory()->get('ArticleBundle\Entity\Article');
+
+        $this->entityManager->flush();
+
+        $client = $this->createClient();
+
+        $crawler = $client->request('GET', '/fi/artikkeli/muokkaa/' . $article->getId() );
+
+        $this->assertGreaterThan(0, $crawler->filter('body:contains("Muokkaa artikkelia")')->count());
+        $this->assertGreaterThan(0, $crawler->filter('input[name="article[title]"]')->count());
+        $this->assertGreaterThan(0, $crawler->filter('input[value="Title_1"]')->count() );
+    }
+
+    /**
+     * @test
+     *
+     * @group article
+     * @group controller
+     * @group article-controller
+     */
+    public function handlesOpeningNonExistingArticleForEditing()
+    {
+        $client = $this->createClient();
+
+        $client->followRedirects();
+
+        $crawler = $client->request('get', '/fi/artikkeli/muokkaa/666');
+
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("Article was not found")')->count());
     }
 }

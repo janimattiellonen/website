@@ -107,6 +107,27 @@ class ArticleServiceTest extends ServiceTestCase
      * @group service
      * @group article
      * @group article-service
+     *
+     * @expectedException Jme\ArticleBundle\Service\Exception\ArticleNotFoundException
+     */
+    public function handlesNonExistingArticles()
+    {
+        $id = 666;
+
+        $this->repositoryMock->expects($this->once() )
+            ->method('find')
+            ->with($id)
+            ->will($this->returnValue(null) );
+
+        $this->service->getArticle($id);
+    }
+
+    /**
+     * @test
+     *
+     * @group service
+     * @group article
+     * @group article-service
      */
     public function listsArticles()
     {

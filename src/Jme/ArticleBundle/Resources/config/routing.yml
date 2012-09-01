@@ -9,6 +9,11 @@ jme_article_create:
     defaults: { _controller: JmeArticleBundle:Default:create }
     requirements: {_method: post}
 
+jme_article_edit:
+    locales:   { fi: "/fi/artikkeli/muokkaa/{article}", en: "/en/article/edit/{article}" }
+    defaults: { _controller: JmeArticleBundle:Default:edit }
+    requirements: {_method: get, article:  \d+}
+
 jme_article_latest:
     locales:   { fi: /fi/artikkeli/uusimmat, en: /en/article/latest }
     defaults: { _controller: JmeArticleBundle:Default:latest }

@@ -72,10 +72,19 @@ class ArticleService
      * @param int $id
      *
      * @return Article
+     *
+     * @throws ArticleNotFoundException
      */
     public function getArticle($id)
     {
-        return $this->articleRepository->find($id);
+        $article = $this->articleRepository->find($id);
+
+        if(null === $article)
+        {
+            throw new ArticleNotFoundException();
+        }
+
+        return $article;
     }
 
     /**

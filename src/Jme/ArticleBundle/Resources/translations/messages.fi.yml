@@ -1,2 +1,4 @@
 article:
   remove: "Poista"
+  new: "Uusi artikkeli"
+  update: "Muokkaa artikkelia"

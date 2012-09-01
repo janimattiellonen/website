@@ -71,6 +71,23 @@ class DefaultController extends BaseController
         );
     }
 
+    public function editAction($article)
+    {
+        try
+        {
+            $form = $this->createArticleForm($this->getArticleService()->getArticle($article) );
+
+            return $this->render('JmeArticleBundle:Default:edit.html.twig', array(
+                'form' => $form->createView(),
+            ));
+        }
+        catch(ArticleException $e)
+        {
+            $this->get('session')->setFlash('error', $e->getMessage() );
+            return $this->redirectWithRoute('jme_article_latest');
+        }
+    }
+
     public function latestAction()
     {
         $articles = $this->getArticleService()->listArticles(5);
@@ -81,11 +98,13 @@ class DefaultController extends BaseController
     }
 
     /**
+     * @param Article $article
+     *
      * @return Form
      */
-    protected function createArticleForm()
+    protected function createArticleForm(Article $article = null)
     {
-        return $this->createForm(new ArticleType() );
+        return $this->createForm(new ArticleType(), $article);
     }
 
     /**
