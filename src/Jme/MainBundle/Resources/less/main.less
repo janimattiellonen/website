@@ -8,7 +8,7 @@ nav
 {
     float: left;
     width: 100%;
-    margin-bottom: 30px;
+
     background: #525252;
 
     ul
@@ -28,24 +28,39 @@ nav
                 color: black;
                 background: white;
                 padding: 10px;
+
+                &:hover
+                {
+                    background: black;
+                    color: white;
+                }
             }
-            a:hover
+
+            &.current a
             {
-                background: black;
-                color: white;
-
+                border-bottom: solid orange 2px;
+                border-top: solid orange 2px;
             }
-
         }
+
     }
 
 }
 
 
+div.flash-wrapper
+{
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
 div.flash-messages
 {
     padding: 10px;
-    float: left;
+
+    text-align: center;
 }
 
 div.error

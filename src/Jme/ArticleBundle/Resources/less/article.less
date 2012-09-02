@@ -27,15 +27,29 @@ div#new-article
 
 .article
 {
-    h1
+    float:left;
+    width: 98%;
+    padding: 1%;
+
+    a.title-link
     {
+        text-decoration: none;
+        color: black;
+
+        &:hover
+        {
+            text-decoration: underline;
+        }
+    }
+
+    h1, h2
+    {
+        margin-top: 5px;
         margin-bottom: 0;
     }
 
     h2
     {
-        margin-bottom: 0;
-
         a
         {
             text-decoration: none;
@@ -62,4 +76,9 @@ div#new-article
     {
 
     }
+}
+
+.articles .article:nth-child(2n+1)
+{
+    background: #e8e8e8;
 }

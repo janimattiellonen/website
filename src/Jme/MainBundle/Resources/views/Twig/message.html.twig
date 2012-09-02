@@ -1,5 +1,7 @@
 {% if message is defined %}
-<div class="flash-messages {{type}}">
-    {{ message}}
+<div class="flash-wrapper">
+    <div class="flash-messages {{type}}">
+        {{ message}}
+    </div>
 </div>
 {% endif %}

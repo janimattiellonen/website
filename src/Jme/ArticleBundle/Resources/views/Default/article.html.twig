@@ -1,20 +1,20 @@
 <div class="article">
 
-    {% if showContent is defined and showContent == true %}
+    {% if listMode == false %}
         <h1>{{article.title}}</h1>
     {% else %}
-        <a href="{{ path('jme_article_view', {article: article.id}) }}"><h1>{{article.title}}</h1></a>
+        <a class="title-link" href="{{ path('jme_article_view', {article: article.id}) }}"><h1>{{article.title}}</h1></a>
     {% endif %}
 
     <span class="date">{{article.created|date('d.m.Y H:i:s')}}</span>
 
     {{jme_article_controls(article)}}
 
-    {% if showContent is defined and showContent == false %}
+    {% if listMode == true %}
         <div class="brief">{{article.brief|nl2br}}</div>
     {% endif %}
 
-    {% if showContent is defined and showContent == true %}
-        <div class="content">{{article.content|nl2br}}</div>
+    {% if listMode == false %}
+        <div class="content">{{article.content|raw|nl2br}}</div>
     {% endif %}
 </div>

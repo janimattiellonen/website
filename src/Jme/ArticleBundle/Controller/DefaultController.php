@@ -59,6 +59,8 @@ class DefaultController extends BaseController
 
                 $article = $service->saveByForm($form);
 
+                $self->get('session')->setFlash('notice', $self->get('translator')->trans('article.created'));
+
                 return $self->createSuccessRedirectResponse(
                     'jme_article_view', array('article' => $article->getId() )
                 );

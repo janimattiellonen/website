@@ -32,7 +32,7 @@ class DefaultControllerTest extends DatabaseTestCase
 
         $client = $this->createClient();
 
-        $crawler = $client->request('GET', '/fi/artikkeli/uusimmat');
+        $crawler = $client->request('GET', '/fi');
 
         $this->assertCount(5, $crawler->filter('div.article') );
     }
