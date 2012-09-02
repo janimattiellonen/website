@@ -37,6 +37,7 @@
         "besimple/i18n-routing-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "v1.1.0",
         "doctrine/doctrine-migrations-bundle": "dev-master",
+        "willdurand/expose-translation-bundle": "dev-master",
 
         "xi/doctrine": "dev-master",
         "xi/ajax-bundle": "2.1.x-dev",
