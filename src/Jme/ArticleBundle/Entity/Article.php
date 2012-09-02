@@ -76,7 +76,7 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", nullable=false)
+     * @ORM\Column(name="content", type="text", nullable=false)
      *
      * @Assert\NotNull()
      * @Assert\MinLength(
