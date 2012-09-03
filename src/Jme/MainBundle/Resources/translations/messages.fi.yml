@@ -1,0 +1,4 @@
+item:
+    remove: "Haluatko todella poistaa tämän?"
+yes: "Kyllä"
+no: "Ei"

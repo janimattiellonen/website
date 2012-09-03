@@ -7,6 +7,8 @@
 
     {% block stylesheets %}{% endblock %}
 
+    <link href="{{ asset('css/jquery-ui/ui-lightness/jquery-ui-1.8.23.custom.css') }}" rel="stylesheet" media="screen" />
+
     {% stylesheets filter='yui_css' output='/css/common.css'
             '@JmeMainBundle/Resources/less/main.less'
     %}
@@ -21,13 +23,14 @@
 </head>
 <body>
 
-    <nav>{{ knp_menu_render('main') }}</nav>
+<nav>{{ knp_menu_render('main') }}</nav>
 
     {{ jme_flash() }}
 
     {% block content %}{% endblock %}
 
     {% javascripts output="/js/main.js" filter="coffee,?yui_js"
+        '@JmeMainBundle/Resources/coffee/RemoveDialog.coffee'
         '@JmeMainBundle/Resources/coffee/main.coffee'
     %}
 
