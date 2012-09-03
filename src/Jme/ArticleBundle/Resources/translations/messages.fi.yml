@@ -4,6 +4,7 @@ article:
   update: "Muokkaa artikkelia"
   edit: "Muokkaa"
   created: "Artikkeli luotiin onnistuneesti"
+  updated: "Artikkeli päivitettiin onnistuneesti"
 
 menu:
     home: "Etusivu"

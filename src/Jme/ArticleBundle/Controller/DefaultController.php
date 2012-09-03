@@ -102,6 +102,8 @@ class DefaultController extends BaseController
             return $this->processForm($form, function() use($form, $service, $self) {
                     $article = $service->saveByForm($form);
 
+                    $self->get('session')->setFlash('notice', $self->get('translator')->trans('article.updated'));
+
                     return $self->createSuccessRedirectResponse(
                         'jme_article_view', array('article' => $article->getId() )
                     );
