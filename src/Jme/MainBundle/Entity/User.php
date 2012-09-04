@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert,
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ORM\Table(name="fos_user")
  * @DoctrineAssert\UniqueEntity(fields="email")
  */
 class User extends BaseUser

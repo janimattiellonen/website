@@ -3,34 +3,51 @@ jms_security_extra:
     expressions: true
 
 security:
+    acl:
+        connection: default
+
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        FOS\UserBundle\Model\UserInterface: sha512
+        encode_as_base64: false
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
-      fos_userbundle:
-        id: fos_user.user_provider.username
+        fos_userbundle:
+            id: fos_user.user_provider.username
 
     firewalls:
         main:
             pattern: ^/
             form_login:
-                always_use_default_target_path: false
+                login_path:  /login
+                check_path:  /login_check
+                always_use_default_target_path: true
                 default_target_path:            /login_success
                 use_referer:                    false
+                failure_path:                   /login
+
             logout:
                 target: /%locale%
-            anonymous:  true
+            anonymous: true
+
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
 
     access_control:
-        - { path: ^/(en|fi)$,                                         role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/login,                                            role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/login_check,                                      role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/logout,                                           role: IS_AUTHENTICATED_FULLY       }
+        - {path: ^/(en|fi)/(article/new|artikkeli/uusi),             role: IS_AUTHENTICATED_FULLY}
+        - {path: ^/(en|fi)/(article/edit|artikkeli/muokkaa),     role: IS_AUTHENTICATED_FULLY}
+        - {path: ^/(en|fi)/(article/update|artikkeli/paivita),   role: IS_AUTHENTICATED_FULLY}
+        - {path: ^/(en|fi)/(article/remove|artikkeli/poista),    role: IS_AUTHENTICATED_FULLY}
 
-    role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN:  ROLE_ADMIN
+        - { path: ^/(en|fi)$,                                        role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login,                                           role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login_check,                                     role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(en|fi)/(register|rekisteroidy),                 role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(en|fi)/resetting,                               role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/logout,                                          role: IS_AUTHENTICATED_FULLY       }
+
+

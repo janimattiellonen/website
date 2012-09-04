@@ -8,6 +8,9 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+
+            new \Jme\ArticleBundle\JmeArticleBundle(),
+            new \Jme\MainBundle\JmeMainBundle(),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -19,14 +22,17 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
-            new Jme\MainBundle\JmeMainBundle(),
-            new Jme\ArticleBundle\JmeArticleBundle(),
-            new BeSimple\I18nRoutingBundle\BeSimpleI18nRoutingBundle(),
+
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
             new FOS\UserBundle\FOSUserBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+            new BeSimple\I18nRoutingBundle\BeSimpleI18nRoutingBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Bazinga\ExposeTranslationBundle\BazingaExposeTranslationBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -35,6 +41,8 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
         }
+
+
 
         return $bundles;
     }

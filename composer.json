@@ -29,7 +29,7 @@
         "beberlei/DoctrineExtensions": "dev-master",
         "stof/doctrine-extensions-bundle": "dev-master",
         "jms/serializer-bundle": "dev-master",
-        "friendsofsymfony/user-bundle": "dev-master",
+        "friendsofsymfony/user-bundle": "*",
         "friendsofsymfony/rest-bundle": "0.7.0",
         "friendsofsymfony/comment-bundle": "dev-master",
         "stfalcon/tinymce-bundle": "dev-master",
@@ -40,14 +40,14 @@
         "willdurand/expose-translation-bundle": "dev-master",
 
         "xi/doctrine": "dev-master",
-        "xi/ajax-bundle": "2.1.x-dev",
-        "xi/dialog-bundle": "2.1.x-dev",
-        "xi/selector-bundle": "2.1.x-dev",
-        "xi/tag-bundle": "2.1.x-dev",
-        "xi/article-bundle": "2.1.x-dev",
-        "xi/search-bundle": "2.1.x-dev",
+        "xi/ajax-bundle": "dev-master",
+        "xi/dialog-bundle": "dev-master",
+        "xi/selector-bundle": "dev-master",
+        "xi/tag-bundle": "dev-master",
+        "xi/article-bundle": "dev-master",
+        "xi/search-bundle": "dev-master",
         "xi/filelib-bundle": "dev-master",
-        "xi/filebrowser-bundle": "2.1.x-dev"
+        "xi/filebrowser-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

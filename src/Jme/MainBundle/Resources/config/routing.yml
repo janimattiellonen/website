@@ -2,3 +2,14 @@ JmeMainBundle_homepage:
       locales:   { fi: /fi, en: /en }
       defaults:  { _controller: JmeMainBundle:Default:index, _locale: fi }
 
+
+login_check:
+    pattern: /login_check
+
+login_success:
+    pattern: /login_success
+    defaults:  { _controller: JmeMainBundle:Default:index, _locale: fi }
+
+jme_login:
+    pattern:   /login
+    defaults:  { _controller: JmeMainBundle:Security:login }

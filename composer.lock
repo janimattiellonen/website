@@ -1,5 +1,5 @@
 {
-    "hash": "b85944c85577eccdc60ecad6c71073fb",
+    "hash": "fefd5e25b3625fb6d017320fae5e967d",
     "packages": [
         {
             "package": "beberlei/DoctrineExtensions",
@@ -30,8 +30,8 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "8e1149b0ac01e8f9441a523bec81011803485602",
-            "commit-date": "1346369162"
+            "source-reference": "3600872919186e1a40e8fd556e65f6dca6337cc9",
+            "commit-date": "1346617185"
         },
         {
             "package": "doctrine/doctrine-migrations-bundle",
@@ -92,14 +92,8 @@
         {
             "package": "friendsofsymfony/user-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.0.x-dev",
-            "alias-version": "2.0.9999999.9999999-dev"
-        },
-        {
-            "package": "friendsofsymfony/user-bundle",
-            "version": "dev-master",
-            "source-reference": "5f6500c90119e8b9cee9065e29b922ffcd767f8e",
-            "commit-date": "1346611484"
+            "source-reference": "74dcb06f464330caa9a7cc95febd5b74e9018246",
+            "commit-date": "1346762108"
         },
         {
             "package": "gedmo/doctrine-extensions",
@@ -176,8 +170,8 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "0410297526eacc3aa2146b55bc4e30e6fd3a50ed",
-            "commit-date": "1346167888"
+            "source-reference": "86b637e9f64ddcbd17d9eda944384812b5836254",
+            "commit-date": "1346695911"
         },
         {
             "package": "monolog/monolog",
@@ -186,12 +180,6 @@
         {
             "package": "ruflin/Elastica",
             "version": "v0.19.3.0"
-        },
-        {
-            "package": "sensio/distribution-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
         },
         {
             "package": "sensio/distribution-bundle",
@@ -226,14 +214,8 @@
         {
             "package": "stfalcon/tinymce-bundle",
             "version": "dev-master",
-            "source-reference": "39e2d52b6e345e2309e173b76a09f19dbee0c12e",
-            "commit-date": "1345020428"
-        },
-        {
-            "package": "stof/doctrine-extensions-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "1.1.x-dev",
-            "alias-version": "1.1.9999999.9999999-dev"
+            "source-reference": "a73b42cf721b319757f08a8893cc434ec95a694f",
+            "commit-date": "1346770452"
         },
         {
             "package": "stof/doctrine-extensions-bundle",
@@ -280,8 +262,8 @@
         {
             "package": "twig/extensions",
             "version": "dev-master",
-            "source-reference": "v1.0.0-alpha",
-            "commit-date": "1346166263"
+            "source-reference": "f904575642b1213db69b4a98f08397e722ba1cae",
+            "commit-date": "1346770278"
         },
         {
             "package": "twig/twig",
@@ -295,21 +277,21 @@
         },
         {
             "package": "xi/ajax-bundle",
-            "version": "2.1.x-dev",
-            "source-reference": "fbed60b5c663052e849b45b1808f43b77d88a9d7",
-            "commit-date": "1344347765"
+            "version": "dev-master",
+            "source-reference": "2368d94c56d6377f15b3edd06eac928275e325a4",
+            "commit-date": "1346757879"
         },
         {
             "package": "xi/article-bundle",
-            "version": "2.1.x-dev",
-            "source-reference": "38f87e64ee04613898a57b1a19c9078875eb0242",
-            "commit-date": "1346058367"
+            "version": "dev-master",
+            "source-reference": "b0720d94fc274ade310d047e01d60fd0e932cd71",
+            "commit-date": "1346758641"
         },
         {
             "package": "xi/dialog-bundle",
-            "version": "2.1.x-dev",
-            "source-reference": "4042598e683d58c3601cf9cb29947eaf744115c6",
-            "commit-date": "1344436771"
+            "version": "dev-master",
+            "source-reference": "e7e8fdf7703bebad6c79c9378213ae2500e4fdcf",
+            "commit-date": "1346757836"
         },
         {
             "package": "xi/doctrine",
@@ -319,39 +301,39 @@
         },
         {
             "package": "xi/filebrowser-bundle",
-            "version": "2.1.x-dev",
-            "source-reference": "38002bd6345d44ae6d5a428b0991e1e46f908b19",
-            "commit-date": "1344240432"
+            "version": "dev-master",
+            "source-reference": "f52da8bd26a4d4999d17f51c4656368e2afdcc7e",
+            "commit-date": "1346757756"
         },
         {
             "package": "xi/filelib",
             "version": "2.1.x-dev",
-            "source-reference": "b4544433b37242b44a9344a79f87442861039dc9",
-            "commit-date": "1344240237"
+            "source-reference": "9d6dc88493b0435a3041fd0e9dfdaa02f2dd858b",
+            "commit-date": "1346683108"
         },
         {
             "package": "xi/filelib-bundle",
             "version": "dev-master",
-            "source-reference": "019ae72e4bec5a7dfd0d36c5c3e67960e8264e1d",
-            "commit-date": "1345186303"
+            "source-reference": "00378825598e203a86cacfc4b0f0af8d06f130ac",
+            "commit-date": "1346743710"
         },
         {
             "package": "xi/search-bundle",
-            "version": "2.1.x-dev",
-            "source-reference": "13f51f280a9d0ea7f56f40930645376c595bc83b",
-            "commit-date": "1346063095"
+            "version": "dev-master",
+            "source-reference": "2ab0899363fe23556f8c84d2b863f8ed21377590",
+            "commit-date": "1346758304"
         },
         {
             "package": "xi/selector-bundle",
-            "version": "2.1.x-dev",
-            "source-reference": "2cc43b1addff5e95e4d190688783c7d632f592d2",
-            "commit-date": "1344240617"
+            "version": "dev-master",
+            "source-reference": "d77260a6fb10b2f9f651e30cbf57efe8b1b5c8ed",
+            "commit-date": "1346757624"
         },
         {
             "package": "xi/tag-bundle",
-            "version": "2.1.x-dev",
-            "source-reference": "09f4ea98070f977e6b0c1836a7661006b73373e0",
-            "commit-date": "1344238278"
+            "version": "dev-master",
+            "source-reference": "0acc9a87e696869c2ce9cb43673bde8b7fe528e0",
+            "commit-date": "1346758851"
         },
         {
             "package": "zendframework/zendframework",
@@ -377,7 +359,6 @@
         "beberlei/doctrineextensions": 20,
         "stof/doctrine-extensions-bundle": 20,
         "jms/serializer-bundle": 20,
-        "friendsofsymfony/user-bundle": 20,
         "friendsofsymfony/comment-bundle": 20,
         "stfalcon/tinymce-bundle": 20,
         "besimple/i18n-routing-bundle": 20,
