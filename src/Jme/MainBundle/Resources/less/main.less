@@ -1,0 +1,133 @@
+body
+{
+    background: #ededed;
+    margin: 20px;
+}
+
+nav
+{
+    float: left;
+    width: 100%;
+
+    background: #525252;
+
+    ul
+    {
+        margin-left: 0;
+        padding: 0;
+
+
+        li
+        {
+            display: inline;
+            margin-right: 10px;
+
+            a
+            {
+                text-decoration: none;
+                color: black;
+                background: white;
+                padding: 10px;
+
+                &:hover
+                {
+                    background: black;
+                    color: white;
+                }
+            }
+
+            &.current a
+            {
+                border-bottom: solid orange 2px;
+                border-top: solid orange 2px;
+            }
+
+            &.last
+            {
+                float: right;
+            }
+        }
+
+    }
+
+}
+
+
+div.flash-wrapper
+{
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+div.flash-messages
+{
+    padding: 10px;
+
+    text-align: center;
+}
+
+div.error
+{
+    background: #ffaf9e;
+    border: solid 1px red;
+    color: red;
+}
+
+div.warning
+{
+    background: #ffe67a;
+    border: solid 1px orange;
+    color: orange;
+}
+
+div.notice
+{
+    background: #6ac580;
+    border: solid 1px green;
+    color: green;
+}
+
+
+/* login */
+
+div#login-box
+{
+    display:block;
+
+    position:absolute;
+    top:50%;
+    left:35%;
+    width:350px;
+
+    background: white;
+    padding: 15px;
+
+    .wrapper
+    {
+        float: right;
+        width: 100%;
+        input[type="text"], input[type="password"]
+        {
+            display: block;
+            width: 99%;
+            margin-bottom: 10px;
+        }
+    }
+
+    .error
+    {
+        margin-bottom: 10px;
+        padding: 3px;
+    }
+
+    button
+    {
+        float: right;
+    }
+
+}
+
+
+/* end login */
