@@ -1,5 +1,5 @@
 Simple blog engine
 ========================
 
-This is (currently very) simple bog engine for personal use.
+This is a (currently very) simple blog engine for personal use.
 
