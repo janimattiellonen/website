@@ -10,7 +10,7 @@ services:
 
     jme_main.menu.main.builder:
         class: Jme\MainBundle\Menu\Builder
-        arguments: ["@knp_menu.factory", "@translator"]
+        arguments: ["@knp_menu.factory", "@security.context", "@translator"]
 
     jme_main.menu.main:
         class: Knp\Menu\MenuItem

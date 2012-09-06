@@ -10,3 +10,4 @@ menu:
     home: "Etusivu"
     article:
         new: "Uusi artikkeli"
+        logout: "Kirjaudu ulos"

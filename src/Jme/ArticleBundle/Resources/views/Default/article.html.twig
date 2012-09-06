@@ -8,7 +8,9 @@
 
     <span class="date">{{article.created|date('d.m.Y H:i:s')}}</span>
 
-    {{jme_article_controls(article)}}
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {{jme_article_controls(article)}}
+    {% endif %}
 
     {% if listMode == true %}
         <div class="brief">{{article.brief|nl2br}}</div>
