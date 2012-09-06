@@ -1,0 +1,22 @@
+<div class="article">
+
+    {% if listMode == false %}
+        <h1>{{article.title}}</h1>
+    {% else %}
+        <a class="title-link" href="{{ path('jme_article_view', {article: article.id}) }}"><h1>{{article.title}}</h1></a>
+    {% endif %}
+
+    <span class="date">{{article.created|date('d.m.Y H:i:s')}}</span>
+
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {{jme_article_controls(article)}}
+    {% endif %}
+
+    {% if listMode == true %}
+        <div class="brief">{{article.brief|nl2br}}</div>
+    {% endif %}
+
+    {% if listMode == false %}
+        <div class="content">{{article.content|raw|nl2br}}</div>
+    {% endif %}
+</div>

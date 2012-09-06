@@ -1,0 +1,22 @@
+parameters:
+    doctrine.orm.validator.unique.class: Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator
+
+services:
+    main.twig.extension:
+        class: Jme\MainBundle\Twig\Extensions\Flash
+        arguments: ["@twig", "@session"]
+        tags:
+            - {name: twig.extension}
+
+    jme_main.menu.main.builder:
+        class: Jme\MainBundle\Menu\Builder
+        arguments: ["@knp_menu.factory", "@security.context", "@translator"]
+
+    jme_main.menu.main:
+        class: Knp\Menu\MenuItem
+        factory_service: jme_main.menu.main.builder
+        factory_method: createMenu
+        arguments: ["@request"]
+        scope: request
+        tags:
+            - {name: knp_menu.menu, alias: main }

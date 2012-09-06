@@ -1,0 +1,13 @@
+article:
+  remove: "Poista"
+  new: "Uusi artikkeli"
+  update: "Muokkaa artikkelia"
+  edit: "Muokkaa"
+  created: "Artikkeli luotiin onnistuneesti"
+  updated: "Artikkeli päivitettiin onnistuneesti"
+
+menu:
+    home: "Etusivu"
+    article:
+        new: "Uusi artikkeli"
+        logout: "Kirjaudu ulos"

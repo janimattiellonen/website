@@ -1,0 +1,11 @@
+item:
+    remove: "Haluatko todella poistaa tämän?"
+yes: "Kyllä"
+no: "Ei"
+
+login:
+    username: "Käyttäjätunnus"
+    password: "Salasana"
+    login: "Kirjaudu sisään"
+
+"Bad credentials": "Epäkelpo käyttäjätunnus tai salasana"

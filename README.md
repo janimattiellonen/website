@@ -1,4 +1,5 @@
-website
-=======
+Simple blog engine
+========================
 
-My personal website built using Symfony2
+This is a (currently very) simple blog engine for personal use.
+
