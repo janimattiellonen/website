@@ -6,3 +6,4 @@ node_modules/
 /app/logs/*
 composer.phar
 /web/js/*
+/web/css/*.css
