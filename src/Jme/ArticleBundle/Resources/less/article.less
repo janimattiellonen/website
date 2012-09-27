@@ -11,7 +11,7 @@ div#new-article
     {
         margin-bottom: 15px;
         display: block;
-        width: 90%;
+        width: 100%;
     }
 
     textarea#article_brief
@@ -82,4 +82,32 @@ div#new-article
 .articles .article:nth-child(2n+1)
 {
     background: #e8e8e8;
+}
+
+.item_input
+{
+    label
+    {
+        display: block;
+    }
+    input.item_field
+    {
+        width: 80% !important;
+    }
+
+    .add-item-btn
+    {
+        clear: inherit !important;
+        float: inherit !important;
+    }
+}
+
+
+.controls
+{
+    clear: both;
+    input[type="submit"]
+    {
+        float: right;
+    }
 }

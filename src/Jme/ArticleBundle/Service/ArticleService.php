@@ -7,11 +7,13 @@ use Jme\ArticleBundle\Service\Exception\ArticleNotSavedException,
     Jme\ArticleBundle\Repository\ArticleRepository,
     Jme\ArticleBundle\Entity\Article,
     Symfony\Component\Form\Form,
+    Symfony\Component\DependencyInjection\ContainerInterface,
     Doctrine\ORM\EntityNotFoundException,
     Doctrine\ORM\EntityManager,
+    Xi\Bundle\TagBundle\Service\AbstractTaggableService,
     \Exception;
 
-class ArticleService
+class ArticleService extends AbstractTaggableService
 {
     /**
      * @var EntityManager
@@ -24,13 +26,22 @@ class ArticleService
     protected $articleRepository;
 
     /**
+     * @var ContainerInterface
+     */
+    protected $container;
+
+    /**
      * @param EntityManager $em
      * @param ArticleRepository $articleRepository
+     * @param ContainerInterface $container
      */
-    public function __construct(EntityManager $em, ArticleRepository $articleRepository)
+    public function __construct(EntityManager $em, ArticleRepository $articleRepository, ContainerInterface $container)
     {
         $this->em                   = $em;
         $this->articleRepository    = $articleRepository;
+        $this->container            = $container;
+
+        parent::__construct($container);
     }
 
     /**
@@ -54,10 +65,14 @@ class ArticleService
      */
     public function save(Article $article)
     {
+        $self = $this;
         try
         {
-            return $this->em->transactional(function(EntityManager $em) use($article) {
+            return $this->em->transactional(function(EntityManager $em) use($article, $self) {
                 $em->persist($article);
+                $em->flush();
+
+                $self->getTagService()->getTagManager()->saveTagging($article);
 
                 return $article;
             });
@@ -84,6 +99,8 @@ class ArticleService
             throw new ArticleNotFoundException();
         }
 
+        $this->getTagService()->getTagManager()->loadTagging($article);
+
         return $article;
     }
 
@@ -101,7 +118,6 @@ class ArticleService
      */
     public function removeArticleById($articleId)
     {
-
         try
         {
             $this->articleRepository->removeArticleById($articleId);
@@ -115,5 +131,26 @@ class ArticleService
         {
             throw new ArticleNotRemovedException($e->getPrevious() );
         }
+    }
+
+    /**
+     * get taggable resource name
+     *
+     * @return string
+     */
+    public function getTaggableType()
+    {
+        return 'article';
+    }
+
+    /**
+     * @param array $ids
+     * @param array $options
+     * @param array $tagNames
+     * @return resources
+     */
+    public function getTaggedResourcesByIds(array $ids, array $options, array $tagNames)
+    {
+        return $this->articleRepository->findById($ids);
     }
 }

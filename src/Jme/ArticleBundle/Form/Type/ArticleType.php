@@ -4,7 +4,8 @@ namespace Jme\ArticleBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType,
     Symfony\Component\Form\FormBuilderInterface,
-    Symfony\Component\OptionsResolver\OptionsResolverInterface;
+    Symfony\Component\OptionsResolver\OptionsResolverInterface,
+    Xi\Bundle\TagBundle\Form\Type\TagType;
 
 class ArticleType extends AbstractType
 {
@@ -12,7 +13,8 @@ class ArticleType extends AbstractType
     {
         $builder->add('title', 'text')
                 ->add('brief', 'textarea')
-                ->add('content', 'textarea');
+                ->add('content', 'textarea')
+                ->add('tags', 'tag');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
