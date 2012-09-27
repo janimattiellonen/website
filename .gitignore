@@ -4,3 +4,4 @@ node_modules/
 /web/bundles/*
 /vendor/
 /app/logs/*
+composer.phar
