@@ -1,17 +1,22 @@
 <?php
 namespace Jme\ArticleBundle\Service;
 
-use Jme\ArticleBundle\Service\Exception\ArticleNotSavedException,
-    Jme\ArticleBundle\Service\Exception\ArticleNotRemovedException,
-    Jme\ArticleBundle\Service\Exception\ArticleNotFoundException,
-    Jme\ArticleBundle\Repository\ArticleRepository,
-    Jme\ArticleBundle\Entity\Article,
-    Symfony\Component\Form\Form,
-    Symfony\Component\DependencyInjection\ContainerInterface,
-    Doctrine\ORM\EntityNotFoundException,
-    Doctrine\ORM\EntityManager,
-    Xi\Bundle\TagBundle\Service\AbstractTaggableService,
-    \Exception;
+use Doctrine\ORM\EntityNotFoundException;
+use Doctrine\ORM\EntityManager;
+
+use \Exception;
+
+use Jme\ArticleBundle\Service\Exception\ArticleNotSavedException;
+use Jme\ArticleBundle\Service\Exception\ArticleNotRemovedException;
+use Jme\ArticleBundle\Service\Exception\ArticleNotFoundException;
+use Jme\ArticleBundle\Repository\ArticleRepository;
+use Jme\ArticleBundle\Entity\Article;
+
+use Symfony\Component\Form\Form;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
+use Xi\Bundle\TagBundle\Service\AbstractTaggableService;
+
 
 class ArticleService extends AbstractTaggableService
 {
@@ -105,12 +110,20 @@ class ArticleService extends AbstractTaggableService
     }
 
     /**
-     * @param int $amount
+     * @param int       $amount
+     * @param boolean   $loadTags
      * @return array
      */
-    public function listArticles($amount)
+    public function listArticles($amount, $loadTags = false)
     {
-        return $this->articleRepository->fetchLatestArticles($amount);
+        $articles = $this->articleRepository->fetchLatestArticles($amount);
+
+        foreach($articles as &$article)
+        {
+            $this->getTagService()->getTagManager()->loadTagging($article);
+        }
+
+        return $articles;
     }
 
     /**

@@ -24,3 +24,10 @@ services:
         tags:
             - {name: twig.extension}
 
+
+    tags.twig.extension:
+        class: Jme\ArticleBundle\Twig\Extensions\Tags
+        arguments: ["@twig"]
+        tags:
+            - {name: twig.extension}
+
