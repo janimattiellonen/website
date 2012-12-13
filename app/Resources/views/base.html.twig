@@ -10,6 +10,8 @@
     <link href="{{ asset('css/jquery-ui/ui-lightness/jquery-ui-1.8.23.custom.css') }}" rel="stylesheet" media="screen" />
 
     {% stylesheets filter='yui_css' output='/css/common.css'
+            '@JmeMainBundle/Resources/css/normalize.css'
+            '@JmeMainBundle/Resources/css/highlight.js/zenburn.css'
             '@JmeMainBundle/Resources/less/main.less'
     %}
 
@@ -36,8 +38,9 @@
 
     {{ jme_flash() }}
 
-    {% block content %}{% endblock %}
-
+    <div id="wrapper">
+        {% block content %}{% endblock %}
+    </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
@@ -45,6 +48,7 @@
 
     {% javascripts output="/js/main.js" filter="?yui_js"
         '@XiAjaxBundle/Resources/assets/js/jquery.form.js'
+        '@JmeMainBundle/Resources/js/highlight.pack.js'
         '@XiAjaxBundle/Resources/coffee/ajax-abstract-logic.coffee'
         '@XiAjaxBundle/Resources/coffee/ajax-form.coffee'
         '@XiAjaxBundle/Resources/coffee/ajax-element.coffee'
@@ -62,5 +66,11 @@
     {% endjavascripts %}
 
     {% block javascripts %}{% endblock %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('article .content pre code,').each(function(i, e) {hljs.highlightBlock(e)});
+        });
+    </script>
+
 </body>
 </html>
