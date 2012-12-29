@@ -1,0 +1,8 @@
+{% if tags is defined and tags|length > 0%}
+
+    {%  set size = tags|length %}
+
+    {%  for tag in tags %}
+        <span class="tag">{{tag}}</span>{% if loop.index < size %},{% endif %}
+    {% endfor %}
+{%  endif %}

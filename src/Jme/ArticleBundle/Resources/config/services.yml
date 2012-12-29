@@ -7,12 +7,27 @@ services:
         arguments: [Jme\ArticleBundle\Entity\Article]
         factory_service: doctrine.orm.entity_manager
         factory_method: getRepository
+
     jme_article.service.article:
         class:     Jme\ArticleBundle\Service\ArticleService
-        arguments: ["@doctrine.orm.entity_manager", "@jme_article.repository.article"]
+        arguments: ["@doctrine.orm.entity_manager", "@jme_article.repository.article", "@service_container"]
 
     article.twig.extension:
         class: Jme\ArticleBundle\Twig\Extensions\ArticleControls
         arguments: ["@twig"]
         tags:
             - {name: twig.extension}
+
+    tagSelector.twig.extension:
+        class: Jme\ArticleBundle\Twig\Extensions\TagSelector
+        arguments: ["@twig"]
+        tags:
+            - {name: twig.extension}
+
+
+    tags.twig.extension:
+        class: Jme\ArticleBundle\Twig\Extensions\Tags
+        arguments: ["@twig"]
+        tags:
+            - {name: twig.extension}
+

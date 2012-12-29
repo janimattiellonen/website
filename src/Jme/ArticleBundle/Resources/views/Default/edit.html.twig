@@ -6,9 +6,18 @@
 
 <div id="new-article">
     <form action="{{ path('jme_article_update', {article: form.vars['value'].id})  }}" method="post" {{ form_enctype(form) }} novalidate>
+
+        <div class="buttons">
+            <input type="submit" value="{{ 'article.save'|trans }}" />
+        </div>
+
         {{ form_widget(form) }}
 
-        <input type="submit" />
+        <div class="buttons">
+            <input type="submit" value="{{ 'article.save'|trans }}" />
+        </div>
+
     </form>
 </div>
+
 {% endblock %}
