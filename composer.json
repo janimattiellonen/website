@@ -7,9 +7,9 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.1.0",
+        "symfony/symfony": "2.1.6",
         "doctrine/orm": "2.2.*",
-        "doctrine/doctrine-bundle": "1.0.x-dev",
+        "doctrine/doctrine-bundle": "1.0.*",
 
         "twig/extensions": "dev-master",
         "symfony/assetic-bundle": "2.1.x-dev",
@@ -37,7 +37,8 @@
         "friendsofsymfony/comment-bundle": "dev-master",
         "stfalcon/tinymce-bundle": "dev-master",
         "zendframework/zendframework": "2.0.0rc3",
-        "besimple/i18n-routing-bundle": "dev-master",
+        "besimple/i18n-routing-bundle": "2.1.*@dev",
+
         "knplabs/knp-menu-bundle": "v1.1.0",
         "doctrine/doctrine-migrations-bundle": "dev-master",
 
@@ -47,9 +48,7 @@
         "xi/selector-bundle": "dev-master",
         "xi/tag-bundle": "dev-master",
         "xi/article-bundle": "dev-master",
-        "xi/search-bundle": "dev-master",
-        "xi/filelib-bundle": "dev-master",
-        "xi/filebrowser-bundle": "dev-master"
+        "xi/search-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
