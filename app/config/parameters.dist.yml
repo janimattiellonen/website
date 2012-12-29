@@ -1,0 +1,18 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     localhost
+    database_port:     ~
+    database_name:     janimattiellonen-website_db
+    database_user:     admin
+    database_password: ~
+
+    mailer_transport:  smtp
+    mailer_host:       localhost
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            fi
+    secret:            ThisTokenIsNotSoSecretChangeIt
+    node_bin:          /opt/local/bin/node
+
+    domain:             janimattiellonen-website.localhost
