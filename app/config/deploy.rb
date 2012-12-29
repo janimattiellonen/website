@@ -20,7 +20,7 @@ set :use_sudo, false
 
 set :writable_dirs, ["app/cache", "app/logs"]
 set :webserver_user, "www-data"
-set :permission_method, :acl
+#set :permission_method, :acl
 before "deploy:restart", "deploy:set_permissions"
 
 namespace :symfony do
