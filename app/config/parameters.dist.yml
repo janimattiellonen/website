@@ -16,3 +16,10 @@ parameters:
     node_bin:          /opt/local/bin/node
 
     domain:             janimattiellonen-website.localhost
+
+    # use one of these
+    # use this if you have node in your project folder:
+    node_modules_path:  %kernel.root_dir%/../node_modules
+
+    # default global setting for node in Linux:
+    #node_modules_path: /usr/lib/node_modules
