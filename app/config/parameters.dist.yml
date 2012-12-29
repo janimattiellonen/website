@@ -14,3 +14,5 @@ parameters:
     locale:            fi
     secret:            ThisTokenIsNotSoSecretChangeIt
     node_bin:          /opt/local/bin/node
+
+    domain:             janimattiellonen-website.localhost

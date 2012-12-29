@@ -5,14 +5,17 @@ use \DateTime,
     Symfony\Component\Validator\Constraints as Assert,
     Doctrine\ORM\Mapping as ORM,
     Symfony\Bridge\Doctrine\Validator\Constraints AS DoctrineAssert,
-    Gedmo\Mapping\Annotation as Gedmo;
+    Gedmo\Mapping\Annotation as Gedmo,
+    Xi\Bundle\TagBundle\Entity\Tag,
+    Doctrine\Common\Collections\ArrayCollection,
+    DoctrineExtensions\Taggable\Taggable;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="article")
  * @ORM\Entity(repositoryClass="Jme\ArticleBundle\Repository\ArticleRepository")
  */
-class Article
+class Article implements Taggable
 {
     /**
      * @var integer
@@ -85,6 +88,16 @@ class Article
      * )
      */
     protected $content;
+
+    /**
+     * @var ArrayCollection
+     */
+    protected $tags;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -167,5 +180,57 @@ class Article
     public function getBrief()
     {
         return $this->brief;
+    }
+
+    /**
+     * Returns the unique taggable resource type
+     *
+     * @return string
+     */
+    public function getTaggableType()
+    {
+        return 'article';
+    }
+
+    /**
+     * Returns the unique taggable resource identifier
+     *
+     * @return string
+     */
+    public function getTaggableId()
+    {
+        return $this->getId();
+    }
+
+    /**
+     * Returns the collection of tags for this Taggable entity
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getTags()
+    {
+        $this->tags = $this->tags ?: new ArrayCollection();
+
+        return $this->tags;
+    }
+
+    /**
+     * @param Tag $tag
+     * @return bool
+     */
+    public function hasTag(Tag $tag)
+    {
+        return $this->tags->contains($tag);
+    }
+
+    /**
+     * @param array $tags
+     * @return Article
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+
+        return $this;
     }
 }

@@ -1,7 +1,5 @@
 div#new-article
 {
-    margin-top: 10px;
-
     input#article_title
     {
         font-size: 1.5em;
@@ -11,7 +9,7 @@ div#new-article
     {
         margin-bottom: 15px;
         display: block;
-        width: 90%;
+        width: 98%;
     }
 
     textarea#article_brief
@@ -23,18 +21,21 @@ div#new-article
     {
         height: 300px;
     }
+
+    textarea#article_brief, textarea#article_content {
+        padding: 10px 0 10px 10px;
+    }
 }
 
-.article
+article
 {
     float:left;
     width: 98%;
-    padding: 1%;
+    padding: 1% 0 1% 0;
 
-    a.title-link
-    {
+    a {
+        color: gray;
         text-decoration: none;
-        color: black;
 
         &:hover
         {
@@ -42,10 +43,12 @@ div#new-article
         }
     }
 
-    h1, h2
+    a.title-link
     {
-        margin-top: 5px;
-        margin-bottom: 0;
+        text-decoration: none;
+        color: black;
+
+
     }
 
     h2
@@ -61,9 +64,15 @@ div#new-article
         }
     }
 
-    span.date
+    .date
     {
         font-size: 0.8em;
+        font-weight: bold;
+    }
+
+    span.tag
+    {
+        color: #ff8e00;
     }
 
     .brief, .content
@@ -72,14 +81,57 @@ div#new-article
         margin-bottom: 15px;
     }
 
-    .content
+    .content, .brief
     {
-        font: 14px 'helvetica',arial,sans-serif;
+        br {
+            margin-bottom: 20px;
+        }
+
+        font: 100%/1.4 Georgia,serif;
+
         line-height: 1.5em;
+
+        pre {
+            background: white;
+            border: solid black 1px;
+            padding: 10px;
+
+
+        }
     }
 }
 
-.articles .article:nth-child(2n+1)
+.item_input
 {
-    background: #e8e8e8;
+    label
+    {
+        display: block;
+    }
+    input.item_field
+    {
+        width: 80% !important;
+    }
+
+    .add-item-btn
+    {
+        clear: inherit !important;
+        float: inherit !important;
+    }
+}
+
+.buttons {
+
+    width: 98%;
+    clear: both;
+    margin: 15px 0;
+    float: left;
+
+    input[type="submit"]
+    {
+        float: right;
+    }
+}
+
+article pre br {
+    line-height: 1px;
 }

@@ -5,6 +5,15 @@ article:
   edit: "Muokkaa"
   created: "Artikkeli luotiin onnistuneesti"
   updated: "Artikkeli päivitettiin onnistuneesti"
+  save: "Tallenna"
+
+Title: "Otsikko"
+Brief: "Lyhyesti"
+Content: "Sisältö"
+Tags: "Tagit"
+
+document:
+  create_tag: "Luo tagi"
 
 menu:
     home: "Etusivu"

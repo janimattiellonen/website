@@ -21,13 +21,19 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    form:
+        resources:
+            - 'XiTagBundle:Form:tag-fields.html.twig'
+    globals:
+        domain:   %domain%
+
 
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
     # java: /usr/bin/java
-    bundles: ["JmeArticleBundle", "JmeMainBundle"]
+    bundles: ["JmeArticleBundle", "JmeMainBundle", "XiSelectorBundle", "XiTagBundle"]
     filters:
         cssrewrite: ~
         # closure:
@@ -85,3 +91,9 @@ stof_doctrine_extensions:
         default:
             timestampable: true
             sluggable:     true
+
+
+fpn_tag:
+    model:
+        tag_class:     Xi\Bundle\TagBundle\Entity\Tag
+        tagging_class: Xi\Bundle\TagBundle\Entity\Tagging

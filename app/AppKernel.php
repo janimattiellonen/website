@@ -9,8 +9,6 @@ class AppKernel extends Kernel
     {
         $bundles = array(
 
-            new \Jme\ArticleBundle\JmeArticleBundle(),
-            new \Jme\MainBundle\JmeMainBundle(),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -33,6 +31,15 @@ class AppKernel extends Kernel
             new Bazinga\ExposeTranslationBundle\BazingaExposeTranslationBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
+            new \FPN\TagBundle\FPNTagBundle(),
+
+            new \Jme\ArticleBundle\JmeArticleBundle(),
+            new \Jme\MainBundle\JmeMainBundle(),
+
+            new Xi\Bundle\AjaxBundle\XiAjaxBundle(),
+            new Xi\Bundle\DialogBundle\XiDialogBundle(),
+            new Xi\Bundle\SelectorBundle\XiSelectorBundle(),
+            new Xi\Bundle\TagBundle\XiTagBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
