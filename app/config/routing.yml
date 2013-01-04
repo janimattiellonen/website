@@ -34,3 +34,9 @@ XiTagBundle:
     resource: "@XiTagBundle/Resources/config/routing.yml"
     prefix:   /
 
+fos_comment_api:
+    type: rest
+    resource: "@JmeCommentBundle/Resources/config/routing.yml"
+    prefix: /comments-api
+    defaults: { _format: html }
+

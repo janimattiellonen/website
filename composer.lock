@@ -1,5 +1,5 @@
 {
-    "hash": "95b1bddfe768987a65586b6613b78f73",
+    "hash": "e55e25d07a549b93556812ed526a411e",
     "packages": [
         {
             "name": "beberlei/DoctrineExtensions",
@@ -221,12 +221,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/doctrine/DoctrineBundle.git",
-                "reference": "2991d0dfa58a5583d9231c490750e29c45b0a6e9"
+                "reference": "f1ddf3753bb274df72765edd92807af29730d890"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/DoctrineBundle/archive/2991d0dfa58a5583d9231c490750e29c45b0a6e9.zip",
-                "reference": "2991d0dfa58a5583d9231c490750e29c45b0a6e9",
+                "url": "https://github.com/doctrine/DoctrineBundle/archive/f1ddf3753bb274df72765edd92807af29730d890.zip",
+                "reference": "f1ddf3753bb274df72765edd92807af29730d890",
                 "shasum": ""
             },
             "require": {
@@ -244,7 +244,7 @@
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
             },
-            "time": "2012-12-11 09:53:45",
+            "time": "2013-01-02 10:22:46",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -615,12 +615,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSCommentBundle.git",
-                "reference": "0ed628a8bf27d164c2e3c5aa1b9a749d5e1ae8c4"
+                "reference": "20985e706e41063f81adf02ba64d8fcce0b1dc31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/FriendsOfSymfony/FOSCommentBundle/archive/0ed628a8bf27d164c2e3c5aa1b9a749d5e1ae8c4.zip",
-                "reference": "0ed628a8bf27d164c2e3c5aa1b9a749d5e1ae8c4",
+                "url": "https://github.com/FriendsOfSymfony/FOSCommentBundle/archive/20985e706e41063f81adf02ba64d8fcce0b1dc31.zip",
+                "reference": "20985e706e41063f81adf02ba64d8fcce0b1dc31",
                 "shasum": ""
             },
             "require": {
@@ -644,7 +644,7 @@
                 "friendsofsymfony/user-bundle": "Allows for user integration.",
                 "ornicar/akismet-bundle": "Integrate Akismet for spamdetection."
             },
-            "time": "2012-12-28 11:24:06",
+            "time": "2013-01-02 16:12:47",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -807,12 +807,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle",
-                "reference": "401434d6c0ee395e91aebd42caf353d001bed282"
+                "reference": "7bbdf238f3b3e228a2b5a01d2619c73d43aa053d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle/archive/401434d6c0ee395e91aebd42caf353d001bed282.zip",
-                "reference": "401434d6c0ee395e91aebd42caf353d001bed282",
+                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle/archive/7bbdf238f3b3e228a2b5a01d2619c73d43aa053d.zip",
+                "reference": "7bbdf238f3b3e228a2b5a01d2619c73d43aa053d",
                 "shasum": ""
             },
             "require": {
@@ -833,7 +833,7 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/mongodb-odm-bundle": "*"
             },
-            "time": "2012-12-28 16:42:49",
+            "time": "2013-01-03 13:36:05",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -877,12 +877,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "0cc2f18585020877c8f6b4f02bb90494ab9b2dba"
+                "reference": "v2.3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/l3pp4rd/DoctrineExtensions/archive/0cc2f18585020877c8f6b4f02bb90494ab9b2dba.zip",
-                "reference": "0cc2f18585020877c8f6b4f02bb90494ab9b2dba",
+                "url": "https://github.com/l3pp4rd/DoctrineExtensions/archive/v2.3.3.zip",
+                "reference": "v2.3.3",
                 "shasum": ""
             },
             "require": {
@@ -946,18 +946,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/jdorn/sql-formatter.git",
-                "reference": "9aac5ea51a1c13af3e67a7d7ba7e528f94c52485"
+                "reference": "7cc05be93fc352be9c551bf5a45c7b930f5d9e2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jdorn/sql-formatter/archive/9aac5ea51a1c13af3e67a7d7ba7e528f94c52485.zip",
-                "reference": "9aac5ea51a1c13af3e67a7d7ba7e528f94c52485",
+                "url": "https://github.com/jdorn/sql-formatter/archive/7cc05be93fc352be9c551bf5a45c7b930f5d9e2a.zip",
+                "reference": "7cc05be93fc352be9c551bf5a45c7b930f5d9e2a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-12-27 16:16:30",
+            "time": "2012-12-29 19:41:32",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1503,12 +1503,12 @@
             "source": {
                 "type": "git",
                 "url": "http://github.com/kriswallsmith/assetic.git",
-                "reference": "8ca1861fbed58e2c6ffcca5c0a1726c40a10a77c"
+                "reference": "054ff76c4cc812c5a5d7e36af6d076ee8294ab7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/kriswallsmith/assetic/archive/8ca1861fbed58e2c6ffcca5c0a1726c40a10a77c.zip",
-                "reference": "8ca1861fbed58e2c6ffcca5c0a1726c40a10a77c",
+                "url": "https://github.com/kriswallsmith/assetic/archive/054ff76c4cc812c5a5d7e36af6d076ee8294ab7e.zip",
+                "reference": "054ff76c4cc812c5a5d7e36af6d076ee8294ab7e",
                 "shasum": ""
             },
             "require": {
@@ -1529,7 +1529,7 @@
                 "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
                 "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin"
             },
-            "time": "2012-12-14 18:31:26",
+            "time": "2013-01-02 10:14:46",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1974,12 +1974,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/AsseticBundle",
-                "reference": "bd91880b53f86689f6638c9a28b8cc17792896e2"
+                "reference": "ee63ac8a700c75ca5daac908512cad8db4a08f1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/AsseticBundle/archive/bd91880b53f86689f6638c9a28b8cc17792896e2.zip",
-                "reference": "bd91880b53f86689f6638c9a28b8cc17792896e2",
+                "url": "https://github.com/symfony/AsseticBundle/archive/ee63ac8a700c75ca5daac908512cad8db4a08f1a.zip",
+                "reference": "ee63ac8a700c75ca5daac908512cad8db4a08f1a",
                 "shasum": ""
             },
             "require": {
@@ -1999,7 +1999,7 @@
             "suggest": {
                 "symfony/twig-bundle": ">=2.1.0,<2.3-dev"
             },
-            "time": "2012-12-14 18:38:42",
+            "time": "2012-12-31 12:59:19",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {

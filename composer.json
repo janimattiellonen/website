@@ -38,7 +38,7 @@
         "stfalcon/tinymce-bundle": "dev-master",
         "zendframework/zendframework": "2.0.0rc3",
         "besimple/i18n-routing-bundle": "2.1.*@dev",
-
+        "friendsofsymfony/comment-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "v1.1.0",
         "doctrine/doctrine-migrations-bundle": "dev-master",
 
@@ -48,7 +48,8 @@
         "xi/selector-bundle": "dev-master",
         "xi/tag-bundle": "dev-master",
         "xi/article-bundle": "dev-master",
-        "xi/search-bundle": "dev-master"
+        "xi/search-bundle": "dev-master",
+        "twig/extension": "1.0.x-dev"
     },
     "scripts": {
         "post-install-cmd": [
