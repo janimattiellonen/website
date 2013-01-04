@@ -9,7 +9,7 @@ class App.RemoveDialog
 
     createDialog: ->
         if($(@id).length == 0)
-            $dialog = $('<div></div>').attr({id: @id, title: ExposeTranslation.get('item.remove')})
+            $dialog = $('<div></div>').attr({id: @id, title: Translator.get('item.remove')})
             $('body').append($dialog);
         else
             $dialog = $(@id);
@@ -24,13 +24,13 @@ class App.RemoveDialog
 
             buttons: [
                 {
-                    text: ExposeTranslation.get("yes"),
+                    text: Translator.get("yes"),
                     click: ->
                         window.location.href = $(ff).attr "href"
                         $(this).dialog("close")
                 },
                 {
-                    text: ExposeTranslation.get("no"),
+                    text: Translator.get("no"),
                     click: ->
                         $(this).dialog("close")
                 }
