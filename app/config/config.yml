@@ -29,12 +29,16 @@ twig:
         domain:   %domain%
 
 
+sensio_framework_extra:
+    view:    { annotations: false }
+    router:  { annotations: true }
+
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
     # java: /usr/bin/java
-    bundles: ["JmeArticleBundle", "JmeMainBundle", "XiSelectorBundle", "XiTagBundle"]
+    bundles: ["JmeArticleBundle", "JmeMainBundle", "JmeCommentBundle", "XiSelectorBundle", "XiTagBundle", "FOSCommentBundle"]
     filters:
         cssrewrite: ~
         # closure:
@@ -84,6 +88,41 @@ fos_user:
     firewall_name: main
     user_class: Jme\MainBundle\Entity\User
 
+
+fos_comment:
+    acl: true
+    service:
+        acl:
+            thread:  fos_comment.acl.thread.roles
+            comment: fos_comment.acl.comment.roles
+            vote:    fos_comment.acl.vote.roles
+        manager:
+            thread:  fos_comment.manager.thread.acl
+            comment: fos_comment.manager.comment.acl
+            vote:    fos_comment.manager.vote.acl
+    acl_roles:
+        comment:
+            create: IS_AUTHENTICATED_ANONYMOUSLY
+            view: IS_AUTHENTICATED_ANONYMOUSLY
+            edit: ROLE_ADMIN
+            delete: ROLE_ADMIN
+        thread:
+            create: IS_AUTHENTICATED_ANONYMOUSLY
+            view: IS_AUTHENTICATED_ANONYMOUSLY
+            edit: ROLE_ADMIN
+            delete: ROLE_ADMIN
+        vote:
+            create: IS_AUTHENTICATED_ANONYMOUSLY
+            view: IS_AUTHENTICATED_ANONYMOUSLY
+            edit: ROLE_ADMIN
+            delete: ROLE_ADMIN
+
+
+    db_driver: orm
+    class:
+        model:
+            comment: Jme\CommentBundle\Entity\Comment
+            thread: Jme\CommentBundle\Entity\Thread
 
 
 stof_doctrine_extensions:

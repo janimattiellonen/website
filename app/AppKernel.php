@@ -30,11 +30,14 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Bazinga\ExposeTranslationBundle\BazingaExposeTranslationBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
 
+            new FOS\CommentBundle\FOSCommentBundle(),
             new \FPN\TagBundle\FPNTagBundle(),
 
-            new \Jme\ArticleBundle\JmeArticleBundle(),
             new \Jme\MainBundle\JmeMainBundle(),
+            new \Jme\ArticleBundle\JmeArticleBundle(),
+            new \Jme\CommentBundle\JmeCommentBundle(),
 
             new Xi\Bundle\AjaxBundle\XiAjaxBundle(),
             new Xi\Bundle\DialogBundle\XiDialogBundle(),

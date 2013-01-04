@@ -1,0 +1,4 @@
+jme_comment_thread_api:
+    type: rest
+    resource: Jme\CommentBundle\Controller\ThreadController
+    name_prefix: fos_comment_
