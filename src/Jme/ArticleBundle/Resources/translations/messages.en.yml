@@ -1,0 +1,22 @@
+article:
+  remove: "Remove"
+  new: "New article"
+  update: "Edit article"
+  edit: "Edit"
+  created: "The article was created successfully"
+  updated: "The article was updated successfully"
+  save: "Save"
+
+Title: "Title"
+Brief: "Brief"
+Content: "Content"
+Tags: "Tags"
+
+document:
+  create_tag: "Create tag"
+
+menu:
+    home: "Frontpage"
+    article:
+        new: "New article"
+        logout: "Logout"
