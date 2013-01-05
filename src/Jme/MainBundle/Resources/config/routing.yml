@@ -1,6 +1,6 @@
 JmeMainBundle_default:
       pattern: /
-      defaults:  { _controller: JmeMainBundle:Default:index}
+      defaults:  { _controller: JmeArticleBundle:Default:latest}
 
 JmeMainBundle_homepage:
       locales:   { fi: /fi, en: /en }
