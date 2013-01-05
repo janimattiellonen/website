@@ -1,18 +1,18 @@
 JmeMainBundle_default:
       pattern: /
-      defaults:  { _controller: JmeMainBundle:Default:index, _locale: fi }
+      defaults:  { _controller: JmeMainBundle:Default:index}
 
 JmeMainBundle_homepage:
       locales:   { fi: /fi, en: /en }
-      defaults:  { _controller: JmeMainBundle:Default:index, _locale: fi }
+      defaults:  { _controller: JmeMainBundle:Default:index}
 
 login_check:
     pattern: /login_check
 
 login_success:
     pattern: /login_success
-    defaults:  { _controller: JmeMainBundle:Default:index, _locale: fi }
+    defaults:  { _controller: JmeMainBundle:Default:index}
 
 jme_login:
-    pattern:   /login
+    locales: {fi: /kirjaudu, en: /login}
     defaults:  { _controller: JmeMainBundle:Security:login }
