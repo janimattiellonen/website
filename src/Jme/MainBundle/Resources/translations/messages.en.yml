@@ -1,0 +1,11 @@
+item:
+    remove: "Do you really want to remove this?"
+yes: "Yes"
+no: "No"
+
+login:
+    username: "Username"
+    password: "Password"
+    login: "Login"
+
+"Bad credentials": "Incorrect username / password"
