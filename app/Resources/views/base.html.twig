@@ -19,6 +19,8 @@
     <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
     {% endstylesheets %}
 
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+
     <script>
 
         var App = App || {};
@@ -27,9 +29,7 @@
         var url_tagAddSource = '{{ url('xi_tag_add') }}';
 
     </script>
-
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-
+    
     <script type="text/javascript" src="{{ asset('bundles/bazingaexposetranslation/js/translator.min.js') }}"></script>
     <script type="text/javascript" src="{{ url('bazinga_exposetranslation_js') }}"></script>
 </head>
