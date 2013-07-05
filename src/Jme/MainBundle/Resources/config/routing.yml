@@ -10,6 +10,10 @@ JmeMainBundle_projects:
       locales:   { fi: /projektit, en: /projects }
       defaults:  { _controller: JmeMainBundle:Default:projects}
 
+JmeMainBundle_about:
+      locales:   { fi: /tiedot, en: /about }
+      defaults:  { _controller: JmeMainBundle:Default:about}
+
 login_check:
     pattern: /login_check
 
