@@ -9,3 +9,9 @@ login:
     login: "Kirjaudu sisään"
 
 "Bad credentials": "Epäkelpo käyttäjätunnus tai salasana"
+
+menu:
+    home: "Etusivu"
+    article:
+        new: "Uusi artikkeli"
+        logout: "Kirjaudu ulos"

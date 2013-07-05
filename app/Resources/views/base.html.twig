@@ -14,6 +14,7 @@
             '@JmeMainBundle/Resources/css/highlight.js/zenburn.css'
             '@JmeMainBundle/Resources/less/main.less'
             '@JmeCommentBundle/Resources/less/comment.less'
+            '@JmeArticleBundle/Resources/less/article.less'
     %}
 
     <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
@@ -35,17 +36,19 @@
 </head>
 <body>
 
-<nav>{{ knp_menu_render('main') }}</nav>
-
     {{ jme_flash() }}
 
     <div id="wrapper">
-        {% block content %}{% endblock %}
+        <nav>
+            {{ knp_menu_render('main') }}
+            {% include 'JmeArticleBundle:Default:some.html.twig' %}
+        </nav>
+
+        <div id="main">{% block content %}{% endblock %}</div>
     </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-
 
     {% javascripts output="/js/main.js" filter="?yui_js"
         '@XiAjaxBundle/Resources/assets/js/jquery.form.js'
@@ -60,8 +63,6 @@
         '@XiSelectorBundle/Resources/coffee/Selector.coffee'
         '@JmeArticleBundle/Resources/coffee/article.coffee'
     %}
-
-
 
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}

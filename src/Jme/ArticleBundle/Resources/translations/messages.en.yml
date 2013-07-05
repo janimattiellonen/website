@@ -14,9 +14,3 @@ Tags: "Tags"
 
 document:
   create_tag: "Create tag"
-
-menu:
-    home: "Frontpage"
-    article:
-        new: "New article"
-        logout: "Logout"

@@ -8,34 +8,32 @@ body
     float: left;
     background: white url("/images/debut_light2.png");
     width: 92%;
-    padding: 0 4% 0 4%;
+    padding: 0 2% 0 2%;
 }
 
 nav
 {
-
     float: left;
-    width: 100%;
-
-    background: #525252 url("/images/debut_dark3.jpg");
+    width: 12%;
+    margin-left: 0;
+    margin-right: 15px;
 
     ul
     {
         margin-left: 0;
-        padding: 0;
+        padding-left: 0;
 
+        border-right: solid black 1px;
 
         li
         {
-            display: inline;
-            margin-right: 10px;
+            margin-bottom: 5px;
 
             a
             {
+                padding: 5px;
                 text-decoration: none;
                 color: black;
-                background: white;
-                padding: 10px;
 
                 &:hover
                 {
@@ -46,16 +44,35 @@ nav
 
             &.current a
             {
-                border-bottom: solid orange 2px;
-                border-top: solid orange 2px;
-            }
 
-            &.last
-            {
-                float: right;
             }
         }
     }
+
+    ul#some {
+        border: none;
+
+        li {
+            display: inline;
+
+            img {
+                width: 15px;
+                height: 15px;
+            }
+
+            a {
+                &:hover
+                {
+                    background: none;
+                }
+            }
+        }
+    }
+}
+
+#main {
+    width: 85%;
+    float: left;
 }
 
 @media screen and (max-width: 470px) {
@@ -201,4 +218,37 @@ div#login-box
   float: right;
   margin-left: 4px;
   margin-top: 0;
+}
+
+div.projects {
+
+
+    div.project {
+        display: table;
+        margin-bottom: 30px;
+
+        .row {
+            display: table-row;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            width: 22%;
+        }
+
+        .title, .description {
+            display: table-cell;
+        }
+
+        .description {
+            ul {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    margin: 0 0 0 14px;
+                }
+            }
+        }
+    }
 }

@@ -14,9 +14,3 @@ Tags: "Tagit"
 
 document:
   create_tag: "Luo tagi"
-
-menu:
-    home: "Etusivu"
-    article:
-        new: "Uusi artikkeli"
-        logout: "Kirjaudu ulos"

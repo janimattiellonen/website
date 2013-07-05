@@ -9,3 +9,13 @@ login:
     login: "Login"
 
 "Bad credentials": "Incorrect username / password"
+
+menu:
+    home:     "Frontpage"
+    logout:   "Logout"
+    about:    "About"
+    cv:       "Cv"
+    projects: "Projects"
+    article:
+        new: "New article"
+        logout:   "Log out"

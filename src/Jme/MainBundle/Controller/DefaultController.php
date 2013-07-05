@@ -11,4 +11,9 @@ class DefaultController extends Controller
     {
         return $this->render('JmeMainBundle:Default:index.html.twig');
     }
+
+    public function projectsAction()
+    {
+        return $this->render('JmeMainBundle:Default:projects.html.twig');
+    }
 }

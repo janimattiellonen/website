@@ -6,6 +6,10 @@ JmeMainBundle_homepage:
       locales:   { fi: /fi, en: /en }
       defaults:  { _controller: JmeMainBundle:Default:index}
 
+JmeMainBundle_projects:
+      locales:   { fi: /projektit, en: /projects }
+      defaults:  { _controller: JmeMainBundle:Default:projects}
+
 login_check:
     pattern: /login_check
 

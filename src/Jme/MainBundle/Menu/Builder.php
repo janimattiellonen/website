@@ -46,15 +46,14 @@ class Builder extends ContainerAware
         $menu->setCurrentUri($request->getRequestUri() );
 
         $menu->addChild($this->translator->trans('menu.home'), array('route' => 'jme_article_latest') );
+        $menu->addChild($this->translator->trans('menu.about'), array('route' => 'jme_article_latest') );
+        $menu->addChild($this->translator->trans('menu.projects'), array('route' => 'JmeMainBundle_projects') );
+        $menu->addChild($this->translator->trans('menu.cv'), array('route' => 'jme_article_latest') );
 
         if($this->securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
         {
             $menu->addChild($this->translator->trans('menu.article.new'), array('route' => 'jme_article_new') );
             $menu->addChild($this->translator->trans('menu.article.logout'), array('route' => 'fos_user_security_logout') );
-        }
-        else
-        {
-            $menu->addChild($this->translator->trans('login.login'), array('route' => 'jme_login') );
         }
 
         return $menu;

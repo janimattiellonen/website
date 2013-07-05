@@ -3,15 +3,3 @@
 {% block container %}
     {% block content %}{% endblock %}
 {% endblock %}
-
-{% block stylesheets %}
-{{ parent() }}
-
-{% stylesheets filter='less' output='/css/main.css' '@JmeMainBundle/Resources/less/main.less' %}
-<link href="{{ asset_url }}" rel="stylesheet" media="screen" />
-{% endstylesheets %}
-
-{% block printStylesheets %}
-{% endblock %}
-
-{% endblock %}
