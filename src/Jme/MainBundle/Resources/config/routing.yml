@@ -16,3 +16,7 @@ login_success:
 jme_login:
     locales: {fi: /kirjaudu, en: /login}
     defaults:  { _controller: JmeMainBundle:Security:login }
+
+jme_dialog_delete:
+    locales: {en: /en/dialog/delete, fi: /fi/dialog/poista}
+    defaults: {_controller: XiDialogBundle:Dialog:delete}

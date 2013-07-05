@@ -1,6 +1,5 @@
 $('document').ready ->
 
-
     selected = []
     $('.tag_item_selector .item ul li').each (i) ->
         val = $(this).attr 'data-id'
@@ -33,3 +32,12 @@ $('document').ready ->
     tagComplete.bind()
 
     window.ttkTagComplete = tagComplete
+
+    new App.AjaxElement.Default '.ajax-link', null, [ new App.ElementErrorizer.Default('errorized-element', 0 , -20)]
+
+    new App.ConfirmDialog('.confirm-dialog', {
+    width: 720,
+    position: [null, 100]
+    headerAttribute: 'header'
+    refreshDialogOnOpening: true
+    }, null)

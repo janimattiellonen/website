@@ -220,7 +220,7 @@ class Article implements Taggable
      */
     public function hasTag(Tag $tag)
     {
-        return $this->tags->contains($tag);
+        return $this->getTags()->contains($tag);
     }
 
     /**
