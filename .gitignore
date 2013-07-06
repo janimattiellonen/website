@@ -13,3 +13,4 @@ node_modules
 /web/css/!jquery-ui
 /web/js/*
 /web/.htaccess
+/bin/*

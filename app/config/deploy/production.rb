@@ -8,7 +8,7 @@ set :branch, fetch(:branch, "master")
 set :domain,      "janimattiellonen.com"
 set :deploy_to,   "/var/www/vhosts/janimattiellonen.com/website/cap"
 
-set :user, 'capistrano'
+set :user, 'root'
 set :use_sudo, false
 
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa-capistrano")]

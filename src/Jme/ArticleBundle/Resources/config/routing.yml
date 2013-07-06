@@ -1,35 +1,33 @@
 
 jme_article_latest:
-    locales:   { fi: /fi, en: /en }
+    pattern: /
     defaults: { _controller: JmeArticleBundle:Default:latest }
 
 jme_article_new:
-    locales:   { fi: "/fi/artikkeli/uusi", en: "/en/article/new" }
+    pattern: "/article/new"
     defaults: { _controller: JmeArticleBundle:Default:new }
 
 jme_article_create:
-    locales:   { fi: "/fi/artikkeli/luo", en: "/en/article/create" }
+    pattern: "/article/new"
     defaults: { _controller: JmeArticleBundle:Default:create }
     requirements: {_method: post}
 
 jme_article_edit:
-    locales:   { fi: "/fi/artikkeli/muokkaa/{article}", en: "/en/article/edit/{article}" }
+    pattern: "/article/edit/{article}"
     defaults: { _controller: JmeArticleBundle:Default:edit }
     requirements: {_method: get, article:  \d+}
 
 jme_article_update:
-    locales:   { fi: "/fi/artikkeli/paivita/{article}", en: "/en/article/update/{article}" }
+    pattern: "/article/update/{article}"
     defaults: { _controller: JmeArticleBundle:Default:update }
     requirements: {_method: post, article:  \d+}
 
-
-
 jme_article_view:
-    locales:   { fi: "/fi/artikkeli/{article}", en: "/en/article/{article}" }
+    pattern: "/article/{article}"
     defaults: { _controller: JmeArticleBundle:Default:view }
     requirements: { _method: get, article:  \d+ }
 
 jme_article_remove:
-    locales:   { fi: "/fi/artikkeli/poista/{article}", en: "/en/article/remove/{article}" }
+    pattern: "/article/remove/{article}"
     defaults: { _controller: JmeArticleBundle:Default:remove }
     requirements: { _method: get, article:  \d+ }
