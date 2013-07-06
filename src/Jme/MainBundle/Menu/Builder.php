@@ -48,7 +48,6 @@ class Builder extends ContainerAware
         $menu->addChild($this->translator->trans('menu.home'), array('route' => 'jme_article_latest') );
         $menu->addChild($this->translator->trans('menu.about'), array('route' => 'JmeMainBundle_about') );
         $menu->addChild($this->translator->trans('menu.projects'), array('route' => 'JmeMainBundle_projects') );
-        $menu->addChild($this->translator->trans('menu.cv'), array('route' => 'jme_article_latest') );
 
         if($this->securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
         {
