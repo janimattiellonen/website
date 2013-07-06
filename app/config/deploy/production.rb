@@ -8,7 +8,7 @@ set :branch, fetch(:branch, "master")
 set :domain,      "janimattiellonen.com"
 set :deploy_to,   "/var/www/vhosts/janimattiellonen.com/website/cap"
 
-set :user, 'root'
+set :user, 'capistrano'
 set :use_sudo, false
 
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa-capistrano")]
@@ -29,5 +29,6 @@ after "deploy:finalize_update" do
   run "chown -R capistrano:www-data #{latest_release}/#{cache_path}"
   run "chown -R capistrano:www-data #{latest_release}/#{log_path}"
   run "chown -R capistrano:www-data #{latest_release}"
+  run "chown -R capistrano:www-data #{latest_release}/../../current"
   run "chmod -R 775 #{latest_release}/#{cache_path}"
 end
