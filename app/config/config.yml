@@ -14,7 +14,6 @@ framework:
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'], assets_version: 1337 }
     default_locale:  %locale%
-    trust_proxy_headers: false # Should Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
     trusted_proxies: ~
     session:         ~
 
@@ -71,8 +70,6 @@ doctrine:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
 
-
-
 # Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%
@@ -80,8 +77,6 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
-
-be_simple_i18n_routing: ~
 
 fos_user:
     db_driver: orm
