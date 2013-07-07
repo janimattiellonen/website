@@ -2,16 +2,12 @@ JmeMainBundle_default:
       pattern: /
       defaults:  { _controller: JmeArticleBundle:Default:latest}
 
-JmeMainBundle_homepage:
-      locales:   { fi: /fi, en: /en }
-      defaults:  { _controller: JmeMainBundle:Default:index}
-
 JmeMainBundle_projects:
-      locales:   { fi: /projektit, en: /projects }
+      pattern: "/projects"
       defaults:  { _controller: JmeMainBundle:Default:projects}
 
 JmeMainBundle_about:
-      locales:   { fi: /tiedot, en: /about }
+      pattern: "/about"
       defaults:  { _controller: JmeMainBundle:Default:about}
 
 login_check:
@@ -22,9 +18,9 @@ login_success:
     defaults:  { _controller: JmeMainBundle:Default:index}
 
 jme_login:
-    locales: {fi: /kirjaudu, en: /login}
+    pattern: "/login"
     defaults:  { _controller: JmeMainBundle:Security:login }
 
 jme_dialog_delete:
-    locales: {en: /en/dialog/delete, fi: /fi/dialog/poista}
+    pattern: "/dialog/delete"
     defaults: {_controller: XiDialogBundle:Dialog:delete}

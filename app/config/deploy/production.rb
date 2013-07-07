@@ -29,5 +29,6 @@ after "deploy:finalize_update" do
   run "chown -R capistrano:www-data #{latest_release}/#{cache_path}"
   run "chown -R capistrano:www-data #{latest_release}/#{log_path}"
   run "chown -R capistrano:www-data #{latest_release}"
+  run "chown -R capistrano:www-data #{latest_release}/../../current"
   run "chmod -R 775 #{latest_release}/#{cache_path}"
 end
