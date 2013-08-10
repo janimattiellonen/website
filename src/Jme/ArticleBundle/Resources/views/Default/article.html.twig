@@ -3,7 +3,7 @@
     {% if listMode == false %}
         <h1>{{article.title}}</h1>
     {% else %}
-        <a class="title-link" href="{{ path('jme_article_view', {article: article.id}) }}"><h1>{{article.title}}</h1></a>
+        <a class="title-link" href="{{ path('jme_article_view', {article: article.slug}) }}"><h1>{{article.title}}</h1></a>
     {% endif %}
 
     <p class="date">{{article.created|date('F n, Y H:i')}} {{ jme_tags(article) }}</p>

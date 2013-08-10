@@ -74,6 +74,7 @@ class ArticleService extends AbstractTaggableService
         try
         {
             return $this->em->transactional(function(EntityManager $em) use($article, $self) {
+                $article->setSlug(null);
                 $em->persist($article);
                 $em->flush();
 
@@ -97,10 +98,13 @@ class ArticleService extends AbstractTaggableService
      */
     public function getArticle($id)
     {
-        $article = $this->articleRepository->find($id);
+        if (ctype_digit($id)) {
+            $article = $this->articleRepository->find($id);
+        } else {
+            $article = $this->articleRepository->findOneBy(array('slug' => $id));
+        }
 
-        if(null === $article)
-        {
+        if (null === $article) {
             throw new ArticleNotFoundException();
         }
 
@@ -118,8 +122,7 @@ class ArticleService extends AbstractTaggableService
     {
         $articles = $this->articleRepository->fetchLatestArticles($amount);
 
-        foreach($articles as &$article)
-        {
+        foreach ($articles as &$article) {
             $this->getTagService()->getTagManager()->loadTagging($article);
         }
 

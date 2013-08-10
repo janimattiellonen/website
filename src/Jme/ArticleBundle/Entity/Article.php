@@ -1,14 +1,14 @@
 <?php
 namespace Jme\ArticleBundle\Entity;
 
-use \DateTime,
-    Symfony\Component\Validator\Constraints as Assert,
-    Doctrine\ORM\Mapping as ORM,
-    Symfony\Bridge\Doctrine\Validator\Constraints AS DoctrineAssert,
-    Gedmo\Mapping\Annotation as Gedmo,
-    Xi\Bundle\TagBundle\Entity\Tag,
-    Doctrine\Common\Collections\ArrayCollection,
-    DoctrineExtensions\Taggable\Taggable;
+use \DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints AS DoctrineAssert;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Xi\Bundle\TagBundle\Entity\Tag;
+use Doctrine\Common\Collections\ArrayCollection;
+use DoctrineExtensions\Taggable\Taggable;
 
 /**
  * @ORM\Entity
@@ -93,6 +93,12 @@ class Article implements Taggable
      * @var ArrayCollection
      */
     protected $tags;
+
+    /**
+     * @Gedmo\Slug(fields={"title"}, unique=false, updatable=true)
+     * @ORM\Column(length=128, unique=false)
+     */
+    protected $slug;
 
     public function __construct()
     {
@@ -232,5 +238,24 @@ class Article implements Taggable
         $this->tags = $tags;
 
         return $this;
+    }
+
+    /**
+     * @param $slug
+     * @return Article
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
