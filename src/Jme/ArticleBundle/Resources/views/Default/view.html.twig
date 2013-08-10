@@ -4,8 +4,6 @@
 
     {% include 'JmeArticleBundle:Default:article.html.twig' with {article: article, listMode: false} %}
 
-    {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'article-' ~ article.id} %}
-
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

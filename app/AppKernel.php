@@ -31,12 +31,10 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new FOS\RestBundle\FOSRestBundle(),
 
-            new FOS\CommentBundle\FOSCommentBundle(),
             new \FPN\TagBundle\FPNTagBundle(),
 
             new \Jme\MainBundle\JmeMainBundle(),
             new \Jme\ArticleBundle\JmeArticleBundle(),
-            new \Jme\CommentBundle\JmeCommentBundle(),
 
             new Xi\Bundle\AjaxBundle\XiAjaxBundle(),
             new Xi\Bundle\DialogBundle\XiDialogBundle(),
