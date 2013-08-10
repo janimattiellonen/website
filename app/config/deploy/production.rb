@@ -17,7 +17,7 @@ role :web, domain                        # Your HTTP server, Apache/etc
 role :app, domain                        # This may be the same as your `Web` server
 role :db, domain, :primary => true       # This is where Rails migrations will run
 
-set :keep_releases,  3
+#set :keep_releases,  3
 
 set :shared_files, ["app/config/parameters.yml", web_path + "/.htaccess"]
 set :shared_children, [app_path + "/logs", "node_modules", web_path + "/files"]

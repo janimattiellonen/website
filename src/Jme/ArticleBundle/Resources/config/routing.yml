@@ -8,7 +8,7 @@ jme_article_new:
     defaults: { _controller: JmeArticleBundle:Default:new }
 
 jme_article_create:
-    pattern: "/article/new"
+    pattern: "/article/create"
     defaults: { _controller: JmeArticleBundle:Default:create }
     requirements: {_method: post}
 

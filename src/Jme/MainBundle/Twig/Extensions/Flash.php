@@ -73,15 +73,15 @@ class Flash extends Twig_Extension
      */
     protected function getSetFlashType()
     {
-        if($this->session->hasFlash(self::TYPE_ERROR) )
+        if($this->session->getFlashBag()->has(self::TYPE_ERROR) )
         {
             return self::TYPE_ERROR;
         }
-        else if($this->session->hasFlash(self::TYPE_WARNING) )
+        else if($this->session->getFlashBag()->has(self::TYPE_WARNING) )
         {
             return self::TYPE_WARNING;
         }
-        else if($this->session->hasFlash(self::TYPE_NOTICE) )
+        else if($this->session->getFlashBag()->has(self::TYPE_NOTICE) )
         {
             return self::TYPE_NOTICE;
         }

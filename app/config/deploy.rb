@@ -5,7 +5,7 @@ set :stages, %w(production)
 set :repository,  "git@github.com:janimattiellonen/website.git"
 set :scm,         :git
 
-set  :keep_releases,  3
+#set  :keep_releases,  3
 
 set :application, "Janimattiellonen-website"
 
@@ -52,7 +52,7 @@ before "symfony:assetic:dump" do
   symfony.assets.update_version
 end
 
-after "deploy:update", "deploy:cleanup"
+#after "deploy:update", "deploy:cleanup"
 
 after "deploy:update" do
     #jme.js_routes.dump_js_routes
