@@ -258,4 +258,14 @@ class Article implements Taggable
     {
         return $this->slug;
     }
+
+    /**
+     * @return string
+     */
+    public function getUrlId()
+    {
+        $slug = $this->getSlug();
+
+        return strlen($slug) > 0 ? $slug : $this->getId();
+    }
 }
