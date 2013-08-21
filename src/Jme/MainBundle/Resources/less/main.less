@@ -14,7 +14,7 @@ body
 nav
 {
     float: left;
-    width: 12%;
+    width: auto;
     margin-left: 0;
     margin-right: 15px;
 
@@ -23,7 +23,6 @@ nav
         margin-left: 0;
         padding-left: 0;
 
-        border-right: solid black 1px;
 
         li
         {
@@ -75,24 +74,55 @@ nav
     float: left;
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 814px) {
 
-
-    nav ul li, nav ul li.last{
-        display: block;
-        margin-bottom: 26px;
+    nav {
         width: 100%;
-        float: left;
+
+        ul {
+            width: 67%;
+            float: left;
+
+            &#some {
+                float: right;
+                text-align: right;
+                width: 30%;
+            }
+
+            li {
+                display: inline;
+                padding-right: 15px;
+            }
+        }
     }
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 470px) {
 
+    nav ul li, nav ul li.last{
+        display: inline;
+        margin-bottom: 7px;
+        float: left;
+    }
+
+    nav ul#some li {
+        display: inline;
+        width: auto;
+    }
+}
+
+
+
+
+@media screen and (max-width: 300px) {
 
     nav ul li {
         font-size: 0.6em;
     }
 }
+
+
+
 
 div.flash-wrapper
 {
