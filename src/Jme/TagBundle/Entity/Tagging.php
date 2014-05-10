@@ -8,8 +8,8 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * Acme\TagBundle\Entity\Tagging
  *
- * @ORM\Table(uniqueConstraints={@UniqueConstraint(name="tagging_idx", columns={"tag_id", "resource_type", "resource_id"})})
- * @ORM\Entity
+ * @ORM\Table(name="tagging", uniqueConstraints={@UniqueConstraint(name="tagging_idx", columns={"tag_id", "resource_type", "resource_id"})})
+ * @ORM\Entity()
  */
 class Tagging extends BaseTagging
 {

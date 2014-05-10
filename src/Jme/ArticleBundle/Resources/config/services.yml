@@ -10,7 +10,7 @@ services:
 
     jme_article.service.article:
         class:     Jme\ArticleBundle\Service\ArticleService
-        arguments: ["@doctrine.orm.entity_manager", "@jme_article.repository.article", "@service_container"]
+        arguments: ["@doctrine.orm.entity_manager", "@jme_article.repository.article", "@fpn_tag.tag_manager"]
 
     article.twig.extension:
         class: Jme\ArticleBundle\Twig\Extensions\ArticleControls
@@ -24,10 +24,8 @@ services:
         tags:
             - {name: twig.extension}
 
-
     tags.twig.extension:
         class: Jme\ArticleBundle\Twig\Extensions\Tags
         arguments: ["@twig"]
         tags:
             - {name: twig.extension}
-

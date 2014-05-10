@@ -6,6 +6,8 @@ use Doctrine\ORM\EntityManager;
 
 use \Exception;
 
+use FPN\TagBundle\Entity\TagManager;
+
 use Jme\ArticleBundle\Service\Exception\ArticleNotSavedException;
 use Jme\ArticleBundle\Service\Exception\ArticleNotRemovedException;
 use Jme\ArticleBundle\Service\Exception\ArticleNotFoundException;
@@ -15,10 +17,7 @@ use Jme\ArticleBundle\Entity\Article;
 use Symfony\Component\Form\Form;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-use Xi\Bundle\TagBundle\Service\AbstractTaggableService;
-
-
-class ArticleService extends AbstractTaggableService
+class ArticleService
 {
     /**
      * @var EntityManager
@@ -36,17 +35,20 @@ class ArticleService extends AbstractTaggableService
     protected $container;
 
     /**
-     * @param EntityManager $em
-     * @param ArticleRepository $articleRepository
-     * @param ContainerInterface $container
+     * @var TagManager
      */
-    public function __construct(EntityManager $em, ArticleRepository $articleRepository, ContainerInterface $container)
+    protected $tagManager;
+
+    /**
+     * @param EntityManager     $em
+     * @param ArticleRepository $articleRepository
+     * @param TagManager        $tagManager
+     */
+    public function __construct(EntityManager $em, ArticleRepository $articleRepository, TagManager $tagManager)
     {
         $this->em                   = $em;
         $this->articleRepository    = $articleRepository;
-        $this->container            = $container;
-
-        parent::__construct($container);
+        $this->tagManager           = $tagManager;
     }
 
     /**
@@ -78,7 +80,7 @@ class ArticleService extends AbstractTaggableService
                 $em->persist($article);
                 $em->flush();
 
-                $self->getTagService()->getTagManager()->saveTagging($article);
+                $self->tagManager->saveTagging($article);
 
                 return $article;
             });
@@ -108,7 +110,7 @@ class ArticleService extends AbstractTaggableService
             throw new ArticleNotFoundException();
         }
 
-        $this->getTagService()->getTagManager()->loadTagging($article);
+        $this->tagManager->loadTagging($article);
 
         return $article;
     }
@@ -123,7 +125,7 @@ class ArticleService extends AbstractTaggableService
         $articles = $this->articleRepository->fetchLatestArticles($amount);
 
         foreach ($articles as &$article) {
-            //$this->getTagService()->getTagManager()->loadTagging($article);
+            $this->tagManager->loadTagging($article);
         }
 
         return $articles;
