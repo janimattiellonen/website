@@ -7,7 +7,7 @@
 
     {% block stylesheets %}{% endblock %}
 
-    <link href="{{ asset('css/jquery-ui/ui-lightness/jquery-ui-1.8.23.custom.css') }}" rel="stylesheet" media="screen" />
+    <link href="//code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet" media="screen" />
 
     {% stylesheets filter='yui_css' output='/css/common.css'
             '@JmeMainBundle/Resources/css/normalize.css'
@@ -41,8 +41,8 @@
         <div id="main">{% block content %}{% endblock %}</div>
     </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
 
     {% javascripts output="/js/main.js" filter="?yui_js"
         '@JmeMainBundle/Resources/js/highlight.pack.js'
@@ -57,7 +57,7 @@
     {% block javascripts %}{% endblock %}
     <script type="text/javascript">
         $(document).ready(function() {
-            $('article .content pre code,').each(function(i, e) {hljs.highlightBlock(e)});
+            $('article .content pre code').each(function(i, e) {hljs.highlightBlock(e)});
         });
     </script>
 
