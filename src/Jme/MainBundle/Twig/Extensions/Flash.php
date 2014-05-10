@@ -54,9 +54,11 @@ class Flash extends Twig_Extension
             return '';
         }
 
+        //print_r($this->session->getFlashBag()->all());die;
+
         return $this->twig->render('JmeMainBundle:Twig:message.html.twig', array(
             'type' => $type,
-            'message' => $this->session->getFlash($type),
+            'messages' => $this->session->getFlashBag()->all(),
         ) );
     }
 

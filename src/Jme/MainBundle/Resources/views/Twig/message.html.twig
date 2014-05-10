@@ -1,7 +1,11 @@
-{% if message is defined %}
-<div class="flash-wrapper">
-    <div class="flash-messages {{type}}">
-        {{ message}}
+{% if messages is defined %}
+    <div class="flash-wrapper">
+        {% for type, messageArr in messages %}
+            {% for message in messageArr %}
+                <div class="flash-messages {{type}}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {%  endfor %}
     </div>
-</div>
 {% endif %}
