@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Welcome!{% endblock %}</title>
 
 
@@ -10,6 +12,7 @@
     <link href="//code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet" media="screen" />
 
     {% stylesheets filter='yui_css' output='/css/common.css'
+            'bundles/jmemain/js/bootstrap-3.1.1/css/bootstrap.min.css'
             '@JmeMainBundle/Resources/css/normalize.css'
             '@JmeMainBundle/Resources/css/highlight.js/zenburn.css'
             '@JmeMainBundle/Resources/less/main.less'
@@ -41,10 +44,11 @@
         <div id="main">{% block content %}{% endblock %}</div>
     </div>
 
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
 
     {% javascripts output="/js/main.js" filter="?yui_js"
+        'bundles/jmemain/js/bootstrap-3.1.1/js/bootstrap.min.js'
         '@JmeMainBundle/Resources/js/highlight.pack.js'
         '@JmeMainBundle/Resources/coffee/RemoveDialog.coffee'
         '@JmeMainBundle/Resources/coffee/main.coffee'
