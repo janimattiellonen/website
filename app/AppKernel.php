@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new \FPN\TagBundle\FPNTagBundle(),
 
             new \Jme\MainBundle\JmeMainBundle(),
+            new Jme\TagBundle\JmeTagBundle(),
             new \Jme\ArticleBundle\JmeArticleBundle(),
 
             new Xi\Bundle\AjaxBundle\XiAjaxBundle(),
@@ -47,8 +48,6 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
         }
-
-
 
         return $bundles;
     }

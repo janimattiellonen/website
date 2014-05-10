@@ -21,12 +21,8 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
-    form:
-        resources:
-            - 'XiTagBundle:Form:tag-fields.html.twig'
     globals:
         domain:   %domain%
-
 
 sensio_framework_extra:
     view:    { annotations: false }
@@ -93,5 +89,5 @@ stof_doctrine_extensions:
 
 fpn_tag:
     model:
-        tag_class:     Xi\Bundle\TagBundle\Entity\Tag
-        tagging_class: Xi\Bundle\TagBundle\Entity\Tagging
+        tag_class:     Jme\TagBundle\Entity\Tag
+        tagging_class: Jme\TagBundle\Entity\Tagging

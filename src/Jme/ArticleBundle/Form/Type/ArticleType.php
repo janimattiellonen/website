@@ -14,7 +14,7 @@ class ArticleType extends AbstractType
         $builder->add('title', 'text')
                 ->add('brief', 'textarea')
                 ->add('content', 'textarea')
-                ->add('tags', 'tag')
+                //->add('tags', 'tag')
         ;
     }
 
