@@ -39,7 +39,6 @@ class AppKernel extends Kernel
             new Xi\Bundle\AjaxBundle\XiAjaxBundle(),
             new Xi\Bundle\DialogBundle\XiDialogBundle(),
             new Xi\Bundle\SelectorBundle\XiSelectorBundle(),
-            new Xi\Bundle\TagBundle\XiTagBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

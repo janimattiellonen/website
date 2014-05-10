@@ -123,7 +123,7 @@ class ArticleService extends AbstractTaggableService
         $articles = $this->articleRepository->fetchLatestArticles($amount);
 
         foreach ($articles as &$article) {
-            $this->getTagService()->getTagManager()->loadTagging($article);
+            //$this->getTagService()->getTagManager()->loadTagging($article);
         }
 
         return $articles;

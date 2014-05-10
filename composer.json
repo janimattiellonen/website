@@ -4,14 +4,6 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
-    "repositories": {
-
-        "xi/article-bundle": {
-            "type": "vcs",
-            "url": "git@github.com:janimattiellonen/xi-bundle-article.git",
-            "reference:": "2.2"
-        }
-    },
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
@@ -45,15 +37,7 @@
         "knplabs/knp-menu-bundle": "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
 
-        "friendsofsymfony/jsrouting-bundle": "dev-master",
-
-        "xi/doctrine": "dev-master",
-        "xi/ajax-bundle": "2.2.*",
-        "xi/dialog-bundle": "2.2.*",
-        "xi/selector-bundle": "2.2.*",
-        "xi/tag-bundle": "2.2.*",
-        "xi/article-bundle": "2.2.x-dev",
-        "xi/search-bundle": "2.2.*"
+        "friendsofsymfony/jsrouting-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
