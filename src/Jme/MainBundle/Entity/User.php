@@ -26,13 +26,11 @@ class User extends BaseUser
      * @var string
      *
      * @Assert\NotNull()
-     * @Assert\MinLength(
-     *     limit=3,
-     *     message="The username must have at least {{ limit }} characters."
-     * )
-     * @Assert\MaxLength(
-     *     limit=32,
-     *     message="The username must not have more than {{ limit }} characters."
+     * @Assert\Length(
+     *     min=3,
+     *     max=32,
+     *     minMessage="The username must have at least {{ limit }} characters.",
+     *     maxMessage="The username must not have more than {{ limit }} characters."
      * )
      */
     protected $username;
@@ -41,13 +39,11 @@ class User extends BaseUser
      * @var string
      *
      * @Assert\NotNull()
-     * @Assert\MinLength(
-     *     limit=4,
-     *     message="Your password must have at least {{ limit }} characters."
-     * )
-     * @Assert\MaxLength(
-     *     limit=255,
-     *     message="Your password must not have more than {{ limit }} characters."
+     * @Assert\Length(
+     *     min=4,
+     *     max=255,
+     *     minMessage="Your password must have at least {{ limit }} characters.",
+     *     maxMessage="Your password must not have more than {{ limit }} characters."
      * )
      */
     protected $password;

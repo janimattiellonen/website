@@ -6,8 +6,8 @@ JmeMainBundle:
     resource: "@JmeMainBundle/Resources/config/routing.yml"
     prefix: /
 
-_bazinga_exposetranslation:
-    resource: "@BazingaExposeTranslationBundle/Resources/config/routing/routing.yml"
+_bazinga_jstranslation:
+    resource: "@BazingaJsTranslationBundle/Resources/config/routing/routing.yml"
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

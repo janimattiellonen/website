@@ -27,7 +27,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new Bazinga\ExposeTranslationBundle\BazingaExposeTranslationBundle(),
+            new Bazinga\Bundle\JsTranslationBundle\BazingaJsTranslationBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new FOS\RestBundle\FOSRestBundle(),
 
@@ -36,10 +36,6 @@ class AppKernel extends Kernel
             new \Jme\MainBundle\JmeMainBundle(),
             new Jme\TagBundle\JmeTagBundle(),
             new \Jme\ArticleBundle\JmeArticleBundle(),
-
-            new Xi\Bundle\AjaxBundle\XiAjaxBundle(),
-            new Xi\Bundle\DialogBundle\XiDialogBundle(),
-            new Xi\Bundle\SelectorBundle\XiSelectorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

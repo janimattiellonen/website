@@ -48,13 +48,11 @@ class Article implements Taggable
      *  @ORM\Column(name="title", type="string", length=128, nullable=false)
      *
      * @Assert\NotNull()
-     * @Assert\MinLength(
-     *     limit=3,
-     *     message="The title must have at least {{ limit }} character.|The title must have at least {{ limit }} characters."
-     * )
-     * @Assert\MaxLength(
-     *     limit=128,
-     *     message="The title must not have more than {{ limit }} character.|The title must not have more than {{ limit }} characters."
+     * @Assert\Length(
+     *     min=3,
+     *     max=128,
+     *     minMessage="The title must have at least {{ limit }} character.|The title must have at least {{ limit }} characters.",
+     *     maxMessage="The title must not have more than {{ limit }} character.|The title must not have more than {{ limit }} characters."
      * )
      */
     protected $title;
@@ -65,13 +63,11 @@ class Article implements Taggable
      *  @ORM\Column(name="brief", type="string", length=500, nullable=false)
      *
      * @Assert\NotNull()
-     * @Assert\MinLength(
-     *     limit=3,
-     *     message="The brief must have at least {{ limit }} character.|The brief must have at least {{ limit }} characters."
-     * )
-     * @Assert\MaxLength(
-     *     limit=500,
-     *     message="The brief must not have more than {{ limit }} character.|The brief must not have more than {{ limit }} characters."
+     * @Assert\Length(
+     *     min=3,
+     *     max=500,
+     *     minMessage="The brief must have at least {{ limit }} character.|The brief must have at least {{ limit }} characters.",
+     *     maxMessage="The brief must not have more than {{ limit }} character.|The brief must not have more than {{ limit }} characters."
      * )
      */
     protected $brief;
@@ -82,9 +78,9 @@ class Article implements Taggable
      * @ORM\Column(name="content", type="text", nullable=false)
      *
      * @Assert\NotNull()
-     * @Assert\MinLength(
-     *     limit=3,
-     *     message="The content must have at least {{ limit }} character.|The content must have at least {{ limit }} characters."
+     * @Assert\Length(
+     *     min=3,
+     *     minMessage="The content must have at least {{ limit }} character.|The content must have at least {{ limit }} characters."
      * )
      */
     protected $content;

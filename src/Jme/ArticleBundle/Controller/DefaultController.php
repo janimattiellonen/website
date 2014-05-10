@@ -30,11 +30,17 @@ class DefaultController extends BaseController
         {
             $this->getArticleService()->removeArticleById($article);
 
-            $this->get('session')->setFlash('notice', 'The article was successfully removed!');
+            $this->get('session')->getFlashBag()->add(
+                'notice',
+                'The article was successfully removed!'
+            );
         }
         catch(ArticleException $e)
         {
-            $this->get('session')->setFlash('error', $e->getMessage() );
+            $this->get('session')->getFlashBag()->add(
+                'error',
+                'Failed to remove article'
+            );
         }
 
         return $this->redirectWithRoute('jme_article_latest');
@@ -59,7 +65,10 @@ class DefaultController extends BaseController
 
                 $article = $service->saveByForm($form);
 
-                $self->get('session')->setFlash('notice', $self->get('translator')->trans('article.created'));
+                $this->get('session')->getFlashBag()->add(
+                    'notice',
+                    $self->get('translator')->trans('article.created')
+                );
 
                 return $self->createSuccessRedirectResponse(
                     'jme_article_view', array('article' => $article->getId() )
@@ -85,7 +94,11 @@ class DefaultController extends BaseController
         }
         catch(ArticleException $e)
         {
-            $this->get('session')->setFlash('error', $e->getMessage() );
+            $this->get('session')->getFlashBag()->add(
+                'error',
+                "Failed to open article for editing"
+            );
+
             return $this->redirectWithRoute('jme_article_latest');
         }
     }
@@ -102,7 +115,10 @@ class DefaultController extends BaseController
             return $this->processForm($form, function() use($form, $service, $self) {
                     $article = $service->saveByForm($form);
 
-                    $self->get('session')->setFlash('notice', $self->get('translator')->trans('article.updated'));
+                    $this->get('session')->getFlashBag()->add(
+                        'notice',
+                        $self->get('translator')->trans('article.updated')
+                    );
 
                     return $self->createSuccessRedirectResponse(
                         'jme_article_view', array('article' => $article->getId() )
@@ -117,7 +133,11 @@ class DefaultController extends BaseController
         }
         catch(ArticleException $e)
         {
-            $this->get('session')->setFlash('error', $e->getMessage() );
+            $this->get('session')->getFlashBag()->add(
+                'error',
+                "Failed to update article"
+            );
+
             return $this->redirectWithRoute('jme_article_latest');
         }
     }
