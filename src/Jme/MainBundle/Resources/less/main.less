@@ -37,19 +37,33 @@ header {
 
 ul.navbar-nav
 {
-    margin-left: 0;
+    margin-left: 5px;
     padding-left: 0;
 
     li
     {
         margin-bottom: 5px;
-        padding: 2px 0 2px;
+        padding: 5px 0 5px;
 
         a
         {
             text-decoration: none;
             color: black;
+            padding-bottom: 5px;
 
+            &:hover, &:focus {
+                background: none !important;
+                color: white;
+                border-bottom: solid white 3px;
+            }
+
+        }
+
+        &.current {
+            a {
+                color: white;
+                border-bottom: solid white 3px;
+            }
         }
     }
 }
@@ -57,6 +71,11 @@ ul.navbar-nav
 ul#some {
     border: none;
     float: left;
+    margin-left: 20px;
+    background: #b0b0b0;
+    border-radius: 5px;
+    padding: 5px;
+    width: 90px;
 
     li {
         display: inline;
@@ -65,13 +84,6 @@ ul#some {
         img {
             width: 20px;
             height: 20px;
-        }
-
-        a {
-            &:hover
-            {
-                background: none;
-            }
         }
     }
 }
@@ -88,13 +100,12 @@ ul#some {
         width: 100%;
 
         ul {
-            width: 67%;
             float: left;
 
             &#some {
                 float: right;
                 text-align: right;
-                width: 30%;
+                width: 90px;
             }
 
             li {
@@ -117,11 +128,6 @@ ul#some {
 }
 
 @media screen and (max-width: 470px) {
-
-
-    #some {
-        width: 40% !important;
-    }
 
     nav ul li, nav ul li.last{
         display: inline;
