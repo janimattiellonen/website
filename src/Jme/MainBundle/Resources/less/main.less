@@ -1,73 +1,81 @@
 body
 {
     background: #ededed url("/images/gray_jean.png");
-    margin: 50px 50px 0 75px;
+}
+
+header {
+    background: gray;
 }
 
 #wrapper {
     float: left;
-    background: white url("/images/debut_light2.png");
-    width: 92%;
-    padding: 0 2% 0 2%;
+    width: 100%;
+    margin-left: 75px;
 }
 
-nav
-{
-    float: left;
-    width: auto;
-    margin-left: 0;
-    margin-right: 15px;
 
-    ul
-    {
-        margin-left: 0;
-        padding-left: 0;
+.navbar-header {
+    button.navbar-toggle {
+        background: black;
 
-
-        li
-        {
-            margin-bottom: 5px;
-            padding: 2px 0 2px;
-
-            a
-            {
-                text-decoration: none;
-                color: black;
-
-                &:hover
-                {
-                    border-bottom: dashed gray 1px;
-                }
-            }
-
-            &.current a
-            {
-                border-bottom: dashed gray 1px;
-            }
+        span.icon-bar {
+            background: #f8f8f8;
         }
     }
+}
 
-    ul#some {
-        border: none;
 
+&.in {
+    ul.navbar-nav {
         li {
-            display: inline;
-            padding-right: 4px;
+            width: 100%;
+        }
+    }
 
-            img {
-                width: 20px;
-                height: 20px;
-            }
+}
 
-            a {
-                &:hover
-                {
-                    background: none;
-                }
+
+ul.navbar-nav
+{
+    margin-left: 0;
+    padding-left: 0;
+
+    li
+    {
+        margin-bottom: 5px;
+        padding: 2px 0 2px;
+
+        a
+        {
+            text-decoration: none;
+            color: black;
+
+        }
+    }
+}
+
+ul#some {
+    border: none;
+    float: left;
+
+    li {
+        display: inline;
+        padding-right: 4px;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+
+        a {
+            &:hover
+            {
+                background: none;
             }
         }
     }
 }
+
 
 #main {
     width: 85%;
@@ -97,7 +105,23 @@ nav
     }
 }
 
+@media screen and (max-width: 600px) {
+    #wrapper {
+        margin-left: 40px;
+        width: 90%;
+    }
+
+    .projects {
+        font-size: 0.8em;
+    }
+}
+
 @media screen and (max-width: 470px) {
+
+
+    #some {
+        width: 40% !important;
+    }
 
     nav ul li, nav ul li.last{
         display: inline;
@@ -246,25 +270,31 @@ div#login-box
 }
 
 div.projects {
-
+    float: left;
+    width: 100%;
 
     div.project {
-        display: table;
+        float:left;
+        width: 100%;
+
         margin-bottom: 30px;
         padding-bottom: 10px;
         border-bottom: solid black 1px;
 
         .row {
-            display: table-row;
-            margin-bottom: 10px;
+            margin: 0 0 10px 0;
+            float:left;
+            clear: both;
+            width: 100%;
+
+            .name {
+                font-weight: bold;
+            }
         }
 
         .title {
-            width: 170px;
-        }
-
-        .title, .description {
-            display: table-cell;
+            float: left;
+            width: 30%;
         }
 
         .important {
@@ -272,6 +302,9 @@ div.projects {
         }
 
         .description {
+            float: left;
+            width: 60%;
+
             ul {
                 margin: 0;
                 padding: 0;

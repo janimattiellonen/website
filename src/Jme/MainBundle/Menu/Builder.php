@@ -43,6 +43,8 @@ class Builder extends ContainerAware
     public function createMenu(Request $request)
     {
         $menu = $this->factory->createItem('root');
+        $menu->setChildrenAttribute('class', 'nav navbar-nav');
+
 
         $menu->addChild($this->translator->trans('menu.home'), array('route' => 'jme_article_latest') );
         $menu->addChild($this->translator->trans('menu.about'), array('route' => 'JmeMainBundle_about') );

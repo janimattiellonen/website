@@ -32,15 +32,10 @@
     <script type="text/javascript" src="{{ url('bazinga_jstranslation_js') }}"></script>
 </head>
 <body>
-
+    {% include '::nav.html.twig' %}
     {{ jme_flash() }}
 
     <div id="wrapper">
-        <nav>
-            {{ knp_menu_render('main') }}
-            {% include 'JmeMainBundle:Default:some.html.twig' %}
-        </nav>
-
         <div id="main">{% block content %}{% endblock %}</div>
     </div>
 
