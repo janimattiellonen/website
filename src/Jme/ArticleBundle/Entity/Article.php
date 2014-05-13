@@ -2,12 +2,17 @@
 namespace Jme\ArticleBundle\Entity;
 
 use \DateTime;
-use Symfony\Component\Validator\Constraints as Assert;
+
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints AS DoctrineAssert;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
 use DoctrineExtensions\Taggable\Taggable;
+
+use Gedmo\Mapping\Annotation as Gedmo;
+
+use Jme\TagBundle\Entity\Tag;
+
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints AS DoctrineAssert;
 
 /**
  * @ORM\Entity
