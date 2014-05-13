@@ -1,3 +1,11 @@
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
 body
 {
     background: #ededed url("/images/gray_jean.png");
@@ -12,6 +20,11 @@ header {
     margin-left: 75px;
     margin-top: 75px;
     max-width: 1200px;
+
+    min-height: 100%;
+    height: auto !important;
+    margin: 75px 75px -50px 75px;
+    position: relative;
 }
 
 
@@ -93,6 +106,7 @@ ul#some {
 #main {
     width: 85%;
     float: left;
+    padding-bottom:50px;
 }
 
 @media screen and (max-width: 814px) {
@@ -331,4 +345,5 @@ footer {
     width: 100%;
     padding-left: 75px;
     color: white;
+    height: 50px;
 }
