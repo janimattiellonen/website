@@ -6,7 +6,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints AS DoctrineAssert;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Xi\Bundle\TagBundle\Entity\Tag;
 use Doctrine\Common\Collections\ArrayCollection;
 use DoctrineExtensions\Taggable\Taggable;
 
