@@ -17,14 +17,14 @@ header {
 
 #wrapper {
     float: left;
-    margin-left: 75px;
-    margin-top: 75px;
+
     width: 95%;
     max-width: 1200px;
 
     min-height: 100%;
     height: auto !important;
-    margin: 75px 75px -50px 75px;
+    margin: 0 75px -50px 75px;
+    padding-top: 75px;
     position: relative;
 }
 
@@ -135,11 +135,16 @@ ul#some {
 @media screen and (max-width: 600px) {
     #wrapper {
         margin-left: 40px;
+
         width: 90%;
     }
 
     .projects {
         font-size: 0.8em;
+    }
+
+    footer {
+        padding-left: 40px !important;
     }
 }
 
