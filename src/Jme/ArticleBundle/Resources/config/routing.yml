@@ -1,8 +1,8 @@
 
 jme_article_remove:
-    pattern: "/article/remove/{article}"
+    pattern: "/articles/remove/{article}"
     defaults: { _controller: JmeArticleBundle:Default:remove }
-    requirements: { _method: get, article:  \d+ }
+    requirements: { _method: get, article: \d+ }
 
 jme_article_latest:
     pattern: /
@@ -25,7 +25,7 @@ jme_article_edit:
 jme_article_update:
     pattern: "/article/update/{article}"
     defaults: { _controller: JmeArticleBundle:Default:update }
-    requirements: {_method: post, article:  \d+}
+    requirements: {_method: post, article: \d+}
 
 jme_article_view:
     pattern: "/article/{article}"
