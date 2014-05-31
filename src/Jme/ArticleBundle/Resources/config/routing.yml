@@ -1,5 +1,5 @@
 
-jme_article_remove:
+jme_article_delete:
     pattern: "/articles/remove/{article}"
     defaults: { _controller: JmeArticleBundle:Default:remove }
     requirements: { _method: get, article: \d+ }
