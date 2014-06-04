@@ -36,6 +36,9 @@ class AppKernel extends Kernel
             new \Jme\MainBundle\JmeMainBundle(),
             new Jme\TagBundle\JmeTagBundle(),
             new \Jme\ArticleBundle\JmeArticleBundle(),
+
+            new Symfony\Cmf\Bundle\MediaBundle\CmfMediaBundle(),
+            new Doctrine\Bundle\PHPCRBundle\DoctrinePHPCRBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

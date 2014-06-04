@@ -91,3 +91,36 @@ fpn_tag:
     model:
         tag_class:     Jme\TagBundle\Entity\Tag
         tagging_class: Jme\TagBundle\Entity\Tagging
+
+cmf_media:
+    persistence:
+        phpcr:
+            enabled:         true
+            manager_name:    ~
+            media_basepath:  /cms/media
+            media_class:     Symfony\Cmf\Bundle\MediaBundle\Doctrine\Phpcr\Media
+            file_class:      Symfony\Cmf\Bundle\MediaBundle\Doctrine\Phpcr\File
+            directory_class: Symfony\Cmf\Bundle\MediaBundle\Doctrine\Phpcr\Directory
+            image_class:     Symfony\Cmf\Bundle\MediaBundle\Doctrine\Phpcr\Image
+            event_listeners:
+                stream_rewind:    true
+                image_dimensions: true
+                imagine_cache:    auto
+
+doctrine_phpcr:
+    odm:
+        default_document_manager: ~
+    session:
+        backend:
+            type: doctrinedbal
+            # requires DoctrineCacheBundle
+            # caches:
+            #     meta: doctrine_cache.providers.phpcr_meta
+            #     nodes: doctrine_cache.providers.phpcr_nodes
+            # enable logging
+            logging: true
+            # enable profiling in the debug toolbar.
+            profiling: true
+        workspace: default
+        username: admin
+        password: admin

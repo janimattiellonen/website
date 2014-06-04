@@ -42,7 +42,12 @@
         "doctrine/doctrine-migrations-bundle": "dev-master",
 
         "friendsofsymfony/jsrouting-bundle": "dev-master",
-        "willdurand/js-translation-bundle": "@stable"
+        "willdurand/js-translation-bundle": "@stable",
+
+        "doctrine/phpcr-odm": "dev-master",
+        "symfony-cmf/media-bundle": "dev-master",
+        "jackalope/jackalope-doctrine-dbal": "dev-master",
+        "doctrine/phpcr-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
