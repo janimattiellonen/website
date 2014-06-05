@@ -36,6 +36,8 @@ class AppKernel extends Kernel
             new \Jme\MainBundle\JmeMainBundle(),
             new Jme\TagBundle\JmeTagBundle(),
             new \Jme\ArticleBundle\JmeArticleBundle(),
+
+            new \Xi\Bundle\FilelibBundle\XiFilelibBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

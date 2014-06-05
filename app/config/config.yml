@@ -33,7 +33,7 @@ assetic:
     debug:          %kernel.debug%
     use_controller: false
     # java: /usr/bin/java
-    bundles: ["JmeArticleBundle", "JmeMainBundle"]
+    bundles: ["JmeArticleBundle", "JmeMainBundle", "XiFilelibBundle"]
     filters:
         cssrewrite: ~
         # closure:
@@ -64,7 +64,16 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: true
+
+        entity_managers:
+            default:
+                auto_mapping: true
+                mappings:
+                    xi_filelib:
+                        dir: %kernel.root_dir%/../vendor/xi/filelib/library/Xi/Filelib/Backend/Adapter/DoctrineOrm/Entity
+                        prefix: Xi\Filelib\Backend\Adapter\DoctrineOrm\Entity
+                        type: annotation
+                        is_bundle: false
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -86,8 +95,33 @@ stof_doctrine_extensions:
             timestampable: true
             sluggable:     true
 
-
 fpn_tag:
     model:
         tag_class:     Jme\TagBundle\Entity\Tag
         tagging_class: Jme\TagBundle\Entity\Tagging
+
+xi_filelib:
+    renderer:
+        enable_acceleration: false
+        strip_prefix: "%kernel.root_dir%/data/files"
+        add_prefix: "/protected"
+    temp_dir: %kernel.root_dir%/data/temp
+    storage:
+        directory_permission: '775'
+        file_permission: '644'
+        root: %kernel.root_dir%/data/files
+        directory_id_calculator:
+            class: Xi\Filelib\Storage\Filesystem\DirectoryIdCalculator\LeveledDirectoryIdCalculator
+            arguments: { directoryLevels: 3, filesPerDirectory: 500 }
+    publisher:
+        adapter:
+            class: Xi\Filelib\Publisher\Adapter\Filesystem\SymlinkFilesystemPublisherAdapter
+            arguments:
+                relativePathToRoot: ../../app/data/files
+                baseUrl: /files
+                publicRoot: %kernel.root_dir%/../web/files
+    plugins:
+        randomizeNamePlugin:
+            class: Xi\Filelib\Plugin\RandomizeNamePlugin
+            arguments:
+                prefix:

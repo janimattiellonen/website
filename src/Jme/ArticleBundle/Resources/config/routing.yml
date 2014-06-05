@@ -31,3 +31,9 @@ jme_article_view:
     pattern: "/article/{article}"
     defaults: { _controller: JmeArticleBundle:Default:view }
     requirements: { _method: get, article: "[a-zA-Z0-9-_/\-]+"}
+
+jme_article_filelib:
+    pattern: "/filelib"
+    defaults: { _controller: JmeArticleBundle:Default:filelib }
+    requirements: { _method: get}
+

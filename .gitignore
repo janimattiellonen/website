@@ -2,6 +2,9 @@ web/bundles/
 app/bootstrap.php.cache
 app/cache/*
 app/logs/*
+app/data/*
+app/private/*
+app/temp/*
 build/
 vendor
 composer.phar
