@@ -17,6 +17,20 @@ class DefaultController extends BaseController
         return $this->render('JmeArticleBundle:Default:index.html.twig');
     }
 
+    public function filelibAction()
+    {
+        $appDir = $this->container->get('kernel')->getRootdir();
+
+        $filelib = $this->get('xi_filelib');
+
+        $file = $filelib->upload($appDir . '/temp/image.jpg');
+
+
+        header("Content-Type: " . $file->getMimetype());
+        echo file_get_contents($filelib->getStorage()->retrieve($file->getResource()));
+
+    }
+
     public function viewAction($article)
     {
         return $this->render('JmeArticleBundle:Default:view.html.twig', array(

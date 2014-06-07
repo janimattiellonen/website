@@ -1,0 +1,4 @@
+services:
+    jme_media.service.media:
+        class:     Jme\MediaBundle\Service\mediaService
+        arguments: ["@xi_filelib"]

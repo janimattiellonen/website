@@ -33,7 +33,7 @@ assetic:
     debug:          %kernel.debug%
     use_controller: false
     # java: /usr/bin/java
-    bundles: ["JmeArticleBundle", "JmeMainBundle", "XiFilelibBundle"]
+    bundles: ["JmeArticleBundle", "JmeMainBundle", "JmeMediaBundle", "XiFilelibBundle"]
     filters:
         cssrewrite: ~
         # closure:
@@ -117,7 +117,7 @@ xi_filelib:
         adapter:
             class: Xi\Filelib\Publisher\Adapter\Filesystem\SymlinkFilesystemPublisherAdapter
             arguments:
-                relativePathToRoot: ../../app/data/files
+                relativePathToRoot: ../app/data/files
                 baseUrl: /files
                 publicRoot: %kernel.root_dir%/../web/files
     plugins:

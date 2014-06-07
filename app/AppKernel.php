@@ -33,9 +33,10 @@ class AppKernel extends Kernel
 
             new \FPN\TagBundle\FPNTagBundle(),
 
-            new \Jme\MainBundle\JmeMainBundle(),
+            new Jme\MainBundle\JmeMainBundle(),
             new Jme\TagBundle\JmeTagBundle(),
-            new \Jme\ArticleBundle\JmeArticleBundle(),
+            new Jme\ArticleBundle\JmeArticleBundle(),
+            new Jme\MediaBundle\JmeMediaBundle(),
 
             new \Xi\Bundle\FilelibBundle\XiFilelibBundle(),
         );
