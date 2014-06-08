@@ -1,8 +1,9 @@
 <?php
-namespace Jme\MediaBundle\Form\Model;
+namespace Jme\MediaBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 class Media 
 {
