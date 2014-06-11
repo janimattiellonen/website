@@ -1,6 +1,7 @@
 <?php
 namespace Jme\MediaBundle\Service;
 
+use Jme\MediaBundle\Repository\MediaRepository;
 use Symfony\Component\Form\Form;
 
 use Xi\Filelib\FileLibrary;
@@ -13,11 +14,18 @@ class MediaService
     private $filelib;
 
     /**
-     * @param FileLibrary $filelib
+     * @var MediaRepository
      */
-    public function __construct(FileLibrary $filelib)
+    private $mediaRepository;
+
+    /**
+     * @param FileLibrary $filelib
+     * @param MediaRepository $mediaRepository
+     */
+    public function __construct(FileLibrary $filelib, MediaRepository $mediaRepository)
     {
-        $this->filelib = $filelib;
+        $this->filelib          = $filelib;
+        $this->mediaRepository  = $mediaRepository;
     }
 
     /**
@@ -31,9 +39,15 @@ class MediaService
 
         $fileUpload = $uploadHelper->createFileUpload($media->getFile());
 
-        $this->filelib->upload($fileUpload);
+        $this->filelib->upload($fileUpload, null, 'image_question');
+    }
 
-
+    /**
+     * @return mixed
+     */
+    public function getImages()
+    {
+        return $this->mediaRepository->getImages();
     }
 }
  

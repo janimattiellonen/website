@@ -35,7 +35,26 @@ class MediaController extends BaseController
 
     public function listFilesAction()
     {
-        return $this->render('JmeMediaBundle:Media:list-files.html.twig');
+        $images = $this->getMediaService()->getImages();
+
+        $arr = [];
+
+        $filelib = $this->get('xi_filelib');
+
+        foreach ($images as $image) {
+
+            $imageFoo = $filelib->getFileRepository()->find($image->getId());
+
+            $arr[] = $imageFoo;
+            //die($imageFoo->getName());
+            //var_dump($imageFoo);die;
+
+            //$arr[] = $filelib->getStorage()->retrieve($imageFoo->getResource());
+        }
+
+        return $this->render('JmeMediaBundle:Media:list-files.html.twig', [
+            'images' => $arr,
+        ]);
     }
 
     /**

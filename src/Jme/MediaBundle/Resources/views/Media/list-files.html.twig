@@ -4,5 +4,8 @@
     <article>
         <h1>Uploaded files</h1>
 
+        {% for image in images %}
+            <img src="{{ filelib_url(image) }}" />
+        {% endfor %}
     </article>
 {%  endblock %}

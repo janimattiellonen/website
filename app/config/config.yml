@@ -101,18 +101,29 @@ fpn_tag:
         tagging_class: Jme\TagBundle\Entity\Tagging
 
 xi_filelib:
+    authorization:
+        enabled: false
+        adapter_service: ~
     renderer:
         enable_acceleration: false
         strip_prefix: "%kernel.root_dir%/data/files"
         add_prefix: "/protected"
     temp_dir: %kernel.root_dir%/data/temp
+    profiles: ['image_question']
     storage:
-        directory_permission: '775'
-        file_permission: '644'
         root: %kernel.root_dir%/data/files
+        file_permission: "664"
+        directory_permission: "775"
         directory_id_calculator:
             class: Xi\Filelib\Storage\Filesystem\DirectoryIdCalculator\LeveledDirectoryIdCalculator
-            arguments: { directoryLevels: 3, filesPerDirectory: 500 }
+            arguments: [ 3, 500 ]
+
+    publisher:
+        automatic_publisher: true
+        beautifurls: false
+        adapter:
+            class: Xi\Filelib\Publisher\Adapter\Filesystem\SymlinkFilesystemPublisherAdapter
+            arguments: [ "%kernel.root_dir%/../web/files", "664", "775", "/files", "../../app/data/files" ]
     publisher:
         adapter:
             class: Xi\Filelib\Publisher\Adapter\Filesystem\SymlinkFilesystemPublisherAdapter
@@ -122,6 +133,18 @@ xi_filelib:
                 publicRoot: %kernel.root_dir%/../web/files
     plugins:
         randomizeNamePlugin:
+            profiles: ["image_question"]
             class: Xi\Filelib\Plugin\RandomizeNamePlugin
             arguments:
                 prefix:
+        image_question_medium:
+            profiles: [image_question]
+            class: Xi\Filelib\Plugin\Image\VersionPlugin
+            arguments:
+                - image_question_medium
+                -
+                    0: [ setImageCompression, 8 ]
+                    1: [ setImageFormat, jpg]
+                    2: [ setImageCompressionQuality, 90 ]
+                    3: [ scaleImage, [ 410, 230 ]]
+                    4: [ setInterlaceScheme, 3 ]

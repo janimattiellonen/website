@@ -1,4 +1,10 @@
 services:
+    jme_media.repository.media:
+        class: Jme\MediaBundle\Repository\MediaRepository
+        arguments: [Jme\MediaBundle\Entity\File]
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+
     jme_media.service.media:
         class:     Jme\MediaBundle\Service\mediaService
-        arguments: ["@xi_filelib"]
+        arguments: ["@xi_filelib", "@jme_media.repository.media"]
