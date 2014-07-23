@@ -1,5 +1,28 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets filter='yui_css' output='/css/media.css'
+        '@JmeMediaBundle/Resources/less/media.less'
+    %}
+
+    <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+    {% endstylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts output="/js/media.js" filter="?yui_js"
+        '@JmeMediaBundle/Resources/coffee/media.coffee'
+    %}
+
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
 {% block container %}
     {% block content %}{% endblock %}
 {% endblock %}

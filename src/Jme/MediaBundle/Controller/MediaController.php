@@ -5,6 +5,7 @@ namespace Jme\MediaBundle\Controller;
 use Jme\MediaBundle\Form\Type\MediaType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Jme\MainBundle\Component\Controller\BaseController;
 
@@ -26,6 +27,8 @@ class MediaController extends BaseController
 
         if ($form->isValid()) {
             $this->getMediaService()->saveByForm($form);
+
+            return new RedirectResponse($this->generateUrl('jme_media_list_files'));
         } else {
             return $this->render('JmeMediaBundle:Media:select-file.html.twig', array(
                 'form' => $form->createView(),
@@ -43,13 +46,9 @@ class MediaController extends BaseController
 
         foreach ($images as $image) {
 
-            $imageFoo = $filelib->getFileRepository()->find($image->getId());
+            $imageData = $filelib->getFileRepository()->find($image->getId());
 
-            $arr[] = $imageFoo;
-            //die($imageFoo->getName());
-            //var_dump($imageFoo);die;
-
-            //$arr[] = $filelib->getStorage()->retrieve($imageFoo->getResource());
+            $arr[] = $imageData;
         }
 
         return $this->render('JmeMediaBundle:Media:list-files.html.twig', [

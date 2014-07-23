@@ -5,7 +5,17 @@
         <h1>Uploaded files</h1>
 
         {% for image in images %}
-            <img src="{{ filelib_url(image) }}" />
+            <img src="{{ filelib_url(image, "media_small") }}" /><br/>
+
+            <div class="image-url" data-id="{{ image.id }}">
+                <span>{{ filelib_url(image, "media_small") }}</span>
+
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    {% include 'JmeMediaBundle:Media:dialog.html.twig' with {image: image} %}
+                {% endif %}
+
+            </div>
         {% endfor %}
     </article>
+
 {%  endblock %}

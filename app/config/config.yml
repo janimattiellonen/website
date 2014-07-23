@@ -129,23 +129,23 @@ xi_filelib:
             profiles: []
             class: Xi\Filelib\Plugin\RandomizeNamePlugin
             arguments:
-                prefix: lusso
+                prefix: media
         version_plugin:
             profiles: []
             class: Xi\Filelib\Plugin\Image\VersionPlugin
             arguments:
                 -
-                    lussogrande:
+                    media_big:
                         -
                             0: [ setImageCompression, 8 ]
                             1: [ setImageFormat, jpg]
                             2: [ setImageCompressionQuality, 90 ]
                             3: [ scaleImage, [ 800, 400 ]]
                             4: [ setInterlaceScheme, 3 ]
-                    lussominore:
+                    media_small:
                         -
                             0: [ setImageCompression, 8 ]
                             1: [ setImageFormat, jpg]
-                            2: [ setImageCompressionQuality, 20 ]
+                            2: [ setImageCompressionQuality, 50 ]
                             3: [ scaleImage, [ 400, 200 ]]
                             4: [ setInterlaceScheme, 3 ]

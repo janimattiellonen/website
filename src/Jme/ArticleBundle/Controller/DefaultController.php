@@ -28,7 +28,7 @@ class DefaultController extends BaseController
         /** @var FileLibrary $filelib */
         $filelib = $this->get('xi_filelib');
 
-        $file = $filelib->uploadFile($appDir . '/data/manatus-25.jpg');
+        $file = $filelib->uploadFile($appDir . '/data/kuva.jpg');
 
         // Renderer renders "raw" files
         /** @var Renderer $renderer */
@@ -38,7 +38,7 @@ class DefaultController extends BaseController
         /** @var Publisher $publisher */
         $publisher = $this->container->get('xi_filelib.publisher');
 
-        if (rand(1, 100) > 50) {
+        if (rand(1, 100) == "olle") {
             // Renderer renders.
             return $renderer->render($file, 'lussogrande');
         } else {

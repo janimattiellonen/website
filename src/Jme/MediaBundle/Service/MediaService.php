@@ -5,6 +5,7 @@ use Jme\MediaBundle\Repository\MediaRepository;
 use Symfony\Component\Form\Form;
 
 use Xi\Filelib\FileLibrary;
+use Xi\Filelib\Publisher\Publisher;
 
 class MediaService 
 {
@@ -19,13 +20,20 @@ class MediaService
     private $mediaRepository;
 
     /**
+     * @var \Xi\Filelib\Publisher\Publisher
+     */
+    private $publisher;
+
+    /**
      * @param FileLibrary $filelib
      * @param MediaRepository $mediaRepository
+     * @param Publisher $publisher
      */
-    public function __construct(FileLibrary $filelib, MediaRepository $mediaRepository)
+    public function __construct(FileLibrary $filelib, MediaRepository $mediaRepository, Publisher $publisher)
     {
         $this->filelib          = $filelib;
         $this->mediaRepository  = $mediaRepository;
+        $this->publisher        = $publisher;
     }
 
     /**
@@ -36,10 +44,16 @@ class MediaService
         $uploadHelper = new \Jme\MediaBundle\Helper\UploadHelper();
 
         $media = $form->getData();
-
+        //print_r($media->getFile());die;
         $fileUpload = $uploadHelper->createFileUpload($media->getFile());
 
-        $this->filelib->upload($fileUpload, null, 'image_question');
+
+        //echo "is file: " . is_file($media->getFile()->getPathName()) . "<br>";
+       // die($media->getFile()->getPathName());
+        $file = $this->filelib->uploadFile($media->getFile()->getPathName());
+
+
+        $this->publisher->publishAllVersions($file);
     }
 
     /**
