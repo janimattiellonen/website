@@ -9,6 +9,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller,
     Jme\ArticleBundle\Entity\Article,
     Jme\ArticleBundle\Form\Type\ArticleType,
     Jme\ArticleBundle\Service\Exception\ArticleException;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Xi\Filelib\FileLibrary;
+use Xi\Filelib\Publisher\Publisher;
+use Xi\Filelib\Renderer\Renderer;
 
 class DefaultController extends BaseController
 {
@@ -21,14 +25,27 @@ class DefaultController extends BaseController
     {
         $appDir = $this->container->get('kernel')->getRootdir();
 
+        /** @var FileLibrary $filelib */
         $filelib = $this->get('xi_filelib');
 
-        $file = $filelib->upload($appDir . '/temp/image.jpg');
+        $file = $filelib->uploadFile($appDir . '/data/manatus-25.jpg');
 
+        // Renderer renders "raw" files
+        /** @var Renderer $renderer */
+        $renderer = $this->container->get('xi_filelib.renderer');
 
-        header("Content-Type: " . $file->getMimetype());
-        echo file_get_contents($filelib->getStorage()->retrieve($file->getResource()));
+        // Publisher publishes and handles published files.
+        /** @var Publisher $publisher */
+        $publisher = $this->container->get('xi_filelib.publisher');
 
+        if (rand(1, 100) > 50) {
+            // Renderer renders.
+            return $renderer->render($file, 'lussogrande');
+        } else {
+            // Publisher publishes and handles published stuff.
+            $publisher->publishAllVersions($file);
+            return new RedirectResponse($publisher->getUrl($file, 'lussominore'));
+        }
     }
 
     public function viewAction($article)

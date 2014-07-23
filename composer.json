@@ -45,8 +45,8 @@
 
         "friendsofsymfony/jsrouting-bundle": "dev-master",
         "willdurand/js-translation-bundle": "@stable",
-        "xi/filelib": "0.11.*",
-        "xi/filelib-bundle": "0.11.*"
+        "xi/filelib": "0.12.*",
+        "xi/filelib-bundle": "0.12.*"
 
     },
     "scripts": {

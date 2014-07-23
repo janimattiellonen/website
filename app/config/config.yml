@@ -115,7 +115,7 @@ xi_filelib:
         file_permission: "664"
         directory_permission: "775"
         directory_id_calculator:
-            class: Xi\Filelib\Storage\Filesystem\DirectoryIdCalculator\LeveledDirectoryIdCalculator
+            class: Xi\Filelib\Storage\Adapter\Filesystem\DirectoryIdCalculator\LeveledDirectoryIdCalculator
             arguments: [ 3, 500 ]
 
     publisher:
@@ -124,27 +124,28 @@ xi_filelib:
         adapter:
             class: Xi\Filelib\Publisher\Adapter\Filesystem\SymlinkFilesystemPublisherAdapter
             arguments: [ "%kernel.root_dir%/../web/files", "664", "775", "/files", "../../app/data/files" ]
-    publisher:
-        adapter:
-            class: Xi\Filelib\Publisher\Adapter\Filesystem\SymlinkFilesystemPublisherAdapter
-            arguments:
-                relativePathToRoot: ../app/data/files
-                baseUrl: /files
-                publicRoot: %kernel.root_dir%/../web/files
     plugins:
         randomizeNamePlugin:
-            profiles: ["image_question"]
+            profiles: []
             class: Xi\Filelib\Plugin\RandomizeNamePlugin
             arguments:
-                prefix:
-        image_question_medium:
-            profiles: [image_question]
+                prefix: lusso
+        version_plugin:
+            profiles: []
             class: Xi\Filelib\Plugin\Image\VersionPlugin
             arguments:
-                - image_question_medium
                 -
-                    0: [ setImageCompression, 8 ]
-                    1: [ setImageFormat, jpg]
-                    2: [ setImageCompressionQuality, 90 ]
-                    3: [ scaleImage, [ 410, 230 ]]
-                    4: [ setInterlaceScheme, 3 ]
+                    lussogrande:
+                        -
+                            0: [ setImageCompression, 8 ]
+                            1: [ setImageFormat, jpg]
+                            2: [ setImageCompressionQuality, 90 ]
+                            3: [ scaleImage, [ 800, 400 ]]
+                            4: [ setInterlaceScheme, 3 ]
+                    lussominore:
+                        -
+                            0: [ setImageCompression, 8 ]
+                            1: [ setImageFormat, jpg]
+                            2: [ setImageCompressionQuality, 20 ]
+                            3: [ scaleImage, [ 400, 200 ]]
+                            4: [ setInterlaceScheme, 3 ]
