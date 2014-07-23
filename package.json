@@ -1,0 +1,7 @@
+{
+  "name": "halimatin-kotskat",
+  "dependencies": {
+    "coffee-script": "^1.7.1",
+    "less": "^1.7.3"
+  }
+}
