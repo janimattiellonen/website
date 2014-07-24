@@ -11,6 +11,9 @@ class Media
      * @var UploadedFile
      *
      * @Assert\File(maxSize="6000000")
+     * @Assert\NotNull(
+     *   message="media.file-required"
+     * )
      */
     private $file;
 

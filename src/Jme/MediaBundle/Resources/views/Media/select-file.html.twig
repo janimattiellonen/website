@@ -7,7 +7,7 @@
         <form action="{{ path('jme_media_upload_file') }}" method="post" {{ form_enctype(form) }} novalidate>
             {{ form_widget(form) }}
             {{ form_errors(form) }}
-            <input type="submit" />
+            <input type="submit" class="btn btn-primary btn-lg" value="{{ 'media.upload-file'|trans }}"/>
         </form>
     </article>
 {%  endblock %}

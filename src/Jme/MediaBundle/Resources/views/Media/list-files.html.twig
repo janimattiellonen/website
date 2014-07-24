@@ -4,6 +4,8 @@
     <article>
         <h1>Uploaded files</h1>
 
+        <p><a href="{{ url('jme_media_select_file') }}">{{ 'media.upload-new-file'|trans }}</a></p>
+
         {% for image in images %}
             <img src="{{ filelib_url(image, "media_small") }}" /><br/>
 
