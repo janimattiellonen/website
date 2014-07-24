@@ -47,6 +47,13 @@ class Article implements Taggable
     protected $updated;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="published", type="boolean", nullable=true)
+     */
+    protected $published = false;
+
+    /**
      * @var string
      *
      *  @ORM\Column(name="title", type="string", length=128, nullable=false)
@@ -268,4 +275,33 @@ class Article implements Taggable
 
         return strlen($slug) > 0 ? $slug : $this->getId();
     }
+
+    /**
+     * @param boolean $published
+     *
+     * @return Article
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isPublished()
+    {
+        return $this->getPublished();
+    }
+
 }

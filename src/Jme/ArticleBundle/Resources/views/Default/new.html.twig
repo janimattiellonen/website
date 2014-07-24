@@ -6,9 +6,7 @@
 
 <div id="new-article">
     <form action="{{ path('jme_article_create') }}" method="post" {{ form_enctype(form) }} novalidate>
-        {{ form_widget(form) }}
-
-        <input type="submit" />
+        {% include 'JmeArticleBundle:Default:article-form-content.html.twig' %}
     </form>
 </div>
 {% endblock %}

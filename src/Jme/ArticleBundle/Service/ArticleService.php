@@ -14,16 +14,13 @@ use Jme\ArticleBundle\Service\Exception\ArticleNotFoundException;
 use Jme\ArticleBundle\Repository\ArticleRepository;
 use Jme\ArticleBundle\Entity\Article;
 
+use Jme\Component\Service\AbstractBaseService;
+use Jme\UserBundle\Service\UserService;
 use Symfony\Component\Form\Form;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class ArticleService
+class ArticleService extends AbstractBaseService
 {
-    /**
-     * @var EntityManager
-     */
-    protected $em;
-
     /**
      * @var ArticleRepository
      */
@@ -40,15 +37,27 @@ class ArticleService
     protected $tagManager;
 
     /**
+     * @var UserService
+     */
+    protected $userService;
+
+    /**
      * @param EntityManager     $em
      * @param ArticleRepository $articleRepository
      * @param TagManager        $tagManager
+     * @param UserService       $userService
      */
-    public function __construct(EntityManager $em, ArticleRepository $articleRepository, TagManager $tagManager)
+    public function __construct(
+        EntityManager $em,
+        ArticleRepository $articleRepository,
+        TagManager $tagManager,
+        UserService $userService)
     {
-        $this->em                   = $em;
+        parent::__construct($em);
+
         $this->articleRepository    = $articleRepository;
         $this->tagManager           = $tagManager;
+        $this->userService          = $userService;
     }
 
     /**
@@ -116,13 +125,12 @@ class ArticleService
     }
 
     /**
-     * @param int       $amount
-     * @param boolean   $loadTags
+     * @param int       $amount     *
      * @return array
      */
-    public function listArticles($amount, $loadTags = false)
+    public function listArticles($amount)
     {
-        $articles = $this->articleRepository->fetchLatestArticles($amount);
+        $articles = $this->articleRepository->fetchLatestArticles($amount, $this->userService->isLoggedIn());
 
         foreach ($articles as &$article) {
             $this->tagManager->loadTagging($article);

@@ -25,12 +25,12 @@ security:
                 login_path:  /login
                 check_path:  /login_check
                 always_use_default_target_path: true
-                default_target_path:            /login_success
+                default_target_path:            /
                 use_referer:                    false
                 failure_path:                   /login
 
             logout:
-                target: /%locale%
+                target: /
             anonymous: true
 
         dev:

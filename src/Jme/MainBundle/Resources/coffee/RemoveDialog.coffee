@@ -1,7 +1,7 @@
 unless App?
     App = {}
 
-class App.RemoveDialog
+class   App.RemoveDialog
     constructor: (@id, @linkElement) ->
 
     show: ->

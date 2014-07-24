@@ -2,10 +2,9 @@
 
 namespace Jme\ArticleBundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType,
-    Symfony\Component\Form\FormBuilderInterface,
-    Symfony\Component\OptionsResolver\OptionsResolverInterface,
-    Xi\Bundle\TagBundle\Form\Type\TagType;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ArticleType extends AbstractType
 {
@@ -14,7 +13,7 @@ class ArticleType extends AbstractType
         $builder->add('title', 'text')
                 ->add('brief', 'textarea')
                 ->add('content', 'textarea')
-                //->add('tags', 'tag')
+                ->add('published', 'checkbox')
         ;
     }
 

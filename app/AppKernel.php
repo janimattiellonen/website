@@ -37,6 +37,7 @@ class AppKernel extends Kernel
             new Jme\TagBundle\JmeTagBundle(),
             new Jme\ArticleBundle\JmeArticleBundle(),
             new Jme\MediaBundle\JmeMediaBundle(),
+            new Jme\UserBundle\JmeUserBundle(),
 
             new \Xi\Bundle\FilelibBundle\XiFilelibBundle(),
         );
