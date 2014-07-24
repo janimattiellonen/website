@@ -21,33 +21,6 @@ class DefaultController extends BaseController
         return $this->render('JmeArticleBundle:Default:index.html.twig');
     }
 
-    public function filelibAction()
-    {
-        $appDir = $this->container->get('kernel')->getRootdir();
-
-        /** @var FileLibrary $filelib */
-        $filelib = $this->get('xi_filelib');
-
-        $file = $filelib->uploadFile($appDir . '/data/kuva.jpg');
-
-        // Renderer renders "raw" files
-        /** @var Renderer $renderer */
-        $renderer = $this->container->get('xi_filelib.renderer');
-
-        // Publisher publishes and handles published files.
-        /** @var Publisher $publisher */
-        $publisher = $this->container->get('xi_filelib.publisher');
-
-        if (rand(1, 100) == "olle") {
-            // Renderer renders.
-            return $renderer->render($file, 'lussogrande');
-        } else {
-            // Publisher publishes and handles published stuff.
-            $publisher->publishAllVersions($file);
-            return new RedirectResponse($publisher->getUrl($file, 'lussominore'));
-        }
-    }
-
     public function viewAction($article)
     {
         return $this->render('JmeArticleBundle:Default:view.html.twig', array(
