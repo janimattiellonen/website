@@ -49,5 +49,6 @@ security:
         - { path: ^/(en|fi)/(register|rekisteroidy),                 role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/(en|fi)/resetting,                               role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/logout,                                          role: IS_AUTHENTICATED_FULLY       }
+        - { path: /media,                                            role: IS_AUTHENTICATED_FULLY       }
 
 

@@ -53,6 +53,8 @@ class Builder extends ContainerAware
         if($this->securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
         {
             $menu->addChild($this->translator->trans('menu.article.new'), array('route' => 'jme_article_new') );
+            $menu->addChild($this->translator->trans('menu.media.media-bank'), array('route' => 'jme_media_list_files') );
+
             $menu->addChild($this->translator->trans('menu.article.logout'), array('route' => 'fos_user_security_logout') );
         }
 
