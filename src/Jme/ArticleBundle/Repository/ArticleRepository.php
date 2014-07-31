@@ -1,21 +1,28 @@
 <?php
 namespace Jme\ArticleBundle\Repository;
 
-use Doctrine\ORM\EntityRepository,
-    Doctrine\ORM\QueryBuilder,
-    Doctrine\ORM\EntityNotFoundException,
-    Jme\ArticleBundle\Entity\Article,
-    Jme\ArticleBundle\Service\Exception\ArticleNotFoundException;
+use Doctrine\ORM\EntityNotFoundException;
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
+use Jme\ArticleBundle\Entity\Article;
+use Jme\ArticleBundle\Service\Exception\ArticleNotFoundException;
 
 class ArticleRepository extends EntityRepository
 {
     /**
      * @param $amount
+     * @param boolean $isAdmin
+     *
      * @return array
      */
-    public function fetchLatestArticles($amount)
+    public function fetchLatestArticles($amount, $isAdmin = false)
     {
         $qb = $this->getBaseQueryBuilder();
+
+        if (!$isAdmin) {
+            $qb->andWhere('a.published = 1');
+        }
+
         $qb->setMaxResults($amount);
 
         return $qb->getQuery()->getResult();

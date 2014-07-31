@@ -12,10 +12,8 @@
     {% endif %}
 
     {% if listMode == true %}
-        <div class="brief">{{article.brief|nl2br}}</div>
-    {% endif %}
-
-    {% if listMode == false %}
+        <div class="brief">{{article.brief|raw|nl2br}}</div>
+    {% else %}
         <div class="content">{{article.content|raw}}</div>
     {% endif %}
 </article>

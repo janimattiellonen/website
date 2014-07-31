@@ -2,13 +2,12 @@
 
 namespace Jme\ArticleBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller,
-    Symfony\Component\Form\Form,
-    Jme\MainBundle\Component\Controller\BaseController,
-    Jme\ArticleBundle\Service\ArticleService,
-    Jme\ArticleBundle\Entity\Article,
-    Jme\ArticleBundle\Form\Type\ArticleType,
-    Jme\ArticleBundle\Service\Exception\ArticleException;
+use Jme\ArticleBundle\Entity\Article;
+use Jme\ArticleBundle\Form\Type\ArticleType;
+use Jme\ArticleBundle\Service\ArticleService;
+use Jme\ArticleBundle\Service\Exception\ArticleException;
+use Jme\MainBundle\Component\Controller\BaseController;
+use Symfony\Component\Form\Form;
 
 class DefaultController extends BaseController
 {

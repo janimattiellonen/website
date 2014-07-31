@@ -1,0 +1,17 @@
+
+jme_media_select_file:
+    pattern: "/media/select"
+    defaults: { _controller: JmeMediaBundle:Media:selectFile }
+    requirements: { _method: get}
+
+
+jme_media_upload_file:
+    pattern: "/media/upload"
+    defaults: { _controller: JmeMediaBundle:Media:uploadFile }
+    requirements: { _method: post}
+
+
+jme_media_list_files:
+    pattern: "/media"
+    defaults: { _controller: JmeMediaBundle:Media:listFiles }
+    requirements: { _method: get}

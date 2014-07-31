@@ -19,3 +19,6 @@ menu:
     article:
         new: "New article"
         logout:   "Log out"
+    media:
+        media-bank: "Media bank"
+        upload:     "Upload"

@@ -33,13 +33,16 @@ class AppKernel extends Kernel
 
             new \FPN\TagBundle\FPNTagBundle(),
 
-            new \Jme\MainBundle\JmeMainBundle(),
+            new Jme\MainBundle\JmeMainBundle(),
             new Jme\TagBundle\JmeTagBundle(),
-            new \Jme\ArticleBundle\JmeArticleBundle(),
+            new Jme\ArticleBundle\JmeArticleBundle(),
+            new Jme\MediaBundle\JmeMediaBundle(),
+            new Jme\UserBundle\JmeUserBundle(),
+
+            new \Xi\Bundle\FilelibBundle\XiFilelibBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

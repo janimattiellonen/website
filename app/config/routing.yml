@@ -6,6 +6,10 @@ JmeMainBundle:
     resource: "@JmeMainBundle/Resources/config/routing.yml"
     prefix: /
 
+JmeMediaBundle:
+    resource: "@JmeMediaBundle/Resources/config/routing.yml"
+    prefix: /
+
 _bazinga_jstranslation:
     resource: "@BazingaJsTranslationBundle/Resources/config/routing/routing.yml"
 
@@ -27,3 +31,7 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /change-password
+
+xi_filelib:
+                                           resource: "@XiFilelibBundle/Resources/config/routing.yml"
+                                           prefix: /
