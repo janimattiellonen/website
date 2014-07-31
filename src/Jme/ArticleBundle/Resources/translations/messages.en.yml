@@ -6,6 +6,7 @@ article:
   created: "The article was created successfully"
   updated: "The article was updated successfully"
   save: "Save"
+  not-published: "Not published"
 
 Title: "Title"
 Brief: "Brief"
