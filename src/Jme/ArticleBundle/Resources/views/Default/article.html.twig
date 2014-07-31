@@ -1,6 +1,6 @@
 <article>
     {% if listMode == false %}
-        <h1>{{article.title}}</h1>
+        <h1>{{article.title}}{% if article.isPublished == false %} ({{ 'article.not-published'|trans|upper }}){% endif %}</h1>
     {% else %}
         <a class="title-link" href="{{ path('jme_article_view', {article: article.urlId}) }}">
             <h1>{{article.title}}{% if article.isPublished == false %} ({{ 'article.not-published'|trans|upper }}){% endif %}</h1>
