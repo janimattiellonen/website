@@ -1,0 +1,4 @@
+services:
+    jme_user.service.user:
+        class: Jme\UserBundle\Service\UserService
+        arguments: ["@doctrine.orm.entity_manager", "@security.context"]

@@ -2,13 +2,17 @@
 namespace Jme\ArticleBundle\Entity;
 
 use \DateTime;
-use Symfony\Component\Validator\Constraints as Assert;
+
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints AS DoctrineAssert;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Xi\Bundle\TagBundle\Entity\Tag;
 use Doctrine\Common\Collections\ArrayCollection;
 use DoctrineExtensions\Taggable\Taggable;
+
+use Gedmo\Mapping\Annotation as Gedmo;
+
+use Jme\TagBundle\Entity\Tag;
+
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints AS DoctrineAssert;
 
 /**
  * @ORM\Entity
@@ -41,6 +45,13 @@ class Article implements Taggable
      * @ORM\Column(type="datetime")
      */
     protected $updated;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="published", type="boolean", nullable=true)
+     */
+    protected $published = false;
 
     /**
      * @var string
@@ -264,4 +275,33 @@ class Article implements Taggable
 
         return strlen($slug) > 0 ? $slug : $this->getId();
     }
+
+    /**
+     * @param boolean $published
+     *
+     * @return Article
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isPublished()
+    {
+        return $this->getPublished();
+    }
+
 }

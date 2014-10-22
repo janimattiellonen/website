@@ -6,12 +6,12 @@ ssh_options[:forward_agent] = true
 set :branch, fetch(:branch, "master")
 
 set :domain,      "janimattiellonen.com"
-set :deploy_to,   "/var/www/vhosts/janimattiellonen.com/website/cap"
+set :deploy_to,   "/var/www/janimattiellonen.com/cap"
 
-set :user, 'capistrano'
+set :user, 'jme'
 set :use_sudo, false
 
-ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa-capistrano")]
+ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa_own")]
 
 role :web, domain                        # Your HTTP server, Apache/etc
 role :app, domain                        # This may be the same as your `Web` server
@@ -26,9 +26,9 @@ set :dump_assetic_assets, true
 set :use_composer, true
 
 after "deploy:finalize_update" do
-  run "chown -R capistrano:www-data #{latest_release}/#{cache_path}"
-  run "chown -R capistrano:www-data #{latest_release}/#{log_path}"
-  run "chown -R capistrano:www-data #{latest_release}"
-  run "chown -R capistrano:www-data #{latest_release}/../../current"
+  run "chown -R jme:www-data #{latest_release}/#{cache_path}"
+  run "chown -R jme:www-data #{latest_release}/#{log_path}"
+  run "chown -R jme:www-data #{latest_release}"
+  run "chown -R jme:www-data #{latest_release}/../../current"
   run "chmod -R 775 #{latest_release}/#{cache_path}"
 end

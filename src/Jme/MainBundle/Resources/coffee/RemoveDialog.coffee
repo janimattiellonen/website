@@ -1,7 +1,7 @@
 unless App?
     App = {}
 
-class App.RemoveDialog
+class   App.RemoveDialog
     constructor: (@id, @linkElement) ->
 
     show: ->
@@ -9,7 +9,7 @@ class App.RemoveDialog
 
     createDialog: ->
         if($(@id).length == 0)
-            $dialog = $('<div></div>').attr({id: @id, title: Translator.get('item.remove')})
+            $dialog = $('<div></div>').attr({id: @id, title: Translator.trans('item.remove')})
             $('body').append($dialog);
         else
             $dialog = $(@id);
@@ -24,13 +24,13 @@ class App.RemoveDialog
 
             buttons: [
                 {
-                    text: Translator.get("yes"),
+                    text: Translator.trans("yes"),
                     click: ->
                         window.location.href = $(ff).attr "href"
                         $(this).dialog("close")
                 },
                 {
-                    text: Translator.get("no"),
+                    text: Translator.trans("no"),
                     click: ->
                         $(this).dialog("close")
                 }

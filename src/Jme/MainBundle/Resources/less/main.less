@@ -1,3 +1,11 @@
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
 body
 {
     background: #ededed url("/images/gray_jean.png");
@@ -9,9 +17,15 @@ header {
 
 #wrapper {
     float: left;
-    margin-left: 75px;
-    margin-top: 75px;
+
+    width: 95%;
     max-width: 1200px;
+
+    min-height: 100%;
+    height: auto !important;
+    margin: 0 75px -50px 75px;
+    padding-top: 75px;
+    position: relative;
 }
 
 
@@ -93,6 +107,7 @@ ul#some {
 #main {
     width: 85%;
     float: left;
+    padding-bottom:50px;
 }
 
 @media screen and (max-width: 814px) {
@@ -120,11 +135,16 @@ ul#some {
 @media screen and (max-width: 600px) {
     #wrapper {
         margin-left: 40px;
+
         width: 90%;
     }
 
     .projects {
         font-size: 0.8em;
+    }
+
+    footer {
+        padding-left: 40px !important;
     }
 }
 
@@ -331,4 +351,9 @@ footer {
     width: 100%;
     padding-left: 75px;
     color: white;
+    height: 50px;
+}
+
+.ui-dialog {
+    top: 120px !important;
 }
