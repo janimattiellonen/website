@@ -14,6 +14,12 @@ services:
         tags:
             - {name: twig.extension}
 
+    qa.twig.extension:
+        class: Jme\MainBundle\Twig\Extensions\GoogleAnalytics
+        arguments: [%qa_code%, %qa_enabled%]
+        tags:
+            - {name: twig.extension}
+
     jme_main.menu.main.builder:
         class: Jme\MainBundle\Menu\Builder
         arguments: ["@knp_menu.factory", "@security.context", "@translator"]

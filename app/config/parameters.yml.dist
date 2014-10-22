@@ -16,7 +16,8 @@ parameters:
     node_bin:          /opt/local/bin/node
 
     domain:             janimattiellonen-website.localhost
-
+	ga_code: UA-56009501-1
+	ga_enabled: false
     # use one of these
     # use this if you have node in your project folder:
     node_modules_path:  %kernel.root_dir%/../node_modules

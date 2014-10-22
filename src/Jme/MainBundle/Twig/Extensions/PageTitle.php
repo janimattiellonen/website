@@ -1,7 +1,6 @@
 <?php
 namespace Jme\MainBundle\Twig\Extensions;
 
-use Symfony\Component\HttpFoundation\Session\Session;
 use Twig_Environment;
 use Twig_Extension;
 
@@ -16,6 +15,7 @@ class PageTitle extends Twig_Extension
 	{
 		$this->siteName = $siteName;
 	}
+
 	/**
 	 * @return array
 	 */
