@@ -15,7 +15,7 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
     node_bin:          /opt/local/bin/node
 
-    domain:             janimattiellonen-website.localhost
+	domain: janimattiellonen-website.localhost
 	ga_code: UA-56009501-11111
 	ga_enabled: false
     # use one of these
