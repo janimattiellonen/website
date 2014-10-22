@@ -1,5 +1,5 @@
 {% extends 'JmeArticleBundle::layout.html.twig' %}
-
+{% block title %}{{ jme_page_title(article.title) }}{% endblock %}
 {% block content %}
 
     {% include 'JmeArticleBundle:Default:article.html.twig' with {article: article, listMode: false} %}

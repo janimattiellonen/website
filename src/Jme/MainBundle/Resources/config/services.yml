@@ -8,6 +8,12 @@ services:
         tags:
             - {name: twig.extension}
 
+    page_title.twig.extension:
+        class: Jme\MainBundle\Twig\Extensions\PageTitle
+        arguments: [%domain%]
+        tags:
+            - {name: twig.extension}
+
     jme_main.menu.main.builder:
         class: Jme\MainBundle\Menu\Builder
         arguments: ["@knp_menu.factory", "@security.context", "@translator"]
