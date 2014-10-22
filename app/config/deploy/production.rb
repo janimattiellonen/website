@@ -29,6 +29,9 @@ after "deploy:finalize_update" do
   run "chown -R jme:www-data #{latest_release}/#{cache_path}"
   run "chown -R jme:www-data #{latest_release}/#{log_path}"
   run "chown -R jme:www-data #{latest_release}"
-  run "chown -R jme:www-data #{latest_release}/../../current"
   run "chmod -R 775 #{latest_release}/#{cache_path}"
+end
+
+after "deploy:create_symlink" do
+    run "chown -R jme:www-data #{latest_release}/../../current"
 end
