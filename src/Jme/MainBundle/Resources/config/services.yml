@@ -14,9 +14,9 @@ services:
         tags:
             - {name: twig.extension}
 
-    qa.twig.extension:
+    ga.twig.extension:
         class: Jme\MainBundle\Twig\Extensions\GoogleAnalytics
-        arguments: [%qa_code%, %qa_enabled%]
+        arguments: [%ga_code%, %ga_enabled%]
         tags:
             - {name: twig.extension}
 
