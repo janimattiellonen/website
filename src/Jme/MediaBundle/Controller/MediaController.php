@@ -56,6 +56,17 @@ class MediaController extends BaseController
         ]);
     }
 
+	public function deleteFileAction($fileId)
+	{
+		$filelib = $this->get('xi_filelib');
+
+		$file = $filelib->findFile($fileId);
+
+		$filelib->getFileRepository()->delete($file);
+
+		return new RedirectResponse($this->generateUrl('jme_media_list_files'));
+	}
+
     /**
      * @return \Jme\MediaBundle\Service\MediaService
      */
