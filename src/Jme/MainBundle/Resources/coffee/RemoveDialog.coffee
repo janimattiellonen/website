@@ -40,7 +40,7 @@ class   App.RemoveDialog
 
 $('document').ready ->
 
-    $('a.article-remove').bind "click", (event) ->
+    $('a.article-remove, a.item-remove').bind "click", (event) ->
         event.preventDefault()
         removeDialog = new App.RemoveDialog("#remove-dialog", $(this) )
         removeDialog.show()

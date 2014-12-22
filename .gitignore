@@ -16,3 +16,5 @@ node_modules
 /web/js/*
 /web/.htaccess
 /bin/*
+/app/data/temp
+/app/data/files

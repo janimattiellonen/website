@@ -2,15 +2,24 @@
     {{ 'media.url'|trans }}
 </button>
 
+<a class="item-remove btn btn-danger btn-lg" href="{{ path('jme_media_delete_file', {fileId: image.id}) }}">{{ 'media.delete'|trans }}</a>
+
 <div class="modal fade" id="dialog-{{ image.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
                 <h4 class="modal-title" id="myModalLabel">{{ 'media.url'|trans }}</h4>
             </div>
             <div class="modal-body">
-                <p>{{ app.request.schemeAndHttpHost }}{{ filelib_url(image, "media_small") }}</p>
+                <p>
+                    <ul>
+                        <li>{{ app.request.schemeAndHttpHost }}{{ filelib_url(image, "media_small") }}</li>
+                        <li>{{ app.request.schemeAndHttpHost }}{{ filelib_url(image, "media_big") }}</li>
+                    </ul>
+                </p>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

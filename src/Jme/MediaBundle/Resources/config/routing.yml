@@ -15,3 +15,8 @@ jme_media_list_files:
     pattern: "/media"
     defaults: { _controller: JmeMediaBundle:Media:listFiles }
     requirements: { _method: get}
+
+jme_media_delete_file:
+    pattern: "/media/{fileId}/delete"
+    defaults: { _controller: JmeMediaBundle:Media:deleteFile }
+    requirements: { _method: get}

@@ -140,12 +140,12 @@ xi_filelib:
                             0: [ setImageCompression, 8 ]
                             1: [ setImageFormat, jpg]
                             2: [ setImageCompressionQuality, 90 ]
-                            3: [ scaleImage, [ 800, 400 ]]
+                            3: [ scaleImage, [ 800, 400, true]]
                             4: [ setInterlaceScheme, 3 ]
                     media_small:
                         -
                             0: [ setImageCompression, 8 ]
                             1: [ setImageFormat, jpg]
                             2: [ setImageCompressionQuality, 50 ]
-                            3: [ scaleImage, [ 400, 200 ]]
+                            3: [ scaleImage, [ 400, 400, true ]]
                             4: [ setInterlaceScheme, 3 ]
