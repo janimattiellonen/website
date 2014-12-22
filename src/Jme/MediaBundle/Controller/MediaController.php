@@ -63,6 +63,7 @@ class MediaController extends BaseController
 		$file = $filelib->findFile($fileId);
 
 		$filelib->getFileRepository()->delete($file);
+		$filelib->getResourceRepository()->delete($file->getResource());
 
 		return new RedirectResponse($this->generateUrl('jme_media_list_files'));
 	}
