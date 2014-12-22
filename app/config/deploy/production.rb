@@ -20,7 +20,7 @@ role :db, domain, :primary => true       # This is where Rails migrations will r
 #set :keep_releases,  3
 
 set :shared_files, ["app/config/parameters.yml", web_path + "/.htaccess"]
-set :shared_children, [app_path + "/logs", "node_modules", web_path + "/files"]
+set :shared_children, [app_path + "/logs", "node_modules", web_path + "/files", app_path + '/data']
 
 set :dump_assetic_assets, true
 set :use_composer, true

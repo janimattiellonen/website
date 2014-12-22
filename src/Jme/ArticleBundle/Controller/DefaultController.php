@@ -6,8 +6,10 @@ use Jme\ArticleBundle\Entity\Article;
 use Jme\ArticleBundle\Form\Type\ArticleType;
 use Jme\ArticleBundle\Service\ArticleService;
 use Jme\ArticleBundle\Service\Exception\ArticleException;
+use Jme\ArticleBundle\Service\Exception\ArticleNotFoundException;
 use Jme\MainBundle\Component\Controller\BaseController;
 use Symfony\Component\Form\Form;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DefaultController extends BaseController
 {
@@ -18,9 +20,20 @@ class DefaultController extends BaseController
 
     public function viewAction($article)
     {
-        return $this->render('JmeArticleBundle:Default:view.html.twig', array(
-            'article' => $this->getArticleService()->getArticle($article),
-        ));
+		try {
+			$article = $this->getArticleService()->getArticle($article);
+
+			if (!$this->userIsLoggedIn() && !$article->isPublished()) {
+				throw new NotFoundHttpException("Page not found");
+			}
+
+			return $this->render('JmeArticleBundle:Default:view.html.twig', array(
+				'article' => $article,
+			));
+		}
+		catch(ArticleNotFoundException $e) {
+			throw new NotFoundHttpException("Page not found");
+		}
     }
 
     public function removeAction($article)

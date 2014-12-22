@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link href="{{ asset('css/contact.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block container %}
+
+    {% block content %}
+        <h1>{{ 'error.403'|trans }}</h1>
+
+        <p>{{ 'error.403-description'|trans }}</p>
+
+    {% endblock %}
+{% endblock %}
