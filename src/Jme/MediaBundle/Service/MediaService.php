@@ -2,6 +2,7 @@
 namespace Jme\MediaBundle\Service;
 
 use Jme\MediaBundle\Repository\MediaRepository;
+use Jme\MediaBundle\Helper\UploadHelper;
 use Symfony\Component\Form\Form;
 
 use Xi\Filelib\FileLibrary;
@@ -41,17 +42,8 @@ class MediaService
      */
     public function saveByForm(Form $form)
     {
-        $uploadHelper = new \Jme\MediaBundle\Helper\UploadHelper();
-
         $media = $form->getData();
-        //print_r($media->getFile());die;
-        $fileUpload = $uploadHelper->createFileUpload($media->getFile());
-
-
-        //echo "is file: " . is_file($media->getFile()->getPathName()) . "<br>";
-       // die($media->getFile()->getPathName());
         $file = $this->filelib->uploadFile($media->getFile()->getPathName());
-
 
         $this->publisher->publishAllVersions($file);
     }
