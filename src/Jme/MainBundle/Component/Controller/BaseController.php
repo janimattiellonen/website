@@ -40,4 +40,14 @@ class BaseController extends Controller
     {
         return $this->redirect($this->generateUrl($route, $params) );
     }
+
+	/**
+	 * @return bool
+	 */
+	public function userIsLoggedIn()
+	{
+		$user = $this->getUser();
+
+		return is_object($user);
+	}
 }
