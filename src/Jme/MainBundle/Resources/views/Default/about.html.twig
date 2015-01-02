@@ -3,29 +3,5 @@
 {% block title %}{{ jme_page_title("Projects") }}{% endblock %}
 
 {% block content %}
-<article>
-    <h1>About</h1>
-
-    <div class="content">
-        <p>Hi! I'm Janimatti Ellonen.</p>
-
-        <p>I was born in 1980 and was raised in the beautiful city of Stockholm, Sweden. Both of my parents decided they wanted to have
-        an adventure when they were young, moved to Sweden and met there. The rest is (boring) history.
-        I got somewhat fed up and moved to Finland back in 2001.</p>
-
-        <p>I'm a coding monkey at <a target="_blank" href="http://soprano.fi/"> Soprano Digital</a>, mostly dealing with PHP projects (Symfony 2, Zend Framework 1 & 2).</p>
-
-        <p>On my spare time I try to develop my own projects. My personal interests have resulted in several projects that I'm involved with.
-         For example, I do <a href="http://www.munkirjat.com">read a lot</a> and I try to be on a <a href="http://discgolfscores.net">discgolf course</a> as much as <a href="http://m.discgolfscores.net">I can</a>.</p>
-
-        <p>See my other <a href="{{ path('JmeMainBundle_projects') }}">projects</a>.
-
-        <p>
-            <a target="_blank" href="http://www.zend.com/en/yellow-pages#show-ClientCandidateID=ZEND008341">
-                <img src="{{ asset('images/php5_zce_logo_new.gif') }}" alt="Zend certified engineer - PHP 5" />
-                <img src="{{ asset('images/zce_php5-3_logo.gif') }}" alt="Zend certified engineer - PHP 5.3" />
-                <img src="{{ asset('images/zf_zce_logo.gif') }}" alt="Zend certified engineer - Zend Framework" />
-            </a>
-        </p>
-</article>
-{%  endblock %}
+   {%  include 'JmeMainBundle:Default:about-inner.html.twig' %}
+{% endblock %}

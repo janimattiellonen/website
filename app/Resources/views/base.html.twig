@@ -35,16 +35,16 @@
     {{ jme_ga() }}
 </head>
 <body>
-    {% include '::nav.html.twig' %}
+
     {{ jme_flash() }}
 
-    <div id="wrapper">
-        <div id="main">{% block content %}{% endblock %}</div>
+    <div id="page">
+        {% include '::nav.html.twig' %}
+
+        {% block content %}{% endblock %}
     </div>
 
-    <footer>
-        <p>Copyright &copy; 2013 - {{ "now"|date('Y') }} Janimatti Ellonen</p>
-    </footer>
+    {% include '::footer.html.twig' %}
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>

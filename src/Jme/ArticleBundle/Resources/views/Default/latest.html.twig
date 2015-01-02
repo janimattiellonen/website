@@ -4,12 +4,16 @@
 
 {% block content %}
 
-    <div class="articles">
-    {% for article in articles %}
-
-        {% include 'JmeArticleBundle:Default:article.html.twig' with {article: article, listMode: true} %}
-    {% endfor %}
+    <div class="content" id="a-home">
+        <section class="articles">
+        {% for article in articles %}
+            {% include 'JmeArticleBundle:Default:article.html.twig' with {article: article, listMode: true} %}
+        {% endfor %}
+        </section>
     </div>
 
+    {% include 'JmeMainBundle:Default:about-inner.html.twig' %}
+
+    {% include 'JmeMainBundle:Default:projects-inner.html.twig' %}
 
 {% endblock %}

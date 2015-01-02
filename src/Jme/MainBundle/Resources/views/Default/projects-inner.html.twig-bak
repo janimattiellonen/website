@@ -1,0 +1,271 @@
+<article>
+<h1>Projects</h1>
+
+<section class="projects">
+    <p>On my spare time, I tend to code a lot, mostly PHP-based projects. I also try to provide my mere
+        development skills to other projects that actually have users. Here are the essential projects that I'm
+        involved in.</p>
+
+    <div class="projects">
+        <article class="project">
+
+            <div class="row">
+                <div class="title">Name:</div>
+                <div class="description name">DiscGolfScores</div>
+            </div>
+
+            <div class="row">
+                <div class="title">Description:</div>
+                <div class="description">
+                    A website for storing discgolf scores. Contains only finnish courses. Site is in finnish.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="title">Website:</div>
+                <div class="description"><a target="_blank" href="http://www.discgolfscores.net">Discgolfscores.net</a></div>
+            </div>
+
+            <div class="row">
+                <div class="title">My role:</div>
+                <div class="description">
+                    I have mostly provided some coding assistance for adding new features and fixing some bugs.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="title">Technical details:</div>
+                <div class="description">
+                    <ul>
+                        <li>PHP 5</li>
+                        <li>MySql</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article class="project">
+
+            <div class="row">
+                <div class="title">Name:</div>
+                <div class="description name">DGS Mobile</div>
+            </div>
+
+            <div class="row">
+                <div class="title">Description:</div>
+                <div class="description">
+                    Mobile frontend for Discgolfscores.net providing a mobile-friendly UI for storing scores. Tries to minimize the use of an
+                    Internet connection during game play. Partially a single-page app.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="title">Website:</div>
+                <div class="description"><a target="_blank" href="http://m.discgolfscores.net">m.discgolfscores.net</a></div>
+            </div>
+
+            <div class="row">
+                <div class="title">My role:</div>
+                <div class="description">
+                    Creator and lead (currently only) developer. My role include maintenance of code and implementing new features.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="title">Technical details:</div>
+                <div class="description">
+
+                    <ul>
+                        <li>PHP 5.3</li>
+                        <li>Zend Framework 1</li>
+                        <li>jQuery mobile</li>
+                        <li>partially single-page app</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article class="project">
+
+            <div class="row">
+                <div class="title">Name:</div>
+                <div class="description name">Cobase (Open source)</div>
+            </div>
+
+            <div class="row">
+                <div class="title">Description:</div>
+                <div class="description">
+                    Cobase is an open source alternative to corporate social media portals such as Yammer and Moovia.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="title">Website:</div>
+                <div class="description">n/a</div>
+            </div>
+
+            <div class="row">
+                <div class="title">GitHub:</div>
+                <div class="description"><a target="_blank" href="https://github.com/CoBase/cobase">Cobase</a></div>
+            </div>
+
+
+            <div class="row">
+                <div class="title">My role:</div>
+                <div class="description">
+                    My role includes maintenance of code and implementing new features.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="title">Technical details:</div>
+                <div class="description">
+
+                    <ul>
+                        <li>PHP 5.3</li>
+                        <li>Symfony 2.3</li>
+                        <li>Doctrine 2</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article class="project">
+
+            <div class="row">
+                <div class="title">Name:</div>
+                <div class="description name">Munkirjat (Open source)</div>
+            </div>
+
+            <div class="row">
+                <div class="title">Description:</div>
+                <div class="description">
+                    Munkirjat (my books - in english) is a pet project of mine, which I use to register books I have bought, basic information
+                    about each book (title, authors, type), whether I have read them or not and so on. Partially for allowing me to learn new
+                    stuff and also for helping me figure out whether I already own a specific book. I buy quite a lot of books and at times
+                    I forget whether I already own the book or not. :)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="title">Website:</div>
+                <div class="description"><a target="_blank" href="http://www.munkirjat.com">munkirjat.com</a></div>
+            </div>
+
+            <div class="row">
+                <div class="title">GitHub:</div>
+                <div class="description"><a target="_blank" href="https://github.com/janimattiellonen/munkirjat-v2">Munkirjat</a></div>
+            </div>
+
+
+            <div class="row">
+                <div class="title">My role:</div>
+                <div class="description">
+                    My role include maintenance of code and implementing new features.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="title">Technical details:</div>
+                <div class="description">
+                    <p>A single-page app powered by ajax and Backbone.js.</p>
+                    <ul>
+                        <li>PHP 5.3</li>
+                        <li>Symfony 2.3</li>
+                        <li>Doctrine 2</li>
+                        <li>Backbone.js</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article class="project">
+
+            <div class="row">
+                <div class="title">Name:</div>
+                <div class="description name">Website (Open source)</div>
+            </div>
+
+            <div class="row">
+                <div class="title">Description:</div>
+                <div class="description">
+                    Source code for this website. I decided to create my own website/blog engine instead of using Wordpress or the likes.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="title">Website:</div>
+                <div class="description"><a target="_blank" href="http://www.janimattiellonen.com">janimattiellonen.com</a></div>
+            </div>
+
+            <div class="row">
+                <div class="title">GitHub:</div>
+                <div class="description"><a target="_blank" href="https://github.com/janimattiellonen/website">Website</a></div>
+            </div>
+
+
+            <div class="row">
+                <div class="title">My role:</div>
+                <div class="description">
+                    Implementing anything I find cool and/or fun.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="title">Technical details:</div>
+                <div class="description">
+                    <p>A simple PHP/Symfony 2 website/blog engine.</p>
+                    <ul>
+                        <li>PHP 5.4</li>
+                        <li>Symfony 2.4</li>
+                        <li>Doctrine 2</li>
+                        <li>CoffeeScript/JavaScript/jQuery</li>
+                        <li>Less</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article class="project">
+
+            <div class="row">
+                <div class="title">Name:</div>
+                <div class="description name">Xi Project</div>
+            </div>
+
+            <div class="row">
+                <div class="title">Description:</div>
+                <div class="description">
+                    A PHP repository aimed at providing reusable, high-quality components.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="title">Website:</div>
+                <div class="description"><a target="_blank" href="http://xi-project.github.io/">xi-project.github.io</a></div>
+            </div>
+
+            <div class="row">
+                <div class="title">GitHub:</div>
+                <div class="description"><a target="_blank" href="https://github.com/xi-project">xi-project</a></div>
+            </div>
+
+            <div class="row">
+                <div class="title">My role:</div>
+                <div class="description">
+                    I have mostly done some minor bug fixes and added support for specific Symfony 2 versions.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="title">Technical details:</div>
+                <div class="description">
+                    <ul>
+                        <li>PHP 5</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </div>
+</project>

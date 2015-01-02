@@ -1,359 +1,242 @@
-* {
+body {
     margin: 0;
-}
-
-html, body {
-    height: 100%;
-}
-
-body
-{
-    background: #ededed url("/images/gray_jean.png");
+    background: #FFFFFF;
+    font-family: 'Raleway', sans-serif;
+    color: #383737;
 }
 
 header {
-    background: gray;
-}
-
-#wrapper {
-    float: left;
-
-    width: 95%;
-    max-width: 1200px;
-
-    min-height: 100%;
-    height: auto !important;
-    margin: 0 75px 0 75px;
-    padding-top: 75px;
     position: relative;
+    height: 300px;
+    background-image: url(/bundles/jmemain/images/top-image-winter.jpg);
+    background-style: cover;
+    background-position: -258px 0;
 }
 
+h1, h2, h3, h4, p {
+    margin: 0 0 10px 0;
+}
 
-.navbar-header {
-    button.navbar-toggle {
-        background: black;
+h1, h2, h3, h4 {
+    font-family: 'Nova Square', cursive;
+    letter-spacing: 1.6px;
+    font-weight: 400;
+}
 
-        span.icon-bar {
-            background: #f8f8f8;
-        }
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+p, a, span {
+    font-size: 16px;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+a {
+    color: #692B28;
+
+    &:hover {
+        color: #940500;
+        text-decoration: none;
     }
 }
 
-
-&.in {
-    ul.navbar-nav {
-        li {
-            width: 100%;
-        }
-    }
-
+#page {
+    position: relative;
+    max-width: 940px;
+    min-height: 500px;
+    margin: auto;
+    background: #f2efe6;
 }
 
+.content {
+    padding: 20px;
+    min-height: 500px;
+    overflow: auto;
+}
 
-ul.navbar-nav
-{
-    margin-left: 15px;
-    padding-left: 0;
+.menu {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    float: left;
+    background: #424242;
 
-    li
-    {
-        margin-bottom: 5px;
-        padding: 5px 0 5px;
+    ul li {
 
-        a
-        {
+        a {
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 20px;
             text-decoration: none;
-            color: black;
-            padding-bottom: 5px;
+            text-transform: uppercase;
+            color: #fbf7e4;
 
-            &:hover, &:focus {
-                background: none !important;
-                color: white;
-                border-bottom: solid white 2px;
-            }
-
-        }
-
-        &.current {
-            a {
-                color: white;
-                border-bottom: solid white 2px;
+            &:hover {
+                background: #692B28;
             }
         }
     }
 }
 
-ul#some {
-    border: none;
+
+.articles {
+    padding-right: 20px;
+
+    article {
+        padding: 0 0 20px 0;
+
+        .image {
+            height: 100px;
+            width: 100%;
+            background: #333;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+
+.menu-wrapper h2 {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    background: #692B28;
+    color: #fbf7e4;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.menu-articles a ,
+.menu-categories a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.about {
+    min-height: 200px;
+    background: #692B28;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #f2efe6;
+}
+
+.image-about {
+    height: 200px;
+    width: 200px;
+    margin: 0 20px 15px 0;
+    background: #333;
     float: left;
-    margin-left: 20px;
-    background: #b0b0b0;
-    border-radius: 5px;
-    padding: 5px;
-    width: 90px;
+}
 
-    li {
-        display: inline;
-        padding-right: 4px;
+.projects {
+    padding: 0 20px;
 
-        img {
-            width: 20px;
-            height: 20px;
-        }
+    .image-project {
+        height: 300px;
+        background: #333;
+        margin-bottom: 10px;
     }
 }
 
-
-#main {
-    width: 85%;
-    float: left;
-    padding-bottom:50px;
+.project {
+    overflow: auto;
+    margin-bottom: 20px;
 }
 
-@media screen and (max-width: 814px) {
-
-    nav {
-        width: 100%;
-
-        ul {
-            float: left;
-
-            &#some {
-                float: right;
-                text-align: right;
-                width: 90px;
-            }
-
-            li {
-                display: inline;
-                padding-right: 15px;
-            }
-        }
-    }
+.project-information {
+    padding-bottom: 20px;
 }
 
-@media screen and (max-width: 600px) {
-    #wrapper {
-        margin-left: 40px;
-
-        width: 90%;
+@media only screen and (min-width : 480px) {
+    .menu a {
+        display: inline-block;
     }
-
-    .projects {
-        font-size: 0.8em;
-    }
-
-    footer {
-        padding-left: 40px !important;
-    }
-}
-
-@media screen and (max-width: 470px) {
-
-    nav ul li, nav ul li.last{
-        display: inline;
-        margin-bottom: 7px;
+    .articles {
+        width: 62%;
         float: left;
     }
-
-    nav ul#some li {
-        display: inline;
-        width: auto;
-    }
-}
-
-@media screen and (max-width: 300px) {
-
-    nav ul li {
-        font-size: 0.6em;
-    }
-}
-
-
-div.flash-wrapper
-{
-    float: left;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px
-}
-
-div.flash-messages
-{
-    padding: 10px;
-
-    text-align: center;
-}
-
-div.error
-{
-    background: #ffaf9e;
-    border: solid 1px red;
-    color: red;
-}
-
-div.warning
-{
-    background: #ffe67a;
-    border: solid 1px orange;
-    color: orange;
-}
-
-div.notice
-{
-    background: #6ac580;
-    border: solid 1px green;
-    color: green;
-}
-
-
-/* login */
-
-div#login-box
-{
-    display:block;
-
-    position:absolute;
-    top:50%;
-    left:35%;
-    width:350px;
-
-    background: white;
-    padding: 15px;
-
-    .wrapper
-    {
-        float: right;
-        width: 100%;
-        input[type="text"], input[type="password"]
-        {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-    }
-
-    .error
-    {
-        margin-bottom: 10px;
-        padding: 3px;
-    }
-
-    button
-    {
+    .menu-wrapper {
+        width: 33%;
+        margin-top: 41px;
         float: right;
     }
-
 }
 
-
-/* end login */
-
-.tag_item_selector {
-    float: left;
-    width: 96%;
-    background: #f1f1f1;
-    border-radius: 5px;
-    padding: 1%
-}
-
-.tag_item_selector div.items,  {
-  float: left;
-  margin-bottom: 15px;
-  width: 100%;
-}
-.tag_item_selector div.items ul{
-  float: left;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.tag_item_selector div.items ul li{
-  background: none repeat scroll 0 0 #F36B22;
-  border-radius: 4px 4px 4px 4px;
-  color: #FFFFFF;
-  cursor: default;
-  float: left;
-  list-style-type: none;
-  margin: 5px 5px 0 0;
-  padding: 2px 6px;
-}
-.tag_item_selector div.items ul li a.remove{
-  background-image: url("/images/delete-white.gif");
-  background-position: 0 0;
-  float: right;
-}
-.tag_item_selector .item_input input {
-  float:left;
-  width: 50%;
-
-}
-.tag_item_selector .item_input .add-item-btn {
-  clear: right;
-  display: none;
-  float: right;
-  margin-left: 4px;
-  margin-top: 0;
-}
-
-div.projects {
-    float: left;
-    width: 100%;
-
-    div.project {
-        float:left;
-        width: 100%;
-
-        margin-bottom: 30px;
-        padding-bottom: 10px;
-        border-bottom: solid black 1px;
-
-        .row {
-            margin: 0 0 10px 0;
-            float:left;
-            clear: both;
-            width: 100%;
-
-            .name {
-                font-weight: bold;
-            }
-        }
-
-        .title {
-            float: left;
-            width: 30%;
-        }
-
-        .important {
-            background: #d1d1d1;
-        }
-
-        .description {
-            float: left;
-            width: 60%;
-
-            ul {
-                margin: 0;
-                padding: 0;
-
-                li {
-                    margin: 0 0 0 14px;
-                }
-            }
-        }
+@media only screen and (min-width : 768px) {
+    .projects .image-project {
+        width: 60%;
+        height: 300px;
+        float: left;
     }
+    .project-information {
+        float: right;
+        width: 37%;
+    }
+}
+
+
+
+footer {
+    height: 100px;
+    bottom: 0;
+    background: #383737;
 }
 
 footer {
     float: left;
     height: 50px;
     background: black;
+    background: #383737;
     width: 100%;
     padding-left: 75px;
     color: white;
-    height: 50px;
+    height: 350px;
+
+    ul#some {
+        border: none;
+        float: left;
+        margin-left: 20px;
+        border-radius: 5px;
+        padding: 5px;
+
+        li {
+            display: inline;
+            padding-right: 4px;
+
+            img {
+                width: 16px;
+                height: 16px;
+            }
+
+            &#twitter {
+                img {
+                    width: 20px;
+                }
+            }
+        }
+    }
+
+    p {
+        text-align: center;
+        margin-top: 300px;
+    }
 }
 
-.ui-dialog {
-    top: 120px !important;
-}
+/*
+320
+480
+768
+1000
+1224
+
+most common breakpoints */
+
+
+
+
