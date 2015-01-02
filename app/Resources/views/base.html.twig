@@ -40,13 +40,6 @@
 
     <div id="wrapper">
         <div id="main">{% block content %}{% endblock %}</div>
-
-        <div class="galleria">
-            <a href="http://www.youtube.com/watch?v=eCB_INs2E24"></a>
-
-            <a href="http://www.youtube.com/watch?v=yjoPWxmOCtc"></a>
-
-        </div>
     </div>
 
     <footer>
@@ -57,9 +50,7 @@
     <script type="text/javascript" src="//code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
 
     {% javascripts output="/js/main.js" filter="?yui_js"
-        '//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/galleria.min.js'
         'bundles/jmemain/js/bootstrap-3.1.1/js/bootstrap.min.js'
-        'bundles/jmemain/js/galleria.classic.min.js'
         '@JmeMainBundle/Resources/js/highlight.pack.js'
         '@JmeMainBundle/Resources/coffee/RemoveDialog.coffee'
         '@JmeMainBundle/Resources/coffee/main.coffee'
@@ -75,12 +66,6 @@
             $('article .content pre code').each(function(i, e) {hljs.highlightBlock(e)});
         });
     </script>
-
-    <script>
-        Galleria.loadTheme('{{ asset('bundles/jmemain/js/galleria.classic.min.js') }}');
-        Galleria.run('.galleria');
-    </script>
-
 
 </body>
 </html>

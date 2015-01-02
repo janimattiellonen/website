@@ -39,3 +39,12 @@ Controllers
 - createAction()
 - updateAction()
 - deleteAction()
+
+
+
+### Layout
+
+- top of each article page: placeholder for an image
+- each content section should have a background color (perhaps white)
+- center main content
+- more colors
