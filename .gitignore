@@ -12,6 +12,7 @@ app/config/parameters.yml
 .DS_Store
 node_modules
 /web/css/*
+!/web/css/bootstrap
 /web/css/!jquery-ui
 /web/js/*
 /web/.htaccess

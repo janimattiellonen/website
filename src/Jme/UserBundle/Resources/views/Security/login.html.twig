@@ -6,9 +6,9 @@
             <div class="error">{% if error %}{{ error.message|trans }}{% endif %}</div>
 
             <form action="{{ path('login_check') }}" method="post">
-                <p><span></span><input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Username" /></p>
+                <p><span class="glyphicon glyphicon-user"></span><input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ 'login.username'|trans }}" /></p>
 
-                <p><span></span><input type="password" id="password" name="_password" placeholder="Password" /></p>
+                <p><span></span><input type="password" id="password" name="_password" placeholder="{{ 'login.password'|trans }}" /></p>
 
                 {#
                     If you want to control the URL the user is redirected to on success (more details below)
@@ -16,6 +16,7 @@
                 #}
 
                 <button class="btn" type="submit">{{'login.login'|trans}}</button>
+                <a class="cancel-login" href="{{ path('jme_article_latest') }}">{{ 'login.cancel'|trans }}</a>
             </form>
         </div>
     </div>

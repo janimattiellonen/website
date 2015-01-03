@@ -3,13 +3,6 @@ item:
 yes: "Yes"
 no: "No"
 
-login:
-    username: "Username"
-    password: "Password"
-    login: "Login"
-
-"Bad credentials": "Incorrect username / password"
-
 menu:
     home:     "Frontpage"
     logout:   "Logout"
