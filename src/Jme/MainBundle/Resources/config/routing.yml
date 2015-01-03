@@ -19,7 +19,7 @@ login_success:
 
 jme_login:
     pattern: "/login"
-    defaults:  { _controller: JmeMainBundle:Security:login }
+    defaults:  { _controller: JmeUserBundle:Security:login }
 
 jme_dialog_delete:
     pattern: "/dialog/delete"

@@ -1,8 +1,8 @@
 <?php
-namespace Jme\MainBundle\Controller;
+namespace Jme\UserBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller,
-    Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class SecurityController extends Controller
 {
@@ -20,7 +20,7 @@ class SecurityController extends Controller
         }
 
 
-        return $this->render('JmeMainBundle:Security:login.html.twig', array(
+        return $this->render('JmeUserBundle:Security:login.html.twig', array(
             // last username entered by the user
             'last_username' => $session->get(SecurityContext::LAST_USERNAME),
             'error'         => $error,
