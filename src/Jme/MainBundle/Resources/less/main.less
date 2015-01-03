@@ -11,6 +11,8 @@ header {
     background-image: url(/bundles/jmemain/images/top-image-winter.jpg);
     background-style: cover;
     background-position: -258px 0;
+    background-repeat: no-repeat;
+    background-color: white;
 
     .mol {
         width: 75px !important;
@@ -171,6 +173,15 @@ a {
     padding-bottom: 20px;
 }
 
+
+
+@media only screen and (max-width : 480px) {
+    header {
+        background-style: cover;
+        background-position: -735px 0;
+    }
+}
+
 @media only screen and (min-width : 480px) {
     .menu a {
         display: inline-block;
@@ -184,9 +195,13 @@ a {
         margin-top: 41px;
         float: right;
     }
+
+    nav li {
+        float: left;
+    }
 }
 
-@media only screen and (min-width : 768px) {
+@media only screen and (max-width : 768px) {
     .projects .image-project {
         width: 60%;
         height: 300px;
@@ -196,6 +211,12 @@ a {
         float: right;
         width: 37%;
     }
+
+    .navbar-nav {
+        margin: 0;
+    }
+
+
 }
 
 
