@@ -2,6 +2,7 @@ body {
     margin: 0;
     background: #FFFFFF;
     font-family: 'Raleway', sans-serif;
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
     color: #383737;
 }
 
@@ -33,26 +34,27 @@ h1, h2, h3, h4, p {
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Nova Square', cursive;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     letter-spacing: 1.6px;
     font-weight: 400;
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 26px;
 }
 
 h2 {
-    font-size: 32px;
+    font-size: 22px;
 }
 
 p, a, span {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
     text-decoration: none;
 }
 
 a {
+    text-shadow: none !important;
     color: #692B28;
 
     &:hover {
@@ -67,18 +69,22 @@ a {
     min-height: 500px;
     margin: auto;
     background: #f2efe6;
+    background: #f8f8f8;
 }
 
 .content {
-    padding: 20px;
     min-height: 500px;
     overflow: auto;
+}
+
+.padded-content {
+    padding: 20px 40px;
 }
 
 .menu {
     display: block;
     position: absolute;
-    bottom: 20px;
+    bottom: 0;
     float: left;
     background: #424242;
 
@@ -105,7 +111,7 @@ a {
     padding-right: 20px;
 
     article {
-        padding: 0 0 20px 0;
+        margin-bottom: 30px;
 
         .image {
             height: 100px;
@@ -116,6 +122,15 @@ a {
     }
 }
 
+article, section {
+    p {
+        margin-bottom: 20px;
+    }
+
+    div.brief, p {
+        line-height: 174%;
+    }
+}
 
 .menu-wrapper h2 {
     height: 30px;
@@ -136,8 +151,6 @@ a {
 .about {
     min-height: 200px;
     background: #692B28;
-    padding: 20px;
-    margin-bottom: 20px;
     color: #f2efe6;
 
     a {
@@ -155,12 +168,14 @@ a {
 }
 
 .projects {
-    padding: 0 20px;
 
     .image-project {
-        height: 300px;
         background: #333;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
+
+        img {
+            width: 100%;
+        }
     }
 }
 
@@ -187,7 +202,7 @@ a {
         display: inline-block;
     }
     .articles {
-        width: 62%;
+        width: 100%;
         float: left;
     }
     .menu-wrapper {
@@ -203,13 +218,12 @@ a {
 
 @media only screen and (max-width : 768px) {
     .projects .image-project {
-        width: 60%;
-        height: 300px;
+        width: 100%;
         float: left;
     }
     .project-information {
-        float: right;
-        width: 37%;
+        float: left;
+        width: 100%;
     }
 
     .navbar-nav {

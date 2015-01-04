@@ -52,7 +52,8 @@ class MediaController extends BaseController
         }
 
         return $this->render('JmeMediaBundle:Media:list-files.html.twig', [
-            'images' => $arr,
+            'images'    => $arr,
+            'versions'  => $this->getVersions(),
         ]);
     }
 
@@ -74,6 +75,23 @@ class MediaController extends BaseController
     protected function getMediaService()
     {
         return $this->get('jme_media.service.media');
+    }
+
+    /**
+     * @return array
+     */
+    protected function getVersions()
+    {
+        $plugins = $this->get('xi_filelib')->getPluginManager()->getPlugins();
+
+        foreach ($plugins as $plugin) {
+
+            if (get_class($plugin) == 'Xi\Filelib\Plugin\Image\VersionPlugin') {
+                return $plugin->getProvidedVersions();
+            }
+        }
+
+        return [];
     }
 }
  

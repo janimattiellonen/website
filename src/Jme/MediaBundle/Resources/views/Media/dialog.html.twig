@@ -15,9 +15,9 @@
             <div class="modal-body">
                 <p>
                     <ul>
-                        <li>{{ app.request.schemeAndHttpHost }}{{ filelib_url(image, "media_small") }}</li>
-                        <li>{{ app.request.schemeAndHttpHost }}{{ filelib_url(image, "media_big") }}</li>
-                        <li>{{ app.request.schemeAndHttpHost }}{{ filelib_url(image, "media_header") }}</li>
+                        {% for version in versions %}
+                            <li>{{ version }}: {{ filelib_url(image, version) }}</li>
+                        {% endfor %}
                     </ul>
                 </p>
 
