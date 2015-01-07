@@ -139,8 +139,8 @@ xi_filelib:
                         -
                             0: [ setImageCompression, 8 ]
                             1: [ setImageFormat, jpg]
-                            2: [ setImageCompressionQuality, 90 ]
-                            3: [ scaleImage, [ 1000, 200 ]]
+                            2: [ setImageCompressionQuality, 100 ]
+                            3: [ scaleImage, [ 840, 200 ]]
                             4: [ setInterlaceScheme, 3 ]
                     media_big:
                         -

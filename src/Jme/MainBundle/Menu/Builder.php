@@ -57,7 +57,7 @@ class Builder extends ContainerAware
         $menu = $this->factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
-        $menu->addChild($this->translator->trans('menu.home'), ['uri' => $this->router->generate('jme_article_latest') . '#a-home'] );
+        $menu->addChild($this->translator->trans('menu.home'), ['uri' => $this->router->generate('jme_article_latest')] );
         $menu->addChild($this->translator->trans('menu.about'), ['uri' => $this->router->generate('jme_article_latest') . '#a-about'] );
         $menu->addChild($this->translator->trans('menu.projects'), ['uri' => $this->router->generate('jme_article_latest') . '#a-projects'] );
 

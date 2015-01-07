@@ -42,7 +42,7 @@ class ServiceTestCase extends \PHPUnit_Framework_Testcase
         $this->kernel->boot();
 
         $this->container = $this->kernel->getContainer();
-        $this->entityManager = $this->container->get('doctrine')->getEntityManager();
+        $this->entityManager = $this->container->get('doctrine')->getManager();
         $this->fixtureFactory = new FixtureFactory($this->entityManager);
 
         $this->generateSchema();

@@ -1,25 +1,26 @@
 {% extends 'JmeMediaBundle::layout.html.twig' %}
 
 {% block content %}
-    <article>
-        <h1>Uploaded files</h1>
+    <div class="content padded-content">
+        <article>
+            <h1>Uploaded files</h1>
 
-        <p><a href="{{ url('jme_media_select_file') }}">{{ 'media.upload-new-file'|trans }}</a></p>
+            <p><a href="{{ url('jme_media_select_file') }}">{{ 'media.upload-new-file'|trans }}</a></p>
 
-        {% for image in images %}
-            <div class="image-box">
-                <img src="{{ filelib_url(image, "media_small") }}" /><br/>
+            {% for image in images %}
+                <div class="image-box">
+                    <img src="{{ filelib_url(image, "media_small") }}" /><br/>
 
-                <div class="image-url" data-id="{{ image.id }}">
-                    <span>{{ filelib_url(image, "media_small") }}</span>
+                    <div class="image-url" data-id="{{ image.id }}">
+                        <span>{{ filelib_url(image, "media_small") }}</span>
 
-                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                        {% include 'JmeMediaBundle:Media:dialog.html.twig' with {image: image} %}
-                    {% endif %}
+                        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                            {% include 'JmeMediaBundle:Media:dialog.html.twig' with {image: image} %}
+                        {% endif %}
 
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
-    </article>
-
+            {% endfor %}
+        </article>
+    </div>
 {%  endblock %}

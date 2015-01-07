@@ -1,13 +1,15 @@
 {% extends 'JmeMediaBundle::layout.html.twig' %}
 
 {% block content %}
-    <article>
-        <h1>Upload file</h1>
+    <div class="content padded-content">
+        <article>
+            <h1>Upload file</h1>
 
-        <form action="{{ path('jme_media_upload_file') }}" method="post" {{ form_enctype(form) }} novalidate>
-            {{ form_widget(form) }}
-            {{ form_errors(form) }}
-            <input type="submit" class="btn btn-primary btn-lg" value="{{ 'media.upload-file'|trans }}"/>
-        </form>
-    </article>
+            <form action="{{ path('jme_media_upload_file') }}" method="post" {{ form_enctype(form) }} novalidate>
+                {{ form_widget(form) }}
+                {{ form_errors(form) }}
+                <input type="submit" class="btn btn-primary btn-lg" value="{{ 'media.upload-file'|trans }}"/>
+            </form>
+        </article>
+    </div>
 {%  endblock %}
