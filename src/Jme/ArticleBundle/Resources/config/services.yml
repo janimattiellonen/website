@@ -29,3 +29,12 @@ services:
         arguments: ["@twig"]
         tags:
             - {name: twig.extension}
+
+    markdown.ciconia:
+        class: Ciconia\Ciconia
+
+    markdown.twig.extension:
+        class: Jme\ArticleBundle\Twig\Extensions\Markdown
+        arguments: ["@markdown.ciconia"]
+        tags:
+            - {name: twig.extension}

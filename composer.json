@@ -46,8 +46,8 @@
         "friendsofsymfony/jsrouting-bundle": "dev-master",
         "willdurand/js-translation-bundle": "@stable",
         "xi/filelib": "0.12.*",
-        "xi/filelib-bundle": "0.12.*"
-
+        "xi/filelib-bundle": "0.12.*",
+        "kzykhys/ciconia": "~1.0.0"
     },
     "scripts": {
         "post-install-cmd": [

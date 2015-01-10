@@ -15,9 +15,9 @@
         {% endif %}
 
         {% if listMode == true %}
-            <div class="brief">{{article.brief|raw}}</div>
+            <div class="brief">{{article.brief|markdown}}</div>
         {% else %}
-            {{article.content|raw}}
+            {{article.content|markdown}}
         {% endif %}
     </article>
 </section>

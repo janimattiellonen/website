@@ -10,6 +10,8 @@ use Jme\ArticleBundle\Service\Exception\ArticleNotFoundException;
 use Jme\MainBundle\Component\Controller\BaseController;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Ciconia\Ciconia;
+use Ciconia\Extension\Gfm;
 
 class DefaultController extends BaseController
 {
@@ -156,6 +158,7 @@ class DefaultController extends BaseController
 
     public function latestAction()
     {
+        $ciconia = new Ciconia();
         $articles = $this->getArticleService()->listArticles(5);
 
         return $this->render('JmeArticleBundle:Default:latest.html.twig', array(
