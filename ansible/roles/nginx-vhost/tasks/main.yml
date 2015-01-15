@@ -1,0 +1,15 @@
+---
+
+- name: nginx | Create {{app_name}} site config
+  template: src=templates/{{app_name}}.conf.j2 dest=/etc/nginx/sites-available/{{app_name}}.conf
+  notify:
+    - restart nginx
+  tags:
+    - vhost
+
+- name: nginx | Enable {{app_name}} site config
+  file: src=/etc/nginx/sites-available/{{app_name}}.conf dest=/etc/nginx/sites-enabled/{{app_name}}.conf state=link
+  notify:
+    - restart php5-fpm
+  tags:
+    - vhost

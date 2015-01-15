@@ -6,6 +6,8 @@
     web_server: nginxphp
     servername: janimattiellonen.localhost 192.168.111.99
     timezone: Europe/Helsinki
+    app_name: website
+    web_root: '/vagrant/web'
   vars_files:
     - vars/mariadb.yml
     - vars/common.yml
@@ -14,6 +16,7 @@
     - init
     - php5-cli
     - nginx
+    - nginx-vhost
     - php5-fpm
     - mariadb
     - composer

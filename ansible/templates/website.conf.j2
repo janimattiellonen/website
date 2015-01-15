@@ -1,0 +1,41 @@
+server {
+    listen 80;
+    charset utf-8;
+    root {{ web_root }};
+    server_name {{ app_name }}.localhost;
+    access_log /var/log/nginx/{{ app_name }}.localhost.access.log;
+    error_log /var/log/nginx/{{ app_name }}.localhost.error.log;
+
+    gzip  on;
+    gzip_min_length  256;
+    gzip_proxied     expired no-cache no-store private auth;
+    gzip_types       text/css text/plain text/xml application/xml application/xml+rss text/javascript application/x-javascript application/javascript;
+    gzip_vary on;
+
+    location / {
+        index app.php;
+        try_files $uri @rewriteapp;
+    }
+
+    location @rewriteapp {
+        rewrite ^(.*)$ /app.php/$1 last;
+    }
+
+    location ~ ^/(app_dev|app)\.php(/|$) {
+	fastcgi_split_path_info  ^(.+\.php)(/.*)$;
+        include fastcgi_params;
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        fastcgi_param HTTPS off;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico)$
+    {
+       expires 1y;
+        log_not_found off;
+       root {{ web_root }};
+    }
+
+
+
+}
