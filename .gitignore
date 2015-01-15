@@ -8,6 +8,7 @@ build/
 vendor
 composer.phar
 .idea
+.vagrant
 app/config/parameters.yml
 .DS_Store
 node_modules

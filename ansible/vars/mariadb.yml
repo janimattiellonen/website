@@ -1,0 +1,5 @@
+mariadb:
+    root_password: 
+    user: jme
+    password: 
+    database: janimattiellonen-website_db
