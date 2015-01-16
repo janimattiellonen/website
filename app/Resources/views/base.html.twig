@@ -9,14 +9,14 @@
     {% block stylesheets %}{% endblock %}
 
     <link href="//code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.min.css" rel="stylesheet" media="screen" />
+    <link href="{{ asset('bundles/jmemain/js/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" media="screen" />
+    <link href="{{ asset('bundles/jmemain/js/bootstrap/css/bootstrap-theme.min.css')}}" rel="stylesheet" media="screen" />
 
-    {% stylesheets filter='yui_css' output='/css/common.css'
-        'bundles/jmemain/js/bootstrap/css/bootstrap.min.css'
-        'bundles/jmemain/js/bootstrap/css/bootstrap-theme.min.css'
+    {% stylesheets filter='?yui_css' output='/css/common.css'
         '@JmeMainBundle/Resources/css/normalize.css'
         '@JmeMainBundle/Resources/css/highlight.js/zenburn.css'
         '@JmeMainBundle/Resources/less/main.less'
-        'bundles/jmearticle/css/bootstrap-markdown.min.css'
+        '@JmeArticleBundle/Resources/public/css/bootstrap-markdown.min.css'
     %}
 
     <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
@@ -35,7 +35,6 @@
     {{ jme_flash() }}
 
     <div id="page">
-
         {% include '::header.html.twig' %}
 
         {% block content %}{% endblock %}
@@ -45,17 +44,18 @@
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="bundles/jmemain/js/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ asset('bundles/jmemain/js/bootstrap/js/bootstrap.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('bazinga_jstranslation_js') }}"></script>
 
     {% javascripts output="/js/main.js" filter="?yui_js"
-        'js/translations/messages/en.js'
-        'bundles/bazingajstranslation/js/translator.min.js'
         '@JmeMainBundle/Resources/js/highlight.pack.js'
         '@JmeMainBundle/Resources/coffee/RemoveDialog.coffee'
         '@JmeMainBundle/Resources/coffee/main.coffee'
         '@JmeArticleBundle/Resources/coffee/article.coffee'
-        'bundles/jmearticle/js/markdown.js'
-        'bundles/jmearticle/js/bootstrap-markdown.js'
+        '@JmeArticleBundle/Resources/public/js/markdown.js'
+        '@JmeArticleBundle/Resources/public/js/bootstrap-markdown.js'
     %}
 
     <script type="text/javascript" src="{{ asset_url }}"></script>

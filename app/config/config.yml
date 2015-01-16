@@ -15,7 +15,8 @@ framework:
     templating:      { engines: ['twig'], assets_version: 1337 }
     default_locale:  %locale%
     trusted_proxies: ~
-    session:         ~
+    session:
+        save_path: /var/lib/php5/sessions
 
 # Twig Configuration
 twig:

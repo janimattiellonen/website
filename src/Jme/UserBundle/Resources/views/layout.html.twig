@@ -7,16 +7,17 @@
     <title>{% block title %}Login! | janimattiellonen.fi{% endblock %}</title>
 
     <link href="//code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.min.css" rel="stylesheet" media="screen" />
+    <link href="{{ asset('bundles/jmemain/js/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" media="screen" />
+    <link href="{{ asset('bundles/jmemain/js/bootstrap/css/bootstrap-theme.min.css')}}" rel="stylesheet" media="screen" />
+
 
     {% block stylesheets %}{% endblock %}
 
     {% stylesheets filter='yui_css' output='/css/login.css'
-    'bundles/jmemain/js/bootstrap/css/bootstrap.min.css'
-    'bundles/jmemain/js/bootstrap/css/bootstrap-theme.min.css'
-    '@JmeMainBundle/Resources/css/normalize.css'
-    '@JmeMainBundle/Resources/css/highlight.js/zenburn.css'
-    '@JmeMainBundle/Resources/less/main.less'
-    '@JmeUserBundle/Resources/less/login.less'
+        '@JmeMainBundle/Resources/css/normalize.css'
+        '@JmeMainBundle/Resources/css/highlight.js/zenburn.css'
+        '@JmeMainBundle/Resources/less/main.less'
+        '@JmeUserBundle/Resources/less/login.less'
     %}
 
     <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
