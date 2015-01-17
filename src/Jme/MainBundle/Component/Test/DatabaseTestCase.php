@@ -2,7 +2,7 @@
 
 namespace Jme\MainBundle\Component\Test;
 
-use Xi\Doctrine\Fixtures\FieldDef;
+use Xi\Fixtures\FieldDef;
 
 class DatabaseTestCase extends ServiceTestCase
 {
@@ -23,6 +23,7 @@ class DatabaseTestCase extends ServiceTestCase
             'title' => FieldDef::sequence('Title_%d'),
             'content' => FieldDef::sequence('Content_%d'),
             'brief' => FieldDef::sequence('Brief_%d'),
+            'published' => true,
         ) );
     }
 }

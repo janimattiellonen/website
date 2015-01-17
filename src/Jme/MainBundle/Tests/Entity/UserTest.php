@@ -1,9 +1,9 @@
 <?php
 namespace Jme\MainBundle\Tests\Entity;
 
-use Jme\MainBundle\Component\Test\ServiceTestCase,
-    Jme\MainBundle\Entity\User,
-    Symfony\Component\Validator\ValidatorFactory;
+use Jme\MainBundle\Component\Test\ServiceTestCase;
+use Jme\UserBundle\Entity\User;
+use Symfony\Component\Validator\ValidatorFactory;
 
 class UserTest extends ServiceTestCase
 {

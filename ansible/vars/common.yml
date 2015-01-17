@@ -3,5 +3,5 @@
     doc_root: /vagrant
     sys_packages: ["vim","git","imagemagick","htop","iotop"]
     dist: precise
-    php_packages: ["php5-cli","php5-curl","php5-imagick","php5-fpm","php5-gd","php5-intl","php5-mcrypt","php5-mysql","php5-sqlite","php5-memcache"]
+    php_packages: ["php5-cli","php5-curl","php5-imagick","php5-fpm","php5-gd","php5-intl","php5-mcrypt","php5-mysql","php5-sqlite","php5-memcache", "php5-xdebug", "phpunit"]
     pecl_packages: []

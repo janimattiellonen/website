@@ -2,3 +2,5 @@
   sudo: yes
   apt: pkg={{ item }} state=latest
   with_items: php_packages
+  tags:
+    - php

@@ -32,9 +32,12 @@ class DefaultControllerTest extends DatabaseTestCase
 
         $client = $this->createClient();
 
-        $crawler = $client->request('GET', '/fi');
+        $crawler = $client->request('GET', '/');
 
-        $this->assertCount(5, $crawler->filter('div.article') );
+        $content = $client->getResponse()->getContent();
+        //die($content);
+
+        $this->assertCount(5, $crawler->filter('section.articles') );
     }
 
     /**
@@ -51,10 +54,12 @@ class DefaultControllerTest extends DatabaseTestCase
 
         $client = $this->createClient();
 
-        $crawler = $client->request('GET', '/fi/artikkeli/' . $article->getId() );
+        $crawler = $client->request('GET', '/article/' . $article->getId() );
+        $content = $client->getResponse()->getContent();
+        //die($content);
 
-
-        $this->assertCount(1, $crawler->filter('div.article') );
+        $this->assertContains("<h1>Title_1</h1>", $content);
+       // $this->assertEquals(1, $crawler->filter('html:contains("<h1>Title_1</h1>")')->count());
     }
 
     /**
@@ -68,11 +73,11 @@ class DefaultControllerTest extends DatabaseTestCase
     {
         $client = $this->createClient();
 
-        $crawler = $client->request('GET', '/fi/artikkeli/uusi');
+        $crawler = $client->request('GET', '/article/new');
 
         $content = $client->getResponse()->getContent();
 
-        $this->assertGreaterThan(0, $crawler->filter('html:contains("Uusi artikkeli")')->count());
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("New article")')->count());
         $this->assertContains('<label for="article_title"', $content);
         $this->assertContains('<input type="text" id="article_title"', $content);
     }
@@ -90,13 +95,17 @@ class DefaultControllerTest extends DatabaseTestCase
 
         $repository = $this->container->get('jme_article.repository.article');
 
-        $crawler = $client->request('POST', '/fi/artikkeli/luo', array(
+        $crawler = $client->request('POST', '/article/create', array(
             'article' => array(
                 'title' => 'Title1',
                 'content' => 'Content1',
                 'brief' => 'brief',
             )
         ) );
+
+        $content = $client->getResponse()->getContent();
+
+       // die($content);
 
         $articles = $repository->findAll();
 
@@ -120,7 +129,7 @@ class DefaultControllerTest extends DatabaseTestCase
     {
         $client = $this->createClient();
 
-        $crawler = $client->request('POST', '/fi/artikkeli/luo', array(
+        $crawler = $client->request('POST', '/article/create', array(
             'article' => array(
                 'title' => 'e',
                 'content' => 'e',
@@ -147,7 +156,7 @@ class DefaultControllerTest extends DatabaseTestCase
 
         $client = $this->createClient();
 
-        $crawler = $client->request('POST', '/fi/artikkeli/paivita/' . $article->getId(), array(
+        $crawler = $client->request('POST', '/article/update/' . $article->getId(), array(
             'article' => array(
                 'title' => 'e',
                 'content' => 'e',
@@ -180,7 +189,7 @@ class DefaultControllerTest extends DatabaseTestCase
 
         $repository = $this->container->get('jme_article.repository.article');
 
-        $crawler = $client->request('get', '/fi/artikkeli/poista/' . $article->getId() );
+        $crawler = $client->request('get', '/articles/remove/' . $article->getId() );
 
         $this->assertGreaterThan(0, $crawler->filter('html:contains("The article was successfully removed!")')->count());
 
@@ -201,9 +210,9 @@ class DefaultControllerTest extends DatabaseTestCase
 
         $client->followRedirects();
 
-        $crawler = $client->request('get', '/fi/artikkeli/poista/666');
+        $crawler = $client->request('get', '/articles/remove/666');
 
-        $this->assertGreaterThan(0, $crawler->filter('html:contains("Article was not found")')->count());
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("Failed to remove article")')->count());
     }
 
     /**
@@ -217,7 +226,7 @@ class DefaultControllerTest extends DatabaseTestCase
     {
         $client = $this->createClient();
 
-        $crawler = $client->request('GET', '/fi/artikkeli/luo');
+        $crawler = $client->request('GET', '/article/new');
 
         $this->assertEquals(405, $client->getResponse()->getStatusCode() );
     }
@@ -237,7 +246,7 @@ class DefaultControllerTest extends DatabaseTestCase
 
         $client = $this->createClient();
 
-        $crawler = $client->request('GET', '/fi/artikkeli/muokkaa/' . $article->getId() );
+        $crawler = $client->request('GET', '/article/edit/' . $article->getId() );
 
         $this->assertGreaterThan(0, $crawler->filter('body:contains("Muokkaa artikkelia")')->count());
         $this->assertGreaterThan(0, $crawler->filter('input[name="article[title]"]')->count());
@@ -257,7 +266,7 @@ class DefaultControllerTest extends DatabaseTestCase
 
         $client->followRedirects();
 
-        $crawler = $client->request('get', '/fi/artikkeli/muokkaa/666');
+        $crawler = $client->request('get', '/article/edit/666');
 
         $this->assertGreaterThan(0, $crawler->filter('html:contains("Article was not found")')->count());
     }

@@ -90,7 +90,7 @@ swiftmailer:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: Jme\MainBundle\Entity\User
+    user_class: Jme\UserBundle\Entity\User
 
 stof_doctrine_extensions:
     default_locale: en_US

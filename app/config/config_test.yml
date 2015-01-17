@@ -5,6 +5,7 @@ framework:
     test: ~
     session:
         storage_id: session.storage.mock_file
+    csrf_protection: false
 
 web_profiler:
     toolbar: false
@@ -22,7 +23,9 @@ doctrine:
         dbname:   # Reset
         user:     # Reset
         password: # Reset
+        #memory: true
         path:     "%kernel.root_dir%/cache/test/testdb.sqlite"
+        charset: utf8
 
     orm:
         auto_generate_proxy_classes: true

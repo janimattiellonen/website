@@ -5,7 +5,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase,
     AppKernel,
     Doctrine\ORM\Tools\SchemaTool,
     Doctrine\ORM\EntityManager,
-    Xi\Doctrine\Fixtures\FixtureFactory;
+    Xi\Fixtures\FixtureFactory;
 
 require_once($_SERVER['KERNEL_DIR'] . "/AppKernel.php");
 
