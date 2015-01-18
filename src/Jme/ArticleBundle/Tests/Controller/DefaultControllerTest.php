@@ -65,13 +65,18 @@ class DefaultControllerTest extends DatabaseTestCase
     /**
      * @test
      *
-     * @group article
+     * @group article2
      * @group controller
      * @group article-controller
      */
     public function rendersNewArticleForm()
     {
-        $client = $this->createClient();
+        $client = $this->getClient();
+
+        $user = $this->getFixtureFactory()->get('UserBundle\Entity\User');
+        $this->getEntityManager()->flush();
+
+        $this->createAuthorizedClient($user);
 
         $crawler = $client->request('GET', '/article/new');
 
@@ -151,10 +156,15 @@ class DefaultControllerTest extends DatabaseTestCase
      */
     public function articleIsNotUpdatedWithInvalidFormSubmission()
     {
-        $article = $this->getFixtureFactory()->get('ArticleBundle\Entity\Article');
-        $this->entityManager->flush();
+        $client = $this->getClient();
 
-        $client = $this->createClient();
+        $user = $this->getFixtureFactory()->get('UserBundle\Entity\User');
+        $this->getEntityManager()->flush();
+
+        $this->createAuthorizedClient($user);
+
+        $article = $this->getFixtureFactory()->get('ArticleBundle\Entity\Article', []);
+        $this->entityManager->flush();
 
         $crawler = $client->request('POST', '/article/update/' . $article->getId(), array(
             'article' => array(

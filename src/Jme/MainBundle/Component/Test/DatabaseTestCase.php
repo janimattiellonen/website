@@ -10,10 +10,6 @@ class DatabaseTestCase extends ServiceTestCase
     {
         parent::setUp();
 
-        $this->getFixtureFactory()->setEntityNamespace('Jme');
-
-        $this->getFixtureFactory()->persistOnGet(true);
-
         $this->defineArticle();
     }
 

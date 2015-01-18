@@ -38,15 +38,15 @@ security:
             security: false
 
     access_control:
-        - {path: ^/(article/new|artikkeli/uusi),             role: IS_AUTHENTICATED_FULLY}
-        - {path: ^/(article/edit|artikkeli/muokkaa),     role: IS_AUTHENTICATED_FULLY}
-        - {path: ^/(article/update|artikkeli/paivita),   role: IS_AUTHENTICATED_FULLY}
-        - {path: ^/(article/remove|artikkeli/poista),    role: IS_AUTHENTICATED_FULLY}
+        - {path: ^/(article/new),             role: IS_AUTHENTICATED_FULLY}
+        - {path: ^/(article/edit),     role: IS_AUTHENTICATED_FULLY}
+        - {path: ^/(article/update),   role: IS_AUTHENTICATED_FULLY}
+        - {path: ^/(article/remove),    role: IS_AUTHENTICATED_FULLY}
 
         - { path: ^/(en|fi)$,                                        role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login,                                           role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login_check,                                     role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/(register|rekisteroidy),                 role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(register),                 role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting,                               role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/logout,                                          role: IS_AUTHENTICATED_FULLY       }
         - { path: /media,                                            role: IS_AUTHENTICATED_FULLY       }

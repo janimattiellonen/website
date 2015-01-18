@@ -1,15 +1,17 @@
 <?php
 namespace Jme\MainBundle\Component\Test;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase,
-    AppKernel,
-    Doctrine\ORM\Tools\SchemaTool,
-    Doctrine\ORM\EntityManager,
-    Xi\Fixtures\FixtureFactory;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\BrowserKit\Cookie;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Tools\SchemaTool;
+use Jme\Component\Test\Fixtures\FixtureFactory;
+use Jme\UserBundle\Entity\User;
 
-require_once($_SERVER['KERNEL_DIR'] . "/AppKernel.php");
 
-class ServiceTestCase extends \PHPUnit_Framework_Testcase
+//require_once($_SERVER['KERNEL_DIR'] . "/AppKernel.php");
+
+class ServiceTestCase extends WebTestCase
 {
     /**
      * @var ContainerInterface
@@ -32,42 +34,62 @@ class ServiceTestCase extends \PHPUnit_Framework_Testcase
     protected $tool;
 
     /**
-     * @var AppKernel
+     * @var Client
      */
-    protected $kernel;
+    protected $client;
 
-    public function setUp()
+    /**
+     * @return Client
+     */
+    public function getClient()
     {
-        $this->kernel = new AppKernel('test', true);
-        $this->kernel->boot();
+        if (null === $this->client) {
+            $this->client = static::createClient();
+        }
 
-        $this->container = $this->kernel->getContainer();
-        $this->entityManager = $this->container->get('doctrine')->getManager();
-        $this->fixtureFactory = new FixtureFactory($this->entityManager);
-
-        $this->generateSchema();
-
-        parent::setUp();
+        return $this->client;
     }
 
     /**
-     * Creates a Client.
-     *
-     * @param array $options An array of options to pass to the createKernel class
-     * @param array $server  An array of server parameters
-     *
-     * @return Client A Client instance
+     * @return Container
      */
-    protected function createClient(array $options = array(), array $server = array())
+    public function getContainer()
     {
-        $client = $this->kernel->getContainer()->get('test.client');
-        $client->setServerParameters($server);
+        if (!isset($this->container)) {
+            $this->createClient();
+            $this->container = static::$kernel->getContainer();
+        }
 
-        return $client;
+        return $this->container;
     }
 
-    protected function getFixtureFactory()
+    protected function setUpFixtures()
     {
+        $this->fixtureFactory = new FixtureFactory($this->getEntityManager(), $this->getContainer());
+        $this->fixtureFactory->setUpFixtures();
+    }
+
+    /**
+     * @return EntityManager
+     */
+    public function getEntityManager()
+    {
+        if (!isset($this->entityManager)) {
+            $this->entityManager  = $this->getContainer()->get('doctrine.orm.entity_manager');
+            $this->schemaTool     = $this->generateSchema();
+        }
+        return $this->entityManager;
+    }
+
+    /**
+     * @return FixtureFactory
+     */
+    public function getFixtureFactory()
+    {
+        if (!isset($this->fixtureFactory)) {
+            $this->setUpFixtures();
+        }
+
         return $this->fixtureFactory;
     }
 
@@ -97,18 +119,74 @@ class ServiceTestCase extends \PHPUnit_Framework_Testcase
     }
 
     /**
-     * @return ContainerInterface
+     * @return User
      */
-    public function getContainer()
+    protected function createRegisteredUser()
     {
-        return $this->container;
+        return $this->getFixtureFactory()->createUser();
     }
 
-    public function tearDown()
+    /**
+     * @param User $user
+     */
+    protected function authenticateUser(User $user)
     {
-        // Shutdown the kernel.
-        $this->kernel->shutdown();
+        $client  = $this->getClient();
+        $crawler = $client->request('GET', '/login');
 
-        parent::tearDown();
+        $crawler = $client->submit(
+            $crawler->selectButton('_submit')->form(),
+            array(
+                '_username' => $user->getUsername(),
+                '_password' => 'test',
+            )
+        );
+        // NO LOGIN AUTHENTICATION ERRORS?
+        $this->assertFalse(strpos($crawler->filter('a')->attr('href'), 'login_failure') !== false);
+
+        $crawler = $client->followRedirect(); // every time you redirect you must follow the redirect.
+        $this->assertTrue(200 === $client->getResponse()->getStatusCode());
+    }
+
+    /**
+     * @param User $user
+     * @return Client
+     */
+    protected function createAuthorizedClient(User $user)
+    {
+        $client = $this->getClient();
+        $container = $client->getContainer();
+
+        $session = $container->get('session');
+        /** @var $userManager \FOS\UserBundle\Doctrine\UserManager */
+        $userManager = $container->get('fos_user.user_manager');
+        /** @var $loginManager \FOS\UserBundle\Security\LoginManager */
+        $loginManager = $container->get('fos_user.security.login_manager');
+        $firewallName = $container->getParameter('fos_user.firewall_name');
+
+        //$user = $userManager->findUserBy(array('username' => 'myusername'));
+        $loginManager->loginUser($firewallName, $user);
+
+        // save the login token into the session and put it in a cookie
+        $container->get('session')->set('_security_' . $firewallName,
+            serialize($container->get('security.context')->getToken()));
+        $container->get('session')->save();
+        $client->getCookieJar()->set(new Cookie($session->getName(), $session->getId()));
+
+        return $client;
+    }
+
+    /**
+     * @return User
+     */
+    protected function createAndAuthenticateUser()
+    {
+        $user = $this->createRegisteredUser();
+
+        $this->getEntityManager()->flush();
+
+        $this->authenticateUser($user);
+
+        return $user;
     }
 }
