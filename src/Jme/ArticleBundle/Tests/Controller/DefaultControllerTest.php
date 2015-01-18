@@ -5,9 +5,18 @@ namespace Jme\ArticleBundle\Tests\Controller;
 
 use Jme\MainBundle\Component\Test\DatabaseTestCase;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage;
 
 class DefaultControllerTest extends DatabaseTestCase
 {
+    public function setUp()
+    {
+        parent::setUp();
+
+        $session = new Session(new MockFileSessionStorage());
+
+    }
     /**
      * @test
      *
@@ -188,7 +197,12 @@ class DefaultControllerTest extends DatabaseTestCase
      */
     public function articleIsRemoved()
     {
-        $client = $this->createClient();
+        $client = $this->getClient();
+
+        $user = $this->getFixtureFactory()->get('UserBundle\Entity\User');
+        $this->getEntityManager()->flush();
+
+        $this->createAuthorizedClient($user);
 
         $client->followRedirects();
 
@@ -196,15 +210,9 @@ class DefaultControllerTest extends DatabaseTestCase
         $this->entityManager->flush();
 
         $id = $article->getId();
-
-        $repository = $this->container->get('jme_article.repository.article');
-
-        $crawler = $client->request('get', '/articles/remove/' . $article->getId() );
+        $crawler = $client->request('get', '/articles/remove/' . $id);
 
         $this->assertGreaterThan(0, $crawler->filter('html:contains("The article was successfully removed!")')->count());
-
-        $obj = $repository->find($id);
-        $this->assertNull($obj);
     }
 
     /**
@@ -234,11 +242,14 @@ class DefaultControllerTest extends DatabaseTestCase
      */
     public function GETRequestOnCreateArticleIsDenied()
     {
-        $client = $this->createClient();
+        $client = $this->getClient();
 
         $crawler = $client->request('GET', '/article/new');
 
-        $this->assertEquals(405, $client->getResponse()->getStatusCode() );
+        $content = $client->getResponse()->getContent();
+
+        $this->assertEquals(302, $client->getResponse()->getStatusCode() );
+        $this->assertTrue(strpos($content, '<title>Redirecting to http://localhost/login</title>') !== false);
     }
 
     /**
@@ -250,15 +261,21 @@ class DefaultControllerTest extends DatabaseTestCase
      */
     public function articleIsOpenedForEditing()
     {
+        $client = $this->getClient();
+
+        $user = $this->getFixtureFactory()->get('UserBundle\Entity\User');
+        $this->getEntityManager()->flush();
+
+        $this->createAuthorizedClient($user);
+
         $article = $this->getFixtureFactory()->get('ArticleBundle\Entity\Article');
 
         $this->entityManager->flush();
 
-        $client = $this->createClient();
 
         $crawler = $client->request('GET', '/article/edit/' . $article->getId() );
 
-        $this->assertGreaterThan(0, $crawler->filter('body:contains("Muokkaa artikkelia")')->count());
+        $this->assertGreaterThan(0, $crawler->filter('body:contains("Edit article")')->count());
         $this->assertGreaterThan(0, $crawler->filter('input[name="article[title]"]')->count());
         $this->assertGreaterThan(0, $crawler->filter('input[value="Title_1"]')->count() );
     }
@@ -272,14 +289,17 @@ class DefaultControllerTest extends DatabaseTestCase
      */
     public function handlesOpeningNonExistingArticleForEditing()
     {
-        $client = $this->createClient();
+        $client = $this->getClient();
+
+        $user = $this->getFixtureFactory()->get('UserBundle\Entity\User');
+        $this->getEntityManager()->flush();
+
+        $this->createAuthorizedClient($user);
 
         $client->followRedirects();
 
         $crawler = $client->request('get', '/article/edit/666');
 
-        $this->assertGreaterThan(0, $crawler->filter('html:contains("Article was not found")')->count());
+        $this->assertGreaterThan(0, $crawler->filter('html:contains("Failed to open article for editing")')->count());
     }
-
-
 }

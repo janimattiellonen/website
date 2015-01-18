@@ -158,7 +158,6 @@ class DefaultController extends BaseController
 
     public function latestAction()
     {
-        $ciconia = new Ciconia();
         $articles = $this->getArticleService()->listArticles(5);
 
         return $this->render('JmeArticleBundle:Default:latest.html.twig', array(
