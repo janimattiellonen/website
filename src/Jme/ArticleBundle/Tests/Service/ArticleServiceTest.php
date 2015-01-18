@@ -21,6 +21,10 @@ class ArticleServiceTest extends ServiceTestCase
      */
     private $repositoryMock;
 
+    private $tagManagerMock;
+
+    private $userServiceMock;
+
     /**
      * @var ArticleService
      */
@@ -36,7 +40,17 @@ class ArticleServiceTest extends ServiceTestCase
         $this->repositoryMock = $this->getMockBuilder('Jme\ArticleBundle\Repository\ArticleRepository')
             ->disableOriginalConstructor()->getMock();
 
-        $this->service = new ArticleService($this->emMock, $this->repositoryMock);
+        $this->tagManagerMock = $this->getMockBuilder('FPN\TagBundle\Entity\TagManager')
+            ->disableOriginalConstructor()->getMock();
+
+        $this->userServiceMock =$this->getMockBuilder('Jme\UserBundle\Service\UserService')
+            ->disableOriginalConstructor()->getMock();
+
+        $this->service = new ArticleService(
+            $this->emMock,
+            $this->repositoryMock,
+            $this->tagManagerMock,
+            $this->userServiceMock);
     }
 
     /**
@@ -133,9 +147,19 @@ class ArticleServiceTest extends ServiceTestCase
     {
         $amount = 5;
 
+        $this->tagManagerMock->expects($this->exactly(5))
+            ->method('loadTagging');
+
         $this->repositoryMock->expects($this->once() )
             ->method('fetchLatestArticles')
-            ->with($amount);
+            ->with($amount)
+            ->will($this->returnValue([
+                $this->createArticle(),
+                $this->createArticle(),
+                $this->createArticle(),
+                $this->createArticle(),
+                $this->createArticle(),
+            ]));
 
         $this->service->listArticles($amount);
     }

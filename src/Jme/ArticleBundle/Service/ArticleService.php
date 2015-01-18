@@ -109,7 +109,7 @@ class ArticleService extends AbstractBaseService
      */
     public function getArticle($id)
     {
-        if (ctype_digit($id)) {
+        if (is_numeric($id)) {
             $article = $this->articleRepository->find($id);
         } else {
             $article = $this->articleRepository->findOneBy(array('slug' => $id));
