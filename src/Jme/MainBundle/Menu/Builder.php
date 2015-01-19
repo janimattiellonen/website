@@ -2,7 +2,7 @@
 namespace Jme\MainBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
-use Symfony\Bundle\FrameworkBundle\Translation\Translator;
+use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -21,7 +21,7 @@ class Builder extends ContainerAware
     protected $securityContext;
 
     /**
-     * @var Translator
+     * @var TranslatorInterface
      */
     protected $translator;
 
@@ -32,20 +32,21 @@ class Builder extends ContainerAware
 
     /**
      * @param FactoryInterface $factory
-     * @param SecurityContext $secutiryContext
-     * @param Translator $translator
+     * @param SecurityContext $securityContext
+     * @param TranslatorInterface $translator
 	 * @param Router $router
      */
     public function __construct(
 		FactoryInterface $factory, 
-		SecurityContext $securityContext, 
-		Translator $translator, 
+		SecurityContext $securityContext,
+        TranslatorInterface $translator,
 		Router $router)
     {
         $this->factory          = $factory;
         $this->securityContext  = $securityContext;
         $this->translator       = $translator;
 		$this->router			= $router;
+        //Symfony\Component\Translation\LoggingTranslator
     }
 
     /**
