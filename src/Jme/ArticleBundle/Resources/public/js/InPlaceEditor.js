@@ -48,6 +48,12 @@ App.InPlaceEditor.prototype = (function()
             }
         },
 
+        enableEditControls: function() {
+            $('.yes-btn', this.container).show()
+            $('.no-btn', this.container).show()
+            $('.in-place', this.container).hide()
+        },
+
         disableEditControls: function() {
             $('.yes-btn', this.container).hide()
             $('.no-btn', this.container).hide()
@@ -63,9 +69,7 @@ $(document).ready(function() {
         e.preventDefault();
 
         inPlaceEditor.toTextArea();
-        $('#a-about .yes-btn').show()
-        $('#a-about .no-btn').show()
-        $(this).hide();
+        inPlaceEditor.enableEditControls();
     });
 
     $('#a-about').on('click', '.yes-btn', function(e) {
