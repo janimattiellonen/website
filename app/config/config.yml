@@ -160,3 +160,4 @@ xi_filelib:
                             2: [ setImageCompressionQuality, 50 ]
                             3: [ scaleImage, [ 400, 400, true ]]
                             4: [ setInterlaceScheme, 3 ]
+

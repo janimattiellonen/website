@@ -24,3 +24,13 @@ jme_login:
 jme_dialog_delete:
     pattern: "/dialog/delete"
     defaults: {_controller: XiDialogBundle:Dialog:delete}
+
+jme_post_test:
+    pattern: "/api/v1/notes"
+    defaults:  { _controller: JmeMainBundle:Default:createNotes}
+    requirements: { _method: post }
+
+jme_get_test:
+    pattern: "/api/v1/notes"
+    defaults:  { _controller: JmeMainBundle:Default:notes}
+    requirements: { _method: get }

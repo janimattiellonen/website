@@ -45,7 +45,8 @@
         "willdurand/js-translation-bundle": "@stable",
         "xi/filelib": "0.12.*",
         "xi/filelib-bundle": "0.12.*",
-        "kzykhys/ciconia": "~1.0.0"
+        "kzykhys/ciconia": "~1.0.0",
+        "nelmio/cors-bundle": "~1.3@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

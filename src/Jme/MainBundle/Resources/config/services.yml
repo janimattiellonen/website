@@ -32,3 +32,9 @@ services:
         scope: request
         tags:
             - {name: knp_menu.menu, alias: main }
+
+    app.cors_listener:
+        class:      Jme\MainBundle\Listener\CorsListener
+        tags:
+        - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
