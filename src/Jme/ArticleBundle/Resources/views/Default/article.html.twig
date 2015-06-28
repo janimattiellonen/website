@@ -8,7 +8,7 @@
             </a>
         {% endif %}
 
-        <p class="date">{{article.created|date('F n, Y H:i')}} {{ jme_tags(article) }}</p>
+        <p class="date">{{article.created|date('F j, Y H:i')}} {{ jme_tags(article) }}</p>
 
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
             {{jme_article_controls(article)}}

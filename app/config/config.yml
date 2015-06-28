@@ -139,6 +139,12 @@ xi_filelib:
             class: Xi\Filelib\Plugin\Image\VersionPlugin
             arguments:
                 -
+                    media_original:
+                        -
+                            0: [ setImageCompression, 8 ]
+                            1: [ setImageFormat, jpg]
+                            2: [ setImageCompressionQuality, 100 ]
+                            3: [ setInterlaceScheme, 3 ]
                     media_header:
                         -
                             0: [ setImageCompression, 8 ]
